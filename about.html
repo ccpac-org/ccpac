@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - CCPAC | Chittagong College Physics & Astronomy Club</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        spaceDark: '#030712',
+                        spaceCard: '#0b1329',
+                        neonCyan: '#06b6d4',
+                        neonBlue: '#3b82f6',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .crisp-img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+        .glass-card {
+            background: linear-gradient(135deg, rgba(11, 19, 41, 0.7) 0%, rgba(3, 7, 18, 0.8) 100%);
+            backdrop-filter: blur(20px);
+        }
+        /* Glowing Card Effect */
+        .glow-box {
+            background: linear-gradient(135deg, rgba(11, 19, 41, 0.9) 0%, rgba(3, 7, 18, 0.95) 100%);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.15), inset 0 0 15px rgba(6, 182, 212, 0.05);
+            transition: all 0.4s ease;
+        }
+        .glow-box:hover {
+            border-color: rgba(6, 182, 212, 0.8);
+            box-shadow: 0 0 35px rgba(6, 182, 212, 0.35), inset 0 0 20px rgba(6, 182, 212, 0.15);
+            transform: translateY(-3px);
+        }
+        .glow-text {
+            text-shadow: 0 0 12px rgba(6, 182, 212, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-spaceDark text-slate-100 font-sans selection:bg-cyan-500 selection:text-slate-950 overflow-x-hidden">
+
+    <!-- Glowing Background Effect -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[600px] bg-cyan-500/10 blur-[200px] rounded-full pointer-events-none"></div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-spaceDark/90 backdrop-blur-xl border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="https://i.ibb.co.com/xSmsb1tx/IMG-20260105-WA0001.jpg" alt="CCPAC Logo" class="w-11 h-11 rounded-full object-cover border-2 border-cyan-400 shadow-md shadow-cyan-500/35 crisp-img">
+                <span class="text-xl font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 glow-text">CCPAC</span>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-sm font-semibold tracking-wide text-slate-300">
+                <a href="index.html" class="hover:text-cyan-400 transition">Home</a>
+                <a href="explore.html" class="hover:text-cyan-400 transition">Explore</a>
+                <a href="updates.html" class="hover:text-cyan-400 transition">Updates</a>
+                <a href="membership.html" class="hover:text-cyan-400 transition">Membership</a>
+                <a href="message-desk.html" class="hover:text-cyan-400 transition">Message Desk</a>
+                <a href="contact.html" class="hover:text-cyan-400 transition">Contact</a>
+            </nav>
+            <a href="https://forms.gle/xEkoVKycxdRpanXh8" target="_blank" class="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-sm transition shadow-lg shadow-cyan-500/25">
+                Join CCPAC
+            </a>
+        </div>
+    </header>
+
+    <!-- Main About Section -->
+    <section class="max-w-7xl mx-auto px-6 pt-20 pb-14">
+        <div class="glass-card p-8 lg:p-14 rounded-3xl border border-slate-800/80 shadow-2xl grid lg:grid-cols-12 gap-12 items-center relative overflow-hidden">
+            <div class="absolute -right-20 -top-20 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <!-- Left Side: Featured Image Slider (Dynamically hugging picture size without empty margins) -->
+            <div class="lg:col-span-6 flex justify-center items-center w-full">
+                <div class="relative w-fit max-w-full rounded-2xl overflow-hidden shadow-2xl bg-slate-950 border border-cyan-500/30 group">
+                    <div class="relative max-h-[520px] flex items-center justify-center">
+                        <img src="https://raw.githubusercontent.com/ccpactechnical-cloud/ccpac-official/main/w1.jpeg" alt="Who We Are Slide 1" class="who-slide block w-auto max-w-full h-auto max-h-[520px] object-cover rounded-2xl transition-opacity duration-700 opacity-100 crisp-img">
+                        <img src="https://raw.githubusercontent.com/ccpactechnical-cloud/ccpac-official/main/w2.jpeg" alt="Who We Are Slide 2" class="who-slide absolute inset-0 w-full h-full object-cover rounded-2xl transition-opacity duration-700 opacity-0 crisp-img">
+                    </div>
+                    <!-- Navigation Controls -->
+                    <button onclick="prevWhoSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-950/80 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 w-9 h-9 rounded-full flex items-center justify-center transition shadow-lg border border-slate-700 z-10 backdrop-blur-md cursor-pointer">
+                        <i class="fa-solid fa-chevron-left text-sm"></i>
+                    </button>
+                    <button onclick="nextWhoSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-950/80 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 w-9 h-9 rounded-full flex items-center justify-center transition shadow-lg border border-slate-700 z-10 backdrop-blur-md cursor-pointer">
+                        <i class="fa-solid fa-chevron-right text-sm"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Side: Content -->
+            <div class="lg:col-span-6 space-y-6">
+                <div class="space-y-2">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold uppercase tracking-widest">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>Welcome to CCPAC</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 glow-text">
+                        Who We Are?
+                    </h1>
+                </div>
+                
+                <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed text-left">
+                    <p>
+                        Rooted in a timeless curiosity to understand nature and the cosmos, the <strong class="text-cyan-300">Chittagong College Physics & Astronomy Club</strong> was established on 13 February 2025. Following its inception, the club formally commenced its administrative journey on November 22, 2025, marked by the establishment of the Executive Committee 2025–26 as its inaugural leadership body. CCPAC aspires to cultivate a vibrant academic community dedicated to physics and astronomy, fostering scientific literacy and inquiry through the exploration of fundamental natural laws and cosmic mysteries.
+                    </p>
+                    <p>
+                        Serving as a premier platform for intellectual enrichment beyond the traditional curriculum, CCPAC organizes regular academic seminars, specialized camps, and interactive events led by distinguished alumni and senior scholars currently pursuing higher education at esteemed institutions.
+                    </p>
+                    <p>
+                        To further extend scientific dialogue and expression, CCPAC highlights its own podcast <strong class="text-cyan-300">EigenTalks</strong>, a <strong class="text-cyan-300">Weekly Physics Challenge</strong>, and an engaging <strong class="text-cyan-300">Article Writing</strong> segment, while maintaining a proud tradition of academic excellence through our comprehensive <strong class="text-cyan-300">The Achievers' Blueprint</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Official Club Stats -->
+    <section class="max-w-7xl mx-auto px-6 py-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glow-box p-6 rounded-2xl text-center">
+                <h3 class="text-3xl font-black text-cyan-400 glow-text">1 Year+</h3>
+                <p class="text-sm text-slate-300 mt-1 font-medium">Journey</p>
+            </div>
+            <div class="glow-box p-6 rounded-2xl text-center">
+                <h3 class="text-3xl font-black text-cyan-400 glow-text">20+</h3>
+                <p class="text-sm text-slate-300 mt-1 font-medium">Sessions</p>
+            </div>
+            <div class="glow-box p-6 rounded-2xl text-center">
+                <h3 class="text-3xl font-black text-cyan-400 glow-text">1k+</h3>
+                <p class="text-sm text-slate-300 mt-1 font-medium">Members & Alumni</p>
+            </div>
+            <div class="glow-box p-6 rounded-2xl text-center lg:col-span-1 sm:col-span-1">
+                <h3 class="text-3xl font-black text-cyan-400 glow-text">1</h3>
+                <p class="text-sm text-slate-300 mt-1 font-medium">Flagship Event</p>
+            </div>
+            <div class="glow-box p-6 rounded-2xl text-center lg:col-span-2 sm:col-span-2">
+                <h3 class="text-3xl font-black text-cyan-400 glow-text">10+</h3>
+                <p class="text-sm text-slate-300 mt-1 font-medium">Contests & Challenges</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: CCPAC Family & Clean Gallery -->
+    <section class="max-w-7xl mx-auto px-6 py-6 space-y-12">
+        <div class="glass-card p-8 lg:p-14 rounded-3xl border border-slate-800/80 shadow-2xl space-y-10 relative overflow-hidden">
+            <div class="absolute -left-20 -bottom-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <!-- Family Text Block -->
+            <div class="max-w-4xl mx-auto space-y-6">
+                <h2 class="text-3xl font-black text-cyan-400 tracking-tight text-center glow-text">The CCPAC Family</h2>
+                <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed text-left bg-slate-950/60 p-6 sm:p-8 rounded-2xl border border-slate-800/80 shadow-inner">
+                    <p>
+                        The Chittagong College Physics & Astronomy Club is more than an academic organization; it is a family united by a shared passion for physics and astronomy.
+                    </p>
+                    <p>
+                        This family is formed by the Executive Committee, batchmates, juniors, seniors, alumni, and instructors. Batchmates grow together through collaboration and shared learning. Juniors are nurtured with guidance, while seniors lead with responsibility and experience.
+                    </p>
+                    <p>
+                        The CCPAC family is built on mutual respect, cooperation, and a common purpose: to explore the universe and understand the laws of nature together. Here, every member has a role, and every question is welcomed.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Gallery Grid (Zero blank space, crisp full box fill) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 border-t border-slate-800">
+                <div class="bg-slate-950 p-2.5 rounded-2xl border border-slate-800 shadow-xl overflow-hidden group">
+                    <img src="https://raw.githubusercontent.com/ccpactechnical-cloud/ccpac-official/main/p1.jpeg" alt="CCPAC Family Moment 1" class="w-full h-72 sm:h-80 md:h-96 object-cover rounded-xl group-hover:scale-105 transition duration-500 crisp-img">
+                </div>
+                <div class="bg-slate-950 p-2.5 rounded-2xl border border-slate-800 shadow-xl overflow-hidden group">
+                    <img src="https://raw.githubusercontent.com/ccpactechnical-cloud/ccpac-official/main/p2.jpeg" alt="CCPAC Family Moment 2" class="w-full h-72 sm:h-80 md:h-96 object-cover rounded-xl group-hover:scale-105 transition duration-500 crisp-img">
+                </div>
+                <div class="bg-slate-950 p-2.5 rounded-2xl border border-slate-800 shadow-xl overflow-hidden group">
+                    <img src="https://raw.githubusercontent.com/ccpactechnical-cloud/ccpac-official/main/p3.jpeg" alt="CCPAC Family Moment 3" class="w-full h-72 sm:h-80 md:h-96 object-cover rounded-xl group-hover:scale-105 transition duration-500 crisp-img">
+                </div>
+                <div class="bg-slate-950 p-2.5 rounded-2xl border border-slate-800 shadow-xl overflow-hidden group">
+                    <img src="https://raw.githubusercontent.com/ccpactechnical-cloud/ccpac-official/main/p4.jpeg" alt="CCPAC Family Moment 4" class="w-full h-72 sm:h-80 md:h-96 object-cover rounded-xl group-hover:scale-105 transition duration-500 crisp-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Founders & Team Rectangular Boxes -->
+    <section class="max-w-5xl mx-auto px-6 py-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <a href="founder.html" class="glass-card glow-box p-6 sm:p-8 rounded-2xl transition duration-300 shadow-2xl group flex items-center justify-between relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-100 group-hover:text-cyan-400 transition">CCPAC Founders</h3>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Meet the visionary minds behind the club</p>
+                    </div>
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <a href="team.html" class="glass-card glow-box p-6 sm:p-8 rounded-2xl transition duration-300 shadow-2xl group flex items-center justify-between relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-100 group-hover:text-cyan-400 transition">CCPAC Team</h3>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Explore our dynamic executive committee</p>
+                    </div>
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-spaceCard border-t border-slate-800/80 mt-20 pt-16 pb-12 text-slate-400">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
+            <div class="space-y-4">
+                <h4 class="text-white font-bold text-sm tracking-wide">ABOUT</h4>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="index.html" class="hover:text-cyan-400 transition">Home</a></li>
+                    <li><a href="about.html" class="hover:text-cyan-400 transition">About Us</a></li>
+                    <li><a href="membership.html" class="hover:text-cyan-400 transition">Membership</a></li>
+                    <li><a href="team.html" class="hover:text-cyan-400 transition">Executives</a></li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <h4 class="text-white font-bold text-sm tracking-wide">EVENTS</h4>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="events.html" class="hover:text-cyan-400 transition">Flagship Events</a></li>
+                    <li><a href="podcast.html" class="hover:text-cyan-400 transition">EigenTalks Podcast</a></li>
+                    <li><a href="updates.html" class="hover:text-cyan-400 transition">Updates</a></li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <h4 class="text-white font-bold text-sm tracking-wide">RESOURCES</h4>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="article.html" class="hover:text-cyan-400 transition">Articles</a></li>
+                    <li><a href="challenge.html" class="hover:text-cyan-400 transition">Weekly Challenge</a></li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <h4 class="text-white font-bold text-sm tracking-wide">QUICK LINKS</h4>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="https://www.bdpho.org/" target="_blank" class="hover:text-cyan-400 transition">BDPhO</a></li>
+                    <li><a href="https://www.facebook.com/bdaa.olympiad/" target="_blank" class="hover:text-cyan-400 transition">BDOAA</a></li>
+                    <li><a href="https://home.cern/" target="_blank" class="hover:text-cyan-400 transition">CERN</a></li>
+                    <li><a href="https://ipho-unofficial.org/" target="_blank" class="hover:text-cyan-400 transition">IPhO</a></li>
+                    <li><a href="https://ioaastrophysics.org/" target="_blank" class="hover:text-cyan-400 transition">IOAA</a></li>
+                </ul>
+            </div>
+            <div class="space-y-4 lg:col-span-1 sm:col-span-2">
+                <h4 class="text-white font-bold text-sm tracking-wide">CONTACT & SUBSCRIBE</h4>
+                <p class="text-xs leading-relaxed text-slate-400">Chittagong College, College Road, Chattogram.</p>
+                <p class="text-xs text-slate-400">Email: <a href="mailto:ccpacofficial@gmail.com" class="text-cyan-400 hover:underline">ccpacofficial@gmail.com</a></p>
+                <form onsubmit="event.preventDefault(); alert('Subscribed successfully!');" class="space-y-2 pt-2">
+                    <input type="email" placeholder="Your email" required class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-slate-200 focus:outline-none focus:border-cyan-400">
+                    <button type="submit" class="w-full py-2 bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold rounded-lg text-sm transition shadow-md">SUBSCRIBE</button>
+                </form>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-16 pt-6 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-xs space-y-4 md:space-y-0">
+            <p>Copyright © 2026 by Chittagong College Physics & Astronomy Club. All rights reserved.</p>
+            <div class="flex space-x-4 text-slate-300 text-base">
+                <a href="https://www.facebook.com/ccpacofficial" target="_blank" class="hover:text-cyan-400 transition" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/ccpac.official" target="_blank" class="hover:text-cyan-400 transition" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@ccpacofficial" target="_blank" class="hover:text-cyan-400 transition" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/company/ccpacofficial" target="_blank" class="hover:text-cyan-400 transition" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Who We Are Slider Script -->
+    <script>
+        let currentWhoSlide = 0;
+        const whoSlides = document.querySelectorAll('.who-slide');
+
+        function showWhoSlide(index) {
+            whoSlides.forEach((slide, i) => {
+                slide.classList.remove('opacity-100');
+                slide.classList.add('opacity-0');
+                if (i === index) {
+                    slide.classList.remove('opacity-0');
+                    slide.classList.add('opacity-100');
+                }
+            });
+        }
+
+        function nextWhoSlide() {
+            currentWhoSlide = (currentWhoSlide + 1) % whoSlides.length;
+            showWhoSlide(currentWhoSlide);
+        }
+
+        function prevWhoSlide() {
+            currentWhoSlide = (currentWhoSlide - 1 + whoSlides.length) % whoSlides.length;
+            showWhoSlide(currentWhoSlide);
+        }
+
+        setInterval(nextWhoSlide, 4000);
+    </script>
+</body>
+</html>
