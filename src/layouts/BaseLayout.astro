@@ -46,5 +46,51 @@ const {
     <Footer />
 
     <MembershipModal />
+
+    <script is:inline>
+        // Global helper to hide/show navbar when modals open/close
+        const originalToggleMembershipForm = window.toggleMembershipForm;
+        
+        function updateNavbarVisibility() {
+            const navbar = document.getElementById('main-navbar');
+            if (!navbar) return;
+            
+            // Check if any modal (membership or article/update/etc.) is currently visible (i.e. does not have 'hidden' class)
+            const membershipModal = document.getElementById('membership-registration');
+            const isMembershipOpen = membershipModal && !membershipModal.classList.contains('hidden');
+            
+            // Check other open modals (e.g. fixed inset-0 modals without 'hidden')
+            const allModals = document.querySelectorAll('.fixed.inset-0');
+            let anyModalOpen = isMembershipOpen;
+            allModals.forEach(modal => {
+                if (!modal.classList.contains('hidden')) {
+                    anyModalOpen = true;
+                }
+            });
+
+            if (anyModalOpen) {
+                navbar.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+            } else {
+                navbar.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+            }
+        }
+
+        // MutationObserver to watch for modal class changes across the page
+        const observer = new MutationObserver(() => {
+            updateNavbarVisibility();
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const membershipModal = document.getElementById('membership-registration');
+            if (membershipModal) {
+                observer.observe(membershipModal, { attributes: true, attributeFilter: ['class'] });
+            }
+            
+            // Observe all modals in the document
+            document.querySelectorAll('.fixed.inset-0').forEach(modal => {
+                observer.observe(modal, { attributes: true, attributeFilter: ['class'] });
+            });
+        });
+    </script>
 </body>
 </html>
