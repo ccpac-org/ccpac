@@ -428,8 +428,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     <div class="bg-slate-950 p-3 rounded-2xl border border-amber-500/30 shadow-xl space-y-2 relative">
                         <div class="w-full rounded-xl overflow-hidden bg-spaceDark relative flex flex-col justify-center items-center min-h-[250px]">
                             <script is:inline>
-                                for(let i=0; i<=7; i++) {
-                                    document.write(`<div class="prize-slide w-full ${i===0?'':'hidden'} transition-all duration-300"><img src="/images/r${i}.jpg" alt="Prize Giving Highlight ${i}" class="w-full h-auto object-cover rounded-xl crisp-img"></div>`);
+                                for(let i=1; i<=8; i++) {
+                                    document.write(`<div class="prize-slide w-full ${i===1?'':'hidden'} transition-all duration-300"><img src="/images/r${i}.jpg" alt="Prize Giving Highlight ${i}" class="w-full h-auto object-cover rounded-xl crisp-img"></div>`);
                                 }
                             </script>
                             <button onclick="movePrizeSlide(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 text-amber-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-amber-500/30 shadow-lg cursor-pointer">
