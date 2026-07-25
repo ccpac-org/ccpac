@@ -1,0 +1,103 @@
+---
+---
+<div id="update-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass-card max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-3xl border border-slate-800 shadow-2xl p-6 md:p-8 relative space-y-6">
+        <button onclick="closeUpdateModal()" class="absolute top-4 right-4 bg-slate-900 hover:bg-cyan-500 hover:text-slate-950 text-slate-300 w-10 h-10 rounded-full flex items-center justify-center transition border border-slate-700 shadow-lg z-10 cursor-pointer">
+            <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+
+        <div class="relative w-full h-[280px] sm:h-[360px] bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 shadow-inner group">
+            <img id="modal-slider-image" src="" alt="Update Image" class="w-full h-full object-contain bg-slate-950 transition-all duration-500">
+            <button onclick="prevModalImage()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-950/80 hover:bg-cyan-500 hover:text-slate-950 text-white w-9 h-9 rounded-full flex items-center justify-center transition border border-slate-700 shadow-lg cursor-pointer">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button onclick="nextModalImage()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-950/80 hover:bg-cyan-500 hover:text-slate-950 text-white w-9 h-9 rounded-full flex items-center justify-center transition border border-slate-700 shadow-lg cursor-pointer">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <div class="absolute bottom-3 right-3 bg-slate-950/80 px-3 py-1 rounded-lg text-xs text-cyan-400 font-bold border border-slate-800">
+                Photo <span id="modal-current-idx">1</span> of <span id="modal-total-idx">1</span>
+            </div>
+        </div>
+
+        <div class="space-y-2 border-b border-slate-800 pb-4">
+            <span id="modal-tag" class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider"></span>
+            <h2 id="modal-title" class="text-xl md:text-2xl font-extrabold font-poppins text-slate-100"></h2>
+            <p id="modal-date" class="text-xs text-slate-400"><i class="fa-regular fa-calendar-days mr-1 text-cyan-400"></i></p>
+        </div>
+
+        <div id="modal-content" class="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed space-y-3 font-sans whitespace-pre-line"></div>
+    </div>
+</div>
+
+<script is:inline>
+    const updatesData = {
+        "1": {
+            tag: "International Achievement",
+            title: "Our Raihan shines bright with the Silver Medal at the 67th IMO!",
+            date: "Date: 20-07-2026",
+            images: ["https://raw.githubusercontent.com/ccpactechnical-cloud/ccpac-official/main/silver.jpeg"],
+            content: `The Chittagong College Physics and Astronomy Club (CCPAC) is filled with immense pride and joy to share that, at the 67th International Mathematical Olympiad (IMO) 2026 held in China, Chittagong College student Md. Raihan Siddiquee has clinched a Silver Medal, scoring 23 out of 42. After earning an Honorable Mention at the 66th IMO in Sunshine Coast, Australia, last year, he has reached new heights of success.`
+        },
+        "2": {
+            tag: "Appreciation & Recognition",
+            title: "Tokens of Honour Conferred upon Honorable Principal, Vice Principal, and Moderator",
+            date: "Date: 29-03-2026",
+            images: [
+                "https://raw.githubusercontent.com/ccpactechnical-cloud/ccpac-official/main/h1.jpeg",
+                "https://raw.githubusercontent.com/ccpactechnical-cloud/ccpac-official/main/h2.jpeg",
+                "https://raw.githubusercontent.com/ccpactechnical-cloud/ccpac-official/main/h3.jpeg"
+            ],
+            content: `Today, on behalf of the Executive Panel 2025–26 of Chattogram College Physics & Astronomy Club (CCPAC), tokens of honour were conferred upon Principal Prof. Mohammad Mozahidul Islam Chowdhury, Vice Principal Md. Shawkat Iqbal Faruqueee, and Moderator Md. Zahirul Islam in sincere recognition of their unwavering support.`
+        },
+        "3": {
+            tag: "College Administration",
+            title: "Congratulating Md. Shawkat Iqbal Faruqueee on his appointment as Vice Principal",
+            date: "Date: 11-01-2026",
+            images: ["https://raw.githubusercontent.com/ccpactechnical-cloud/ccpac-official/main/vp.jpeg"],
+            content: `Today, Chittagong College Physics & Astronomy Club warmly congratulated Md. Shawkat Iqbal Faruqueee on his appointment as the new Vice Principal of Chittagong College.`
+        }
+    };
+
+    let activeUpdateId = "1";
+    let currentImgIdx = 0;
+
+    function openUpdateModal(id) {
+        activeUpdateId = id;
+        currentImgIdx = 0;
+        const item = updatesData[id];
+        if (!item) return;
+        
+        document.getElementById('modal-tag').innerText = item.tag;
+        document.getElementById('modal-title').innerText = item.title;
+        document.getElementById('modal-date').innerHTML = `<i class="fa-regular fa-calendar-days mr-1 text-cyan-400"></i> ${item.date}`;
+        document.getElementById('modal-content').innerText = item.content;
+        document.getElementById('modal-total-idx').innerText = item.images.length;
+
+        updateModalImage();
+        document.getElementById('update-modal').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeUpdateModal() {
+        document.getElementById('update-modal').classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }
+
+    function updateModalImage() {
+        const item = updatesData[activeUpdateId];
+        document.getElementById('modal-slider-image').src = item.images[currentImgIdx];
+        document.getElementById('modal-current-idx').innerText = currentImgIdx + 1;
+    }
+
+    function nextModalImage() {
+        const item = updatesData[activeUpdateId];
+        currentImgIdx = (currentImgIdx + 1) % item.images.length;
+        updateModalImage();
+    }
+
+    function prevModalImage() {
+        const item = updatesData[activeUpdateId];
+        currentImgIdx = (currentImgIdx - 1 + item.images.length) % item.images.length;
+        updateModalImage();
+    }
+</script>

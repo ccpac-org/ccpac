@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import UpdateModal from '../components/UpdateModal.astro';
+import { updatesData } from '../data/updates';
+---
+
+<BaseLayout title="CCPAC | Chittagong College Physics & Astronomy Club" activePage="home">
+    <!-- Hero Section -->
+    <section id="home" class="max-w-6xl mx-auto px-6 pt-12 pb-16 text-center space-y-8">
+        <div class="flex justify-center">
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 animate-pulse"></div>
+                <img src="https://i.ibb.co.com/xSmsb1tx/IMG-20260105-WA0001.jpg" alt="CCPAC Club Logo" class="relative w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border-4 border-slate-900 shadow-2xl crisp-img">
+            </div>
+        </div>
+        
+        <div class="space-y-3 max-w-4xl mx-auto">
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight font-poppins">
+                Chittagong College <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400">PHYSICS & ASTRONOMY CLUB</span>
+            </h1>
+            <p class="text-cyan-300 italic text-sm md:text-base font-medium tracking-wide font-poppins">
+                "Promoting scientific literacy from subatomic scales to galactic horizons"
+            </p>
+        </div>
+
+        <div class="glass-card max-w-5xl mx-auto p-6 md:p-8 rounded-3xl border border-slate-800 shadow-xl space-y-4 text-left md:text-center">
+            <p class="text-slate-300 text-sm md:text-base leading-relaxed font-sans">
+                Chittagong College Physics & Astronomy Club is a student-driven community where curiosity meets the cosmos. We strive to make sense of the universe in unconventional ways. Our mission is to shift your perspective from mere sensory impressions to a deeper understanding of reality. Welcome, seekers of knowledge, to a realm shaped by questions, driven by discovery, and illuminated by science.
+            </p>
+            <p class="text-slate-400 text-xs md:text-sm leading-relaxed font-sans">
+                At CCPAC, we explore the fundamental laws of nature and the vast mysteries that lie beyond our skies. From the tiniest particles to the grandest galaxies, we learn to question, observe, and understand together. CCPAC is a home for minds that refuse to stop wondering, for eyes that look at the universe and ask how and why, and for hearts that seek meaning through science.
+            </p>
+            <p class="text-cyan-300 font-semibold text-xs md:text-sm pt-2">
+                You are no longer just an observer of nature; you are now part of its exploration. Step into this journey of inquiry, and let the universe reveal its stories to you.
+            </p>
+        </div>
+    </section>
+
+    <!-- EXPLORE SECTION -->
+    <section id="explore-section" class="max-w-7xl mx-auto px-6 py-12 scroll-mt-20">
+        <div class="text-center mb-10 space-y-2">
+            <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-widest">Navigation Hub</span>
+            <h2 class="text-2xl md:text-3xl font-extrabold font-poppins text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Explore CCPAC</h2>
+            <p class="text-slate-400 text-xs md:text-sm">Quick shortcuts to our core segments</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <a href="/about" class="glass-card p-6 rounded-2xl border border-slate-800 hover-glow space-y-3 group block text-center">
+                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl mx-auto group-hover:scale-110 transition">
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+                <h3 class="text-lg font-bold font-poppins text-white">About Us</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">Vision, mission, and the passionate minds leading CCPAC forward.</p>
+            </a>
+
+            <a href="/act" class="glass-card p-6 rounded-2xl border border-slate-800 hover-glow space-y-3 group block text-center">
+                <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-xl mx-auto group-hover:scale-110 transition">
+                    <i class="fa-solid fa-diagram-project"></i>
+                </div>
+                <h3 class="text-lg font-bold font-poppins text-white">Activities</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">Study circles, workshops, problem-solving classes, and projects.</p>
+            </a>
+
+            <a href="/events" class="glass-card p-6 rounded-2xl border border-slate-800 hover-glow space-y-3 group block text-center">
+                <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-xl mx-auto group-hover:scale-110 transition">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+                <h3 class="text-lg font-bold font-poppins text-white">Events</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">Flagship Physics Camps, stargazing nights, and Olympiad training.</p>
+            </a>
+
+            <a href="/contact" class="glass-card p-6 rounded-2xl border border-slate-800 hover-glow space-y-3 group block text-center">
+                <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400 text-xl mx-auto group-hover:scale-110 transition">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+                <h3 class="text-lg font-bold font-poppins text-white">Contact Us</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">Get in touch through official channels and social media platforms.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- UPDATES SECTION -->
+    <section id="updates" class="max-w-7xl mx-auto px-6 py-16 space-y-8">
+        <div class="flex flex-col md:flex-row justify-between items-center border-b border-slate-800 pb-4 gap-4">
+            <div>
+                <span class="inline-flex items-center space-x-2 text-xs uppercase tracking-widest text-cyan-400 font-bold bg-cyan-500/10 px-3.5 py-1.5 rounded-full border border-cyan-500/25 shadow-sm">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                    </span>
+                    <span>Live Feed</span>
+                </span>
+                <h2 class="text-2xl md:text-3xl font-extrabold font-poppins text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mt-2">Updates</h2>
+            </div>
+            <p class="text-slate-400 text-xs max-w-xs text-center md:text-right">Click any update card to view full details and photo gallery.</p>
+        </div>
+
+        <div class="flex overflow-x-auto space-x-6 pb-4 no-scrollbar snap-x">
+            {Object.entries(updatesData).map(([id, item]) => (
+                <div onclick={`openUpdateModal('${id}')`} class="min-w-[320px] sm:min-w-[360px] max-w-[380px] snap-start glass-card rounded-2xl border border-slate-800 overflow-hidden shadow-xl hover-glow flex flex-col justify-between group cursor-pointer">
+                    <div>
+                        <div class="relative h-48 w-full bg-[#0f172a] overflow-hidden flex items-center justify-center">
+                            <img src={item.images[0]} alt={item.title} class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                            <span class="absolute top-3 left-3 bg-slate-950/80 px-3 py-1 rounded-lg text-[10px] text-cyan-400 font-bold border border-slate-800">
+                                {item.tag}
+                            </span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <span class="text-[11px] text-slate-400"><i class="fa-regular fa-calendar-days mr-1 text-cyan-400"></i> {item.date}</span>
+                            <h3 class="text-lg font-bold text-slate-100 font-poppins">{item.title}</h3>
+                            <p class="text-slate-300 text-xs leading-relaxed line-clamp-3">
+                                {item.content}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-5 pt-3 border-t border-slate-800/80 flex justify-between items-center text-[11px] text-cyan-400 font-semibold">
+                        <span>View Details & Gallery <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        <span class="bg-cyan-500/10 px-2 py-0.5 rounded">{item.images.length > 1 ? `${item.images.length} Photos` : 'Featured'}</span>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- MEMBERSHIP SECTION -->
+    <section id="membership" class="max-w-6xl mx-auto px-6 py-12 scroll-mt-20">
+        <div class="glass-card border border-cyan-500/30 rounded-3xl p-8 md:p-12 shadow-xl space-y-8">
+            <div class="text-center space-y-2">
+                <span class="text-xs uppercase tracking-widest text-cyan-400 font-bold bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/25">Join Us</span>
+                <h2 class="text-2xl md:text-3xl font-extrabold font-poppins text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Membership</h2>
+                <p class="text-slate-400 text-xs md:text-sm">Become part of Chittagong's premier student science community and expand your horizons.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-start text-sm">
+                <!-- Box 1: Who Can Join? -->
+                <div class="bg-spaceDark/60 p-6 md:p-8 rounded-2xl membership-glow space-y-4">
+                    <div class="flex items-center space-x-3 border-b border-slate-800 pb-3">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                            <i class="fa-solid fa-user-group"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white font-poppins">Who Can Join?</h3>
+                    </div>
+                    <p class="text-slate-300 leading-relaxed font-sans">
+                        Membership at the Chittagong College Physics & Astronomy Club is open to all students of Chittagong College who have an interest in physics and astronomy. We believe that curiosity is more important than prior expertise.
+                    </p>
+                    <p class="text-slate-300 leading-relaxed font-sans">
+                        Whether you are just beginning your journey in science or already passionate about understanding the universe, CCPAC provides a welcoming space for learning and growth.
+                    </p>
+                </div>
+
+                <!-- Box 2: Why You Should Join CCPAC? -->
+                <div class="bg-spaceDark/60 p-6 md:p-8 rounded-2xl membership-glow space-y-4">
+                    <div class="flex items-center space-x-3 border-b border-slate-800 pb-3">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white font-poppins">Why You Should Join CCPAC?</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-300 text-xs md:text-sm font-sans">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i><span>Gain exposure to physics and astronomy through regular academic sessions led by seniors and alumni.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i><span>Improve your problem-solving and critical thinking skills through the Weekly Physics Challenge.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i><span>Develop scientific writing and communication skills through article writing activities.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i><span>Connect with like-minded students who share an interest in science and exploration.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i><span>Receive guidance and inspiration for higher studies and research in science-related fields.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i><span>Experience learning beyond textbooks and classrooms in an engaging and collaborative environment.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i><span>Engage in insightful <strong>EigenTalks</strong> podcast sessions featuring inspiring voices, researchers, and intellectuals sharing authentic stories and practical insights.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i><span>Gain exclusive access to <strong>The Achievers' Blueprint</strong> interview series and publications, learning proven strategies, Olympiad preparation tips, and success blueprints from our brilliant national and international medalists.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center pt-2">
+                <button onclick="toggleMembershipForm()" class="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg shadow-cyan-500/25 cursor-pointer">
+                    <span>Fill Up Registration Form</span>
+                    <i class="fa-solid fa-arrow-right" id="apply-btn-icon"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Desk Section -->
+    <section id="messages" class="max-w-6xl mx-auto px-6 py-12 space-y-10">
+        <div class="text-center space-y-2">
+            <h2 class="text-2xl md:text-3xl font-extrabold font-poppins text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Message Desk</h2>
+            <p class="text-slate-400 text-xs">Inspirational notes from our esteemed leadership</p>
+            <div class="w-16 h-1 bg-cyan-500 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- Principal Message -->
+            <div class="glass-card p-6 md:p-8 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-4 shadow-xl hover-glow">
+                <div class="flex items-center space-x-4 border-b border-slate-800 pb-4">
+                    <img src="https://i.ibb.co.com/ds8cZHSN/Principal-Sir.jpg" alt="Principal" class="w-16 h-16 rounded-xl object-cover object-top border-2 border-cyan-400/50">
+                    <div>
+                        <h3 class="font-bold text-base md:text-lg text-slate-100 font-poppins">Professor Mohammad Mozahidul Islam Chowdhury</h3>
+                        <p class="text-[11px] uppercase tracking-widest text-cyan-400 font-bold mt-0.5">Principal, Chittagong College</p>
+                    </div>
+                </div>
+                <p class="text-slate-300 text-xs md:text-sm leading-relaxed font-sans">
+                    "I firmly believe that the Chittagong College Physics & Astronomy Club will continue to inspire students in their pursuit of knowledge and scientific creativity, guiding them toward exploring and understanding the mysteries of the universe.<br><br>I wish the club continued success in all its future endeavors."
+                </p>
+            </div>
+
+            <!-- Moderator Message -->
+            <div class="glass-card p-6 md:p-8 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-4 shadow-xl hover-glow">
+                <div class="flex items-center space-x-4 border-b border-slate-800 pb-4">
+                    <img src="https://i.ibb.co.com/TBHR6SrZ/Zahirul-Islam-Sir.jpg" alt="Moderator" class="w-16 h-16 rounded-xl object-cover object-top border-2 border-cyan-400/50">
+                    <div>
+                        <h3 class="font-bold text-base md:text-lg text-slate-100 font-poppins">Md. Zahirul Islam</h3>
+                        <p class="text-[11px] uppercase tracking-widest text-cyan-400 font-bold mt-0.5">Moderator, CCPAC</p>
+                    </div>
+                </div>
+                <p class="text-slate-300 text-xs md:text-sm leading-relaxed font-sans">
+                    "As the Moderator of CCPAC, I believe excellence begins with curiosity and grows through perseverance. In every equation we balance and every cosmic mystery we explore, we are sharpening not only our intellect but our character. May this club inspire each member to think deeply, compete boldly, and never lose the sense of wonder that first drew us to the stars."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <UpdateModal />
+</BaseLayout>

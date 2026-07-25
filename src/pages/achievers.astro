@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="The Achievers' Blueprint - CCPAC" activePage="explore">
+    <!-- Back to Activities -->
+    <div class="max-w-6xl mx-auto px-6 pt-8">
+        <a href="/act" class="inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition font-sans">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Back to Activities</span>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="max-w-5xl mx-auto px-6 pt-8 pb-10 text-center space-y-6">
+        <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold uppercase tracking-widest font-poppins">
+            <i class="fa-solid fa-award"></i>
+            <span>Exclusive Interviews & Academic Blueprints</span>
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 uppercase font-poppins">
+            The Achievers' Blueprint
+        </h1>
+        <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-800/80 shadow-2xl text-slate-300 text-sm sm:text-base leading-relaxed text-left space-y-4 font-sans">
+            <p>
+                <strong>"The Achievers' Blueprint"</strong> is a special publication and interview series initiated by the Chittagong College Physics & Astronomy Club (CCPAC). This platform is curated based on the specific strategies, preparation methods, and insights of our talented college students and alumni who have proven themselves on national and international Olympiad stages.
+            </p>
+            <p>
+                It highlights specific action plans for representing the country on the international arena, practical experiences of successfully balancing academic studies with an Olympiad journey, and provides a clear blueprint of success and guiding discussions for budding science enthusiasts.
+            </p>
+        </div>
+    </section>
+
+    <!-- Achievers Cards Grid Section -->
+    <section class="max-w-6xl mx-auto px-6 py-6 space-y-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Card 1: Raihan Siddiquee -->
+            <div class="glass-card rounded-3xl border border-slate-800/80 shadow-2xl overflow-hidden glow-box flex flex-col justify-between">
+                <div>
+                    <div class="relative h-80 bg-slate-950 overflow-hidden rounded-t-3xl border-b border-slate-800">
+                        <img src="https://raw.githubusercontent.com/ccpactechnical-cloud/ccpac-official/main/WhatsApp%20Image%202026-07-20%20at%205.28.06%20PM.jpeg" alt="Md. Raihan Siddiquee" class="w-full h-full object-cover object-[center_35%] rounded-t-3xl crisp-img scale-105">
+                        
+                        <span class="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-xs font-bold uppercase backdrop-blur-md font-poppins shadow-lg z-20">
+                            International Silver Medalist
+                        </span>
+                    </div>
+
+                    <div class="p-6 space-y-3 font-sans">
+                        <h3 class="text-xl font-bold text-white font-poppins">Md. Raihan Siddiquee</h3>
+                        <p class="text-cyan-400 text-xs font-semibold">Silver Medalist, 67th International Mathematical Olympiad (IMO) 2026</p>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            An in-depth look behind the journey of the International Mathematical Olympiad (IMO), featuring personal experiences and journey insights.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 font-sans">
+                    <a href="/achievers-blueprint/001" class="inline-flex items-center justify-center space-x-2 w-full bg-slate-900 hover:bg-cyan-600 hover:text-slate-950 text-cyan-400 border border-slate-700 font-bold py-2.5 rounded-xl text-xs transition shadow-md font-poppins">
+                        <span>Read Blueprint (001)</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Future/Upcoming Blueprint Card 2 -->
+            <div class="glass-card rounded-3xl border border-slate-800/80 shadow-2xl overflow-hidden glow-box flex flex-col justify-between opacity-80">
+                <div>
+                    <div class="relative h-80 overflow-hidden bg-slate-950 flex items-center justify-center border-b border-slate-800">
+                        <i class="fa-solid fa-user-graduate text-slate-700 text-5xl"></i>
+                        <span class="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-400 text-xs font-bold uppercase backdrop-blur-md font-poppins">
+                            Upcoming Edition
+                        </span>
+                    </div>
+                    <div class="p-6 space-y-3 font-sans">
+                        <h3 class="text-xl font-bold text-slate-300 font-poppins">Next Feature</h3>
+                        <p class="text-slate-500 text-xs font-semibold">To Be Announced</p>
+                        <p class="text-slate-500 text-xs leading-relaxed">
+                            Specific success guidelines and interviews featuring other international and national Olympiad medalists and alumni will be published very soon in the upcoming edition.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 font-sans">
+                    <span class="inline-flex items-center justify-center space-x-2 w-full bg-slate-950 text-slate-600 border border-slate-900 font-bold py-2.5 rounded-xl text-xs cursor-not-allowed font-poppins">
+                        <span>Coming Soon (002)</span>
+                        <i class="fa-solid fa-lock text-[10px]"></i>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</BaseLayout>

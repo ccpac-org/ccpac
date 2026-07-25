@@ -1,0 +1,311 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Winter Physics Camp 2025 - CCPAC | Chittagong College Physics & Astronomy Club" activePage="explore">
+
+
+    <!-- Glowing Background Effect -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[600px] bg-gradient-to-r from-cyan-500/10 to-blue-600/10 blur-[220px] rounded-full pointer-events-none"></div>
+
+    <!-- Navigation Bar -->
+    
+
+    <!-- Back to Events -->
+    <div class="max-w-6xl mx-auto px-6 pt-8">
+        <a href="event.html" class="inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition font-sans">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Back to Events</span>
+        </a>
+    </div>
+
+    <!-- Hero / Camp Banner Section -->
+    <section class="max-w-4xl mx-auto px-6 pt-8 pb-10 text-center space-y-6">
+        <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold uppercase tracking-widest font-poppins">
+            <i class="fa-solid fa-snowflake"></i>
+            <span>Flagship Academic Program</span>
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 uppercase font-poppins">
+            Winter Physics Camp 2025
+        </h1>
+        
+        <!-- Main Camp Banner Image -->
+        <div class="w-full inline-block rounded-3xl border border-slate-800/80 shadow-2xl overflow-hidden bg-spaceCard p-2">
+            <div class="w-full rounded-2xl overflow-hidden bg-slate-950 flex justify-center items-center">
+                <img src="/images/wn.jpeg" alt="Winter Physics Camp 2025 Banner" class="w-full h-auto block crisp-img" onerror="this.src='https://i.ibb.co.com/xSmsb1tx/IMG-20260105-WA0001.jpg'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Description & Schedule Section -->
+    <section class="max-w-6xl mx-auto px-6 py-6 space-y-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-12 space-y-8">
+                <!-- Description Card -->
+                <div class="glass-card p-8 rounded-3xl border border-slate-800/80 shadow-2xl space-y-4 font-sans">
+                    <h2 class="text-2xl font-black text-cyan-400 flex items-center space-x-3 font-poppins">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>Event Description</span>
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Chittagong College Physics & Astronomy Club presents Winter Physics Camp 2025 conducted by our honorable alumni. Designed to bridge foundational concepts with advanced problem-solving techniques.
+                    </p>
+                    <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800 text-xs sm:text-sm text-cyan-300 font-semibold">
+                        <i class="fa-solid fa-clock mr-2 text-amber-400"></i> Overall Session Time: 10:00 AM – 12:15 PM<br>
+                        <span class="text-slate-400 font-normal mt-1 block">Each day consists of two 1-hour sessions with a 15-minute break.</span>
+                    </div>
+                </div>
+
+                <!-- Schedule Card -->
+                <div class="glass-card p-8 rounded-3xl border border-slate-800/80 shadow-2xl space-y-6 font-sans">
+                    <h2 class="text-2xl font-black text-cyan-400 flex items-center space-x-3 font-poppins">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <span>Camp Schedule & Topics</span>
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-300">
+                        <div class="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80 flex flex-col justify-between gap-2 hover:border-cyan-500/50 transition">
+                            <span class="text-cyan-400 font-bold"><i class="fa-regular fa-calendar mr-2"></i>23 Dec 2025</span>
+                            <span class="text-slate-200 font-medium">Heat & Thermodynamics</span>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80 flex flex-col justify-between gap-2 hover:border-cyan-500/50 transition">
+                            <span class="text-cyan-400 font-bold"><i class="fa-regular fa-calendar mr-2"></i>24 Dec 2025</span>
+                            <span class="text-slate-200 font-medium">Work, Energy & Power</span>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80 flex flex-col justify-between gap-2 hover:border-cyan-500/50 transition">
+                            <span class="text-cyan-400 font-bold"><i class="fa-regular fa-calendar mr-2"></i>27 Dec 2025</span>
+                            <span class="text-slate-200 font-medium">Simple Harmonic Motion (SHM) & Waves</span>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80 flex flex-col justify-between gap-2 hover:border-cyan-500/50 transition">
+                            <span class="text-cyan-400 font-bold"><i class="fa-regular fa-calendar mr-2"></i>28 Dec 2025</span>
+                            <span class="text-slate-200 font-medium">Relativity & Quantum Mechanics</span>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80 flex flex-col justify-between gap-2 hover:border-cyan-500/50 transition">
+                            <span class="text-cyan-400 font-bold"><i class="fa-regular fa-calendar mr-2"></i>29 Dec 2025</span>
+                            <span class="text-slate-200 font-medium">Electricity & Magnetism, Newtonian Mechanics</span>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-slate-950/60 border border-amber-500/40 flex flex-col justify-between gap-2 bg-gradient-to-r from-amber-500/10 to-transparent">
+                            <span class="text-amber-400 font-bold"><i class="fa-regular fa-calendar mr-2"></i>30 Dec 2025</span>
+                            <span class="text-white font-semibold">Winter Physics Mastery Test 2025 (Open Book Exam) & Wrap-Up</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Link to Camp Days Gallery Section -->
+    <section class="max-w-6xl mx-auto px-6 py-4">
+        <a href="/camp-days" class="glass-card hover:border-cyan-500/80 p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6 glow-box block group transition">
+            <div class="space-y-2 text-center sm:text-left font-sans">
+                <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold uppercase tracking-wider font-poppins">
+                    Photo Gallery & Highlights
+                </span>
+                <h3 class="text-2xl font-black text-white group-hover:text-cyan-400 transition font-poppins">Explore Camp Days Gallery</h3>
+                <p class="text-slate-400 text-xs sm:text-sm">Check out day-by-day session photos, instructor moments, and the final wrap-up.</p>
+            </div>
+            <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 text-xl transition shrink-0 shadow-lg">
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </a>
+    </section>
+
+    <!-- Instructors Panel Section -->
+    <section class="max-w-6xl mx-auto px-6 py-12 space-y-8 font-sans">
+        <div class="text-center space-y-2">
+            <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider font-poppins">
+                <i class="fa-solid fa-star mr-1"></i> Expert Mentorship
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 font-poppins">
+                Honorable Instructors Panel
+            </h2>
+            <p class="text-slate-400 text-sm">Distinguished alumni guiding the future generation of physicists</p>
+        </div>
+
+        <div class="glass-card p-8 sm:p-10 rounded-3xl border border-slate-800/80 shadow-2xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-sm text-slate-300">
+                <!-- 1. shc -->
+                <div onclick="openLightbox('/images/shc.jpeg', 'Siddhartha Hrishit Chakraborty', 'BUET CSE \'22 (CC \'22)', '')" class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-center space-x-4 glow-box cursor-pointer">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold shrink-0 font-poppins">1</div>
+                    <div>
+                        <strong class="text-white text-sm block font-poppins leading-tight">Siddhartha Hrishit Chakraborty</strong>
+                        <span class="text-cyan-400 text-xs">BUET CSE '22 (CC '22)</span>
+                    </div>
+                </div>
+                <!-- 2. ltk -->
+                <div onclick="openLightbox('/images/ltk.jpeg', 'Lababa Tasnia Khan', 'BUET EEE \'22 (CC \'22)', '')" class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-center space-x-4 glow-box cursor-pointer">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold shrink-0 font-poppins">2</div>
+                    <div>
+                        <strong class="text-white text-sm block font-poppins leading-tight">Lababa Tasnia Khan</strong>
+                        <span class="text-cyan-400 text-xs">BUET EEE '22 (CC '22)</span>
+                    </div>
+                </div>
+                <!-- 3. sho -->
+                <div onclick="openLightbox('/images/sho.jpeg', 'Md. Shaftiul Hasan Ovi', 'BUET EEE \'22 (CC \'22)', '')" class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-center space-x-4 glow-box cursor-pointer">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold shrink-0 font-poppins">3</div>
+                    <div>
+                        <strong class="text-white text-sm block font-poppins leading-tight">Md. Shaftiul Hasan Ovi</strong>
+                        <span class="text-cyan-400 text-xs">BUET EEE '22 (CC '22)</span>
+                    </div>
+                </div>
+                <!-- 4. kr -->
+                <div onclick="openLightbox('/images/kr.jpeg', 'Krettika Roy', 'BUET IPE \'22 (CC \'22)', '')" class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-center space-x-4 glow-box cursor-pointer">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold shrink-0 font-poppins">4</div>
+                    <div>
+                        <strong class="text-white text-sm block font-poppins leading-tight">Krettika Roy</strong>
+                        <span class="text-cyan-400 text-xs">BUET IPE '22 (CC '22)</span>
+                    </div>
+                </div>
+                <!-- 5. ts -->
+                <div onclick="openLightbox('/images/ts.jpeg', 'Tashfia Siddiqua', 'BUET EEE \'22 (CC \'22)', '')" class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-center space-x-4 glow-box cursor-pointer">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold shrink-0 font-poppins">5</div>
+                    <div>
+                        <strong class="text-white text-sm block font-poppins leading-tight">Tashfia Siddiqua</strong>
+                        <span class="text-cyan-400 text-xs">BUET EEE '22 (CC '22)</span>
+                    </div>
+                </div>
+                <!-- 6. st -->
+                <div onclick="openLightbox('/images/st.jpeg', 'Sababu Tamanna', 'CUET EEE \'22 (CC \'22)', '')" class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-center space-x-4 glow-box cursor-pointer">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold shrink-0 font-poppins">6</div>
+                    <div>
+                        <strong class="text-white text-sm block font-poppins leading-tight">Sababu Tamanna</strong>
+                        <span class="text-cyan-400 text-xs">CUET EEE '22 (CC '22)</span>
+                    </div>
+                </div>
+                <!-- 7. ah -->
+                <div onclick="openLightbox('/images/ah.jpeg', 'Ahamed Hamza', 'BUET ME \'23 (CC \'23)', '')" class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-center space-x-4 glow-box cursor-pointer">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold shrink-0 font-poppins">7</div>
+                    <div>
+                        <strong class="text-white text-sm block font-poppins leading-tight">Ahamed Hamza</strong>
+                        <span class="text-cyan-400 text-xs">BUET ME '23 (CC '23)</span>
+                    </div>
+                </div>
+                <!-- 8. aa -->
+                <div onclick="openLightbox('/images/aa.jpeg', 'Abrar Azmain', 'CUET ME \'22 (CC \'22)', '')" class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-center space-x-4 glow-box cursor-pointer">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold shrink-0 font-poppins">8</div>
+                    <div>
+                        <strong class="text-white text-sm block font-poppins leading-tight">Abrar Azmain</strong>
+                        <span class="text-cyan-400 text-xs">CUET ME '22 (CC '22)</span>
+                    </div>
+                </div>
+                <!-- 9. snc -->
+                <div onclick="openLightbox('/images/snc.jpeg', 'Swayambhu Naiwrit Chakraborty', 'BUET Archi \'22 (CC \'22)', '')" class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-center space-x-4 glow-box cursor-pointer">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold shrink-0 font-poppins">9</div>
+                    <div>
+                        <strong class="text-white text-sm block font-poppins leading-tight">Swayambhu Naiwrit Chakraborty</strong>
+                        <span class="text-cyan-400 text-xs">BUET Archi '22 (CC '22)</span>
+                    </div>
+                </div>
+                <!-- 10. aj -->
+                <div onclick="openLightbox('/images/aj.jpeg', 'Al Jawad', 'BUET ME \'22 (CC \'22)', '')" class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-center space-x-4 glow-box cursor-pointer">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold shrink-0 font-poppins">10</div>
+                    <div>
+                        <strong class="text-white text-sm block font-poppins leading-tight">Al Jawad</strong>
+                        <span class="text-cyan-400 text-xs">BUET ME '22 (CC '22)</span>
+                    </div>
+                </div>
+                <!-- 11. ab -->
+                <div onclick="openLightbox('/images/ab.jpeg', 'Anuprash Barua', 'BUET Civil \'22 (CC \'22)', '')" class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-center space-x-4 glow-box cursor-pointer">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold shrink-0 font-poppins">11</div>
+                    <div>
+                        <strong class="text-white text-sm block font-poppins leading-tight">Anuprash Barua</strong>
+                        <span class="text-cyan-400 text-xs">BUET Civil '22 (CC '22)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal for Instructor Photo View -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="glass-card max-w-md w-full rounded-3xl border border-slate-800 shadow-2xl p-6 relative space-y-6 text-center">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 bg-slate-900 hover:bg-cyan-500 hover:text-slate-950 text-slate-300 w-10 h-10 rounded-full flex items-center justify-center transition border border-slate-700 shadow-lg z-20 cursor-pointer" title="Close Lightbox">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="w-full rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 flex items-center justify-center pt-2">
+                <img id="lightboxImg" src="" alt="Instructor Photo" class="max-h-[350px] w-auto object-contain crisp-img">
+            </div>
+            <div class="space-y-1">
+                <span id="lightboxIndex" class="text-cyan-400 text-xs font-bold uppercase tracking-wider block"></span>
+                <h3 id="lightboxName" class="text-xl font-black text-white font-poppins"></h3>
+                <p id="lightboxRole" class="text-slate-400 text-sm"></p>
+            </div>
+            <button onclick="closeLightbox()" class="w-full py-3 bg-slate-800 hover:bg-slate-700 text-cyan-400 font-bold rounded-xl text-sm transition border border-slate-700 cursor-pointer">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Professional Popup Membership Registration Modal -->
+    
+    </div>
+
+    <!-- Professional Footer -->
+    
+
+    <!-- JavaScript for Form Toggle, Lightbox & Google Sheets Integration -->
+    <script is:inline>
+        function openLightbox(imgSrc, name, role, indexText) {
+            document.getElementById('lightboxImg').src = imgSrc;
+            document.getElementById('lightboxName').textContent = name;
+            document.getElementById('lightboxRole').textContent = role;
+            document.getElementById('lightboxIndex').textContent = indexText;
+            document.getElementById('lightboxModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function toggleMembershipForm() {
+            const formModal = document.getElementById('membership-registration');
+            const isHidden = formModal.classList.contains('hidden');
+            if (isHidden) {
+                formModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                formModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        document.getElementById('ccpacMembershipForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const formData = {
+                name: document.getElementById('mName').value,
+                email: document.getElementById('mEmail').value,
+                hscYear: document.getElementById('mHscYear').value,
+                section: document.getElementById('mSection').value,
+                roll: document.getElementById('mRoll').value,
+                phone: document.getElementById('mPhone').value,
+                whatsapp: document.getElementById('mWhatsapp').value,
+                skills: Array.from(document.querySelectorAll('input[name="skills"]:checked')).map(cb => cb.value).join(', '),
+                whyJoin: document.getElementById('mWhyJoin').value
+            };
+
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"><span>Submitting...</span>`;
+            submitBtn.disabled = true;
+
+            try {
+                const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbxNKEqhdDrRqTE0rjpdgsH8THqHvwjzBEQGBcmQMnV1LiZIqac_MIBE7Vpob9kKrcw/exec';
+                await fetch(BACKEND_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                document.getElementById('ccpacMembershipForm').style.display = 'none';
+                document.getElementById('mSuccessBox').classList.remove('hidden');
+            } catch (error) {
+                console.error('Submission error:', error);
+                alert('Something went wrong. Please try again later.');
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+
+</BaseLayout>

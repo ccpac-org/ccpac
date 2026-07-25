@@ -1,0 +1,573 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Camp Days - Winter Physics Camp 2025 | CCPAC | Chittagong College Physics & Astronomy Club" activePage="explore">
+
+
+    <!-- Glowing Background Effect -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[600px] bg-gradient-to-r from-cyan-500/10 to-blue-600/10 blur-[220px] rounded-full pointer-events-none"></div>
+
+    <!-- Navigation Bar -->
+    
+
+    <!-- Back to Camp Main Page -->
+    <div class="max-w-6xl mx-auto px-6 pt-8">
+        <a href="/winter-camp" class="inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition font-sans">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Back to Winter Physics Camp 2025</span>
+        </a>
+    </div>
+
+    <!-- Page Header -->
+    <section class="max-w-5xl mx-auto px-6 pt-8 pb-6 text-center space-y-4">
+        <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold uppercase tracking-widest font-poppins">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>Detailed Event Logs</span>
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 uppercase font-poppins">
+            Camp Days Gallery & Highlights
+        </h1>
+        <p class="text-slate-400 text-sm max-w-2xl mx-auto font-sans">
+            A day-by-day journey of Winter Physics Camp 2025 featuring sessions, instructors, and memorable moments.
+        </p>
+    </section>
+
+    <!-- Main Camp Days Content Feed -->
+    <section class="max-w-6xl mx-auto px-6 py-8 space-y-16 font-sans">
+
+        <!-- DAY 1 -->
+        <div class="glass-card p-6 sm:p-10 rounded-3xl border border-slate-800/80 shadow-2xl glow-box space-y-8">
+            <div class="border-b border-slate-800 pb-4 flex justify-between items-center flex-wrap gap-2">
+                <h2 class="text-2xl sm:text-3xl font-black text-cyan-400 font-poppins">DAY 1</h2>
+                <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 text-xs font-bold border border-cyan-500/20 font-poppins">23 December 2025</span>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800 shadow-lg space-y-2">
+                        <div class="w-full rounded-xl overflow-hidden bg-spaceDark flex flex-col justify-center items-center">
+                            <img src="/images/abrar.jpg" alt="Abrar Azmain Session" class="w-full h-auto object-cover rounded-xl crisp-img">
+                        </div>
+                        <div class="text-xs text-slate-300 font-semibold text-center pt-1">Session: Heat & Thermodynamics (Abrar Azmain)</div>
+                    </div>
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800 shadow-lg space-y-2">
+                        <div class="w-full rounded-xl overflow-hidden bg-spaceDark flex flex-col justify-center items-center">
+                            <img src="/images/sababa.jpg" alt="Sababa Tamanna Session" class="w-full h-auto object-cover rounded-xl crisp-img">
+                        </div>
+                        <div class="text-xs text-slate-300 font-semibold text-center pt-1">Session: Heat & Thermodynamics (Sababa Tamanna)</div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-cyan-500/30 shadow-xl space-y-2 relative">
+                        <div class="w-full rounded-xl overflow-hidden bg-spaceDark relative flex flex-col justify-center items-center min-h-[250px]">
+                            <div class="day1-slide w-full transition-all duration-300"><img src="/images/231.jpg" alt="Day 1 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day1-slide w-full hidden transition-all duration-300"><img src="/images/232.jpg" alt="Day 1 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day1-slide w-full hidden transition-all duration-300"><img src="/images/233.jpg" alt="Day 1 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day1-slide w-full hidden transition-all duration-300"><img src="/images/234.jpg" alt="Day 1 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day1-slide w-full hidden transition-all duration-300"><img src="/images/235.jpg" alt="Day 1 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day1-slide w-full hidden transition-all duration-300"><img src="/images/236.jpg" alt="Day 1 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day1-slide w-full hidden transition-all duration-300"><img src="/images/237.jpg" alt="Day 1 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day1-slide w-full hidden transition-all duration-300"><img src="/images/238.jpg" alt="Day 1 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+
+                            <button onclick="moveDay1Slide(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-cyan-500/30 shadow-lg cursor-pointer">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                            <button onclick="moveDay1Slide(1)" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-cyan-500/30 shadow-lg cursor-pointer">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="text-center text-xs text-cyan-400 font-semibold pt-1" id="day1-counter">Photo 1 of 8</div>
+                    </div>
+                    <div class="bg-slate-950/60 p-5 rounded-2xl border border-slate-800 space-y-2 text-sm">
+                        <p><strong class="text-cyan-400">Topic:</strong> Heat & Thermodynamics</p>
+                        <p><strong class="text-cyan-400">Instructors:</strong> Abrar Azmain, Sababa Tamanna</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 2 -->
+        <div class="glass-card p-6 sm:p-10 rounded-3xl border border-slate-800/80 shadow-2xl glow-box space-y-8">
+            <div class="border-b border-slate-800 pb-4 flex justify-between items-center flex-wrap gap-2">
+                <h2 class="text-2xl sm:text-3xl font-black text-cyan-400 font-poppins">DAY 2</h2>
+                <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 text-xs font-bold border border-cyan-500/20 font-poppins">24 December 2025</span>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800 shadow-lg space-y-2">
+                        <div class="w-full rounded-xl overflow-hidden bg-spaceDark flex flex-col justify-center items-center">
+                            <img src="/images/siddhartha.jpg" alt="Siddhartha Session" class="w-full h-auto object-cover rounded-xl crisp-img">
+                        </div>
+                        <div class="text-xs text-slate-300 font-semibold text-center pt-1">Session: Work, Energy & Power (Siddhartha Hrishit Chakraborty)</div>
+                    </div>
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800 shadow-lg space-y-2">
+                        <div class="w-full rounded-xl overflow-hidden bg-spaceDark flex flex-col justify-center items-center">
+                            <img src="/images/anuprash.jpg" alt="Anuprash Session" class="w-full h-auto object-cover rounded-xl crisp-img">
+                        </div>
+                        <div class="text-xs text-slate-300 font-semibold text-center pt-1">Session: Work, Energy & Power (Anuprash Barua)</div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-cyan-500/30 shadow-xl space-y-2 relative">
+                        <div class="w-full rounded-xl overflow-hidden bg-spaceDark relative flex flex-col justify-center items-center min-h-[250px]">
+                            <div class="day2-slide w-full transition-all duration-300"><img src="/images/241.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/242.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/243.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/244.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/245.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/246.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/247.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/248.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/249.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/2410.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/2411.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/2412.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/2413.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/2414.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/2415.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/2416.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/2417.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/2418.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/2419.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/2420.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/2421.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day2-slide w-full hidden transition-all duration-300"><img src="/images/2422.jpg" alt="Day 2 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+
+                            <button onclick="moveDay2Slide(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-cyan-500/30 shadow-lg cursor-pointer">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                            <button onclick="moveDay2Slide(1)" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-cyan-500/30 shadow-lg cursor-pointer">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="text-center text-xs text-cyan-400 font-semibold pt-1" id="day2-counter">Photo 1 of 22</div>
+                    </div>
+                    <div class="bg-slate-950/60 p-5 rounded-2xl border border-slate-800 space-y-2 text-sm">
+                        <p><strong class="text-cyan-400">Topic:</strong> Work, Energy & Power</p>
+                        <p><strong class="text-cyan-400">Instructors:</strong> Siddhartha Hrishit Chakraborty, Anuprash Barua</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 3 -->
+        <div class="glass-card p-6 sm:p-10 rounded-3xl border border-slate-800/80 shadow-2xl glow-box space-y-8">
+            <div class="border-b border-slate-800 pb-4 flex justify-between items-center flex-wrap gap-2">
+                <h2 class="text-2xl sm:text-3xl font-black text-cyan-400 font-poppins">DAY 3</h2>
+                <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 text-xs font-bold border border-cyan-500/20 font-poppins">27 December 2025</span>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800 shadow-lg space-y-2">
+                        <div class="w-full rounded-xl overflow-hidden bg-spaceDark flex flex-col justify-center items-center">
+                            <img src="/images/krettika.jpg" alt="Krettika Session" class="w-full h-auto object-cover rounded-xl crisp-img">
+                        </div>
+                        <div class="text-xs text-slate-300 font-semibold text-center pt-1">Session: SHM & Waves (Krettika Roy)</div>
+                    </div>
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800 shadow-lg space-y-2">
+                        <div class="w-full rounded-xl overflow-hidden bg-spaceDark flex flex-col justify-center items-center">
+                            <img src="/images/tashfia.jpg" alt="Tashfia Session" class="w-full h-auto object-cover rounded-xl crisp-img">
+                        </div>
+                        <div class="text-xs text-slate-300 font-semibold text-center pt-1">Session: SHM & Waves (Tashfia Siddiqua)</div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-cyan-500/30 shadow-xl space-y-2 relative">
+                        <div class="w-full rounded-xl overflow-hidden bg-spaceDark relative flex flex-col justify-center items-center min-h-[250px]">
+                            <div class="day3-slide w-full transition-all duration-300"><img src="/images/271.jpg" alt="Day 3 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day3-slide w-full hidden transition-all duration-300"><img src="/images/272.jpg" alt="Day 3 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day3-slide w-full hidden transition-all duration-300"><img src="/images/273.jpg" alt="Day 3 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day3-slide w-full hidden transition-all duration-300"><img src="/images/274.jpg" alt="Day 3 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day3-slide w-full hidden transition-all duration-300"><img src="/images/275.jpg" alt="Day 3 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day3-slide w-full hidden transition-all duration-300"><img src="/images/276.jpg" alt="Day 3 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day3-slide w-full hidden transition-all duration-300"><img src="/images/277.jpg" alt="Day 3 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day3-slide w-full hidden transition-all duration-300"><img src="/images/278.jpg" alt="Day 3 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day3-slide w-full hidden transition-all duration-300"><img src="/images/279.jpg" alt="Day 3 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day3-slide w-full hidden transition-all duration-300"><img src="/images/2710.jpg" alt="Day 3 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day3-slide w-full hidden transition-all duration-300"><img src="/images/2711.jpg" alt="Day 3 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day3-slide w-full hidden transition-all duration-300"><img src="/images/2712.jpg" alt="Day 3 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day3-slide w-full hidden transition-all duration-300"><img src="/images/2713.jpg" alt="Day 3 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day3-slide w-full hidden transition-all duration-300"><img src="/images/2714.jpg" alt="Day 3 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day3-slide w-full hidden transition-all duration-300"><img src="/images/2715.jpg" alt="Day 3 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day3-slide w-full hidden transition-all duration-300"><img src="/images/2716.jpg" alt="Day 3 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day3-slide w-full hidden transition-all duration-300"><img src="/images/2717.jpg" alt="Day 3 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day3-slide w-full hidden transition-all duration-300"><img src="/images/2718.jpg" alt="Day 3 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day3-slide w-full hidden transition-all duration-300"><img src="/images/2719.jpg" alt="Day 3 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day3-slide w-full hidden transition-all duration-300"><img src="/images/2720.jpg" alt="Day 3 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+
+                            <button onclick="moveDay3Slide(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-cyan-500/30 shadow-lg cursor-pointer">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                            <button onclick="moveDay3Slide(1)" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-cyan-500/30 shadow-lg cursor-pointer">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="text-center text-xs text-cyan-400 font-semibold pt-1" id="day3-counter">Photo 1 of 20</div>
+                    </div>
+                    <div class="bg-slate-950/60 p-5 rounded-2xl border border-slate-800 space-y-2 text-sm">
+                        <p><strong class="text-cyan-400">Topic:</strong> Simple Harmonic Motion (SHM) & Waves</p>
+                        <p><strong class="text-cyan-400">Instructors:</strong> Krettika Roy, Tashfia Siddiqua</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 4 -->
+        <div class="glass-card p-6 sm:p-10 rounded-3xl border border-slate-800/80 shadow-2xl glow-box space-y-8">
+            <div class="border-b border-slate-800 pb-4 flex justify-between items-center flex-wrap gap-2">
+                <h2 class="text-2xl sm:text-3xl font-black text-cyan-400 font-poppins">DAY 4</h2>
+                <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 text-xs font-bold border border-cyan-500/20 font-poppins">28 December 2025</span>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800 shadow-lg space-y-2">
+                        <div class="w-full rounded-xl overflow-hidden bg-spaceDark flex flex-col justify-center items-center">
+                            <img src="/images/jawad.jpg" alt="Jawad Session" class="w-full h-auto object-cover rounded-xl crisp-img">
+                        </div>
+                        <div class="text-xs text-slate-300 font-semibold text-center pt-1">Session: Relativity & Quantum (Al Jawad)</div>
+                    </div>
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800 shadow-lg space-y-2">
+                        <div class="w-full rounded-xl overflow-hidden bg-spaceDark flex flex-col justify-center items-center">
+                            <img src="/images/swayambhu.jpg" alt="Swayambhu Session" class="w-full h-auto object-cover rounded-xl crisp-img">
+                        </div>
+                        <div class="text-xs text-slate-300 font-semibold text-center pt-1">Session: Relativity & Quantum (Swayambhu Naiwrit Chakraborty)</div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-cyan-500/30 shadow-xl space-y-2 relative">
+                        <div class="w-full rounded-xl overflow-hidden bg-spaceDark relative flex flex-col justify-center items-center min-h-[250px]">
+                            <div class="day4-slide w-full transition-all duration-300"><img src="/images/281.jpg" alt="Day 4 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day4-slide w-full hidden transition-all duration-300"><img src="/images/282.jpg" alt="Day 4 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day4-slide w-full hidden transition-all duration-300"><img src="/images/283.jpg" alt="Day 4 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day4-slide w-full hidden transition-all duration-300"><img src="/images/284.jpg" alt="Day 4 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day4-slide w-full hidden transition-all duration-300"><img src="/images/285.jpg" alt="Day 4 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day4-slide w-full hidden transition-all duration-300"><img src="/images/286.jpg" alt="Day 4 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day4-slide w-full hidden transition-all duration-300"><img src="/images/287.jpg" alt="Day 4 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day4-slide w-full hidden transition-all duration-300"><img src="/images/288.jpg" alt="Day 4 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day4-slide w-full hidden transition-all duration-300"><img src="/images/289.jpg" alt="Day 4 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day4-slide w-full hidden transition-all duration-300"><img src="/images/2810.jpg" alt="Day 4 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day4-slide w-full hidden transition-all duration-300"><img src="/images/2811.jpg" alt="Day 4 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day4-slide w-full hidden transition-all duration-300"><img src="/images/2812.jpg" alt="Day 4 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day4-slide w-full hidden transition-all duration-300"><img src="/images/2813.jpg" alt="Day 4 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+
+                            <button onclick="moveDay4Slide(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-cyan-500/30 shadow-lg cursor-pointer">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                            <button onclick="moveDay4Slide(1)" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-cyan-500/30 shadow-lg cursor-pointer">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="text-center text-xs text-cyan-400 font-semibold pt-1" id="day4-counter">Photo 1 of 13</div>
+                    </div>
+                    <div class="bg-slate-950/60 p-5 rounded-2xl border border-slate-800 space-y-2 text-sm">
+                        <p><strong class="text-cyan-400">Topic:</strong> Relativity & Quantum Mechanics</p>
+                        <p><strong class="text-cyan-400">Instructors:</strong> Al Jawad, Swayambhu Naiwrit Chakraborty</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 5 -->
+        <div class="glass-card p-6 sm:p-10 rounded-3xl border border-slate-800/80 shadow-2xl glow-box space-y-8">
+            <div class="border-b border-slate-800 pb-4 flex justify-between items-center flex-wrap gap-2">
+                <h2 class="text-2xl sm:text-3xl font-black text-cyan-400 font-poppins">DAY 5</h2>
+                <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 text-xs font-bold border border-cyan-500/20 font-poppins">29 December 2025</span>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800 shadow-lg space-y-2">
+                        <div class="w-full rounded-xl overflow-hidden bg-spaceDark flex flex-col justify-center items-center">
+                            <img src="/images/ovi.jpg" alt="Ovi Session" class="w-full h-auto object-cover rounded-xl crisp-img">
+                        </div>
+                        <div class="text-xs text-slate-300 font-semibold text-center pt-1">Session: Electricity & Magnetism (Md. Shaftiul Hasan Ovi)</div>
+                    </div>
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800 shadow-lg space-y-2">
+                        <div class="w-full rounded-xl overflow-hidden bg-spaceDark flex flex-col justify-center items-center">
+                            <img src="/images/hamza.jpg" alt="Hamza Session" class="w-full h-auto object-cover rounded-xl crisp-img">
+                        </div>
+                        <div class="text-xs text-slate-300 font-semibold text-center pt-1">Session: Newtonian Mechanics (Ahamed Hamza)</div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-cyan-500/30 shadow-xl space-y-2 relative">
+                        <div class="w-full rounded-xl overflow-hidden bg-spaceDark relative flex flex-col justify-center items-center min-h-[250px]">
+                            <div class="day5-slide w-full transition-all duration-300"><img src="/images/291.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/292.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/293.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/294.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/295.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/296.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/297.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/298.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/299.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/2910.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/2911.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/2912.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/2913.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/2914.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/2915.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/2916.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/2917.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/2918.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/2919.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/2920.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/2921.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+                            <div class="day5-slide w-full hidden transition-all duration-300"><img src="/images/2922.jpg" alt="Day 5 Highlight" class="w-full h-auto object-cover rounded-xl crisp-img"></div>
+
+                            <button onclick="moveDay5Slide(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-cyan-500/30 shadow-lg cursor-pointer">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                            <button onclick="moveDay5Slide(1)" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-cyan-500/30 shadow-lg cursor-pointer">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="text-center text-xs text-cyan-400 font-semibold pt-1" id="day5-counter">Photo 1 of 22</div>
+                    </div>
+                    <div class="bg-slate-950/60 p-5 rounded-2xl border border-slate-800 space-y-2 text-sm">
+                        <p><strong class="text-cyan-400">Topic:</strong> Electricity & Magnetism, Newtonian Mechanics</p>
+                        <p><strong class="text-cyan-400">Instructors:</strong> Md. Shaftiul Hasan Ovi, Ahamed Hamza</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FINAL DAY -->
+        <div class="glass-card p-6 sm:p-10 rounded-3xl border border-amber-500/40 shadow-2xl glow-box space-y-8 bg-gradient-to-br from-amber-500/5 to-spaceCard">
+            <div class="border-b border-amber-500/30 pb-4 flex justify-between items-center flex-wrap gap-2">
+                <h2 class="text-2xl sm:text-3xl font-black text-amber-400 font-poppins">FINAL DAY</h2>
+                <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold border border-amber-500/30 font-poppins">30 December 2025</span>
+            </div>
+            
+            <!-- Instructors / Speakers (arbina, guideline) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800 shadow-lg space-y-2">
+                    <div class="w-full rounded-xl overflow-hidden bg-spaceDark flex flex-col justify-center items-center">
+                        <img src="/images/arbina.jpg" alt="Arbina Muntaha Session" class="w-full h-auto object-cover rounded-xl crisp-img">
+                    </div>
+                    <div class="text-xs text-slate-300 font-semibold text-center pt-1">Special Session: The Art of Balancing ECA & Academics (Arbina Muntaha)</div>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800 shadow-lg space-y-2">
+                    <div class="w-full rounded-xl overflow-hidden bg-spaceDark flex flex-col justify-center items-center">
+                        <img src="/images/guideline.jpg" alt="Camp Guideline" class="w-full h-auto object-cover rounded-xl crisp-img">
+                    </div>
+                    <div class="text-xs text-slate-300 font-semibold text-center pt-1">Camp Guideline & Final Briefing Session</div>
+                </div>
+            </div>
+
+            <!-- Mastery Test Slides & Arbina's Session Slides Side by Side -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Mastery Test Slides (m1 to m21) -->
+                <div class="space-y-4 pt-4 border-t border-slate-800">
+                    <h3 class="text-lg font-bold text-amber-400 font-poppins"><i class="fa-solid fa-file-pen mr-2"></i> Winter Physics Mastery Test 2025</h3>
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-amber-500/30 shadow-xl space-y-2 relative">
+                        <div class="w-full rounded-xl overflow-hidden bg-spaceDark relative flex flex-col justify-center items-center min-h-[250px]">
+                            <script is:inline>
+                                for(let i=1; i<=21; i++) {
+                                    document.write(`<div class="mastery-slide w-full ${i===1?'':'hidden'} transition-all duration-300"><img src="/images/m${i}.jpg" alt="Mastery Test Highlight ${i}" class="w-full h-auto object-cover rounded-xl crisp-img"></div>`);
+                                }
+                            </script>
+                            <button onclick="moveMasterySlide(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 text-amber-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-amber-500/30 shadow-lg cursor-pointer">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                            <button onclick="moveMasterySlide(1)" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 text-amber-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-amber-500/30 shadow-lg cursor-pointer">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="text-center text-xs text-amber-400 font-semibold pt-1" id="mastery-counter">Photo 1 of 21</div>
+                    </div>
+                </div>
+
+                <!-- Arbina's Session Slides (a1 to a9) -->
+                <div class="space-y-4 pt-4 border-t border-slate-800">
+                    <h3 class="text-lg font-bold text-amber-400 font-poppins"><i class="fa-solid fa-chalkboard-user mr-2"></i> Arbina Muntaha's Session Highlights</h3>
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-amber-500/30 shadow-xl space-y-2 relative">
+                        <div class="w-full rounded-xl overflow-hidden bg-spaceDark relative flex flex-col justify-center items-center min-h-[250px]">
+                            <script is:inline>
+                                for(let i=1; i<=9; i++) {
+                                    document.write(`<div class="arbina-slide w-full ${i===1?'':'hidden'} transition-all duration-300"><img src="/images/a${i}.jpg" alt="Arbina Session Highlight ${i}" class="w-full h-auto object-cover rounded-xl crisp-img"></div>`);
+                                }
+                            </script>
+                            <button onclick="moveArbinaSlide(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 text-amber-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-amber-500/30 shadow-lg cursor-pointer">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                            <button onclick="moveArbinaSlide(1)" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 text-amber-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-amber-500/30 shadow-lg cursor-pointer">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="text-center text-xs text-amber-400 font-semibold pt-1" id="arbina-counter">Photo 1 of 9</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guideline Session Slides & Prize Giving Slides Side by Side -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Guideline Session Slides (g1 to g26) -->
+                <div class="space-y-4 pt-4 border-t border-slate-800">
+                    <h3 class="text-lg font-bold text-amber-400 font-poppins"><i class="fa-solid fa-book-open-reader mr-2"></i> Guideline Session Highlights</h3>
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-amber-500/30 shadow-xl space-y-2 relative">
+                        <div class="w-full rounded-xl overflow-hidden bg-spaceDark relative flex flex-col justify-center items-center min-h-[250px]">
+                            <script is:inline>
+                                for(let i=1; i<=26; i++) {
+                                    document.write(`<div class="guideline-slide w-full ${i===1?'':'hidden'} transition-all duration-300"><img src="/images/g${i}.jpg" alt="Guideline Session Highlight ${i}" class="w-full h-auto object-cover rounded-xl crisp-img"></div>`);
+                                }
+                            </script>
+                            <button onclick="moveGuidelineSlide(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 text-amber-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-amber-500/30 shadow-lg cursor-pointer">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                            <button onclick="moveGuidelineSlide(1)" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 text-amber-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-amber-500/30 shadow-lg cursor-pointer">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="text-center text-xs text-amber-400 font-semibold pt-1" id="guideline-counter">Photo 1 of 26</div>
+                    </div>
+                </div>
+
+                <!-- Prize Giving Slides (r1 to r7) -->
+                <div class="space-y-4 pt-4 border-t border-slate-800">
+                    <h3 class="text-lg font-bold text-amber-400 font-poppins"><i class="fa-solid fa-award mr-2"></i> Prize Giving Ceremony</h3>
+                    <div class="bg-slate-950 p-3 rounded-2xl border border-amber-500/30 shadow-xl space-y-2 relative">
+                        <div class="w-full rounded-xl overflow-hidden bg-spaceDark relative flex flex-col justify-center items-center min-h-[250px]">
+                            <script is:inline>
+                                for(let i=1; i<=7; i++) {
+                                    document.write(`<div class="prize-slide w-full ${i===1?'':'hidden'} transition-all duration-300"><img src="/images/r${i}.jpg" alt="Prize Giving Highlight ${i}" class="w-full h-auto object-cover rounded-xl crisp-img"></div>`);
+                                }
+                            </script>
+                            <button onclick="movePrizeSlide(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 text-amber-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-amber-500/30 shadow-lg cursor-pointer">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                            <button onclick="movePrizeSlide(1)" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 text-amber-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-amber-500/30 shadow-lg cursor-pointer">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="text-center text-xs text-amber-400 font-semibold pt-1" id="prize-counter">Photo 1 of 7</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wrap Up Moments Slides (wrm1 to wrm5) - Eka (Single full width) -->
+            <div class="space-y-4 pt-4 border-t border-slate-800">
+                <h3 class="text-lg font-bold text-amber-400 font-poppins"><i class="fa-solid fa-flag-checkered mr-2"></i> Wrap Up Moments & Group Photos</h3>
+                <div class="bg-slate-950 p-3 rounded-2xl border border-amber-500/30 shadow-xl space-y-2 relative">
+                    <div class="w-full rounded-xl overflow-hidden bg-spaceDark relative flex flex-col justify-center items-center min-h-[250px]">
+                        <script is:inline>
+                            for(let i=1; i<=5; i++) {
+                                document.write(`<div class="wrap-slide w-full ${i===1?'':'hidden'} transition-all duration-300"><img src="/images/wrm${i}.jpg" alt="Wrap Up Moment Highlight ${i}" class="w-full h-auto object-cover rounded-xl crisp-img"></div>`);
+                            }
+                        </script>
+                        <button onclick="moveWrapSlide(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 text-amber-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-amber-500/30 shadow-lg cursor-pointer">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button onclick="moveWrapSlide(1)" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 text-amber-400 w-10 h-10 rounded-full flex items-center justify-center transition border border-amber-500/30 shadow-lg cursor-pointer">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="text-center text-xs text-amber-400 font-semibold pt-1" id="wrap-counter">Photo 1 of 5</div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Professional Popup Membership Registration Modal -->
+    
+    </div>
+
+    <!-- Professional Footer -->
+    
+
+    <!-- JavaScript for Sliders & Form Toggle -->
+    <script is:inline>
+        function setupSlider(slideClass, counterId) {
+            let currentIndex = 0;
+            const slides = document.querySelectorAll('.' + slideClass);
+            const counter = document.getElementById(counterId);
+
+            function updateSlider() {
+                slides.forEach((slide, idx) => {
+                    if (idx === currentIndex) {
+                        slide.classList.remove('hidden');
+                    } else {
+                        slide.classList.add('hidden');
+                    }
+                });
+                if (counter) {
+                    counter.innerText = `Photo ${currentIndex + 1} of ${slides.length}`;
+                }
+            }
+
+            return function(direction) {
+                currentIndex += direction;
+                if (currentIndex < 0) {
+                    currentIndex = slides.length - 1;
+                } else if (currentIndex >= slides.length) {
+                    currentIndex = 0;
+                }
+                updateSlider();
+            };
+        }
+
+        const moveDay1Slide = setupSlider('day1-slide', 'day1-counter');
+        const moveDay2Slide = setupSlider('day2-slide', 'day2-counter');
+        const moveDay3Slide = setupSlider('day3-slide', 'day3-counter');
+        const moveDay4Slide = setupSlider('day4-slide', 'day4-counter');
+        const moveDay5Slide = setupSlider('day5-slide', 'day5-counter');
+        
+        // Final Day Sliders
+        const moveMasterySlide = setupSlider('mastery-slide', 'mastery-counter');
+        const moveArbinaSlide = setupSlider('arbina-slide', 'arbina-counter');
+        const moveGuidelineSlide = setupSlider('guideline-slide', 'guideline-counter');
+        const movePrizeSlide = setupSlider('prize-slide', 'prize-counter');
+        const moveWrapSlide = setupSlider('wrap-slide', 'wrap-counter');
+
+        function toggleMembershipForm() {
+            const formModal = document.getElementById('membership-registration');
+            const isHidden = formModal.classList.contains('hidden');
+            if (isHidden) {
+                formModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                formModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        document.getElementById('ccpacMembershipForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const formData = {
+                name: document.getElementById('mName').value,
+                email: document.getElementById('mEmail').value,
+                hscYear: document.getElementById('mHscYear').value,
+                section: document.getElementById('mSection').value,
+                roll: document.getElementById('mRoll').value,
+                phone: document.getElementById('mPhone').value,
+                whatsapp: document.getElementById('mWhatsapp').value,
+                skills: Array.from(document.querySelectorAll('input[name="skills"]:checked')).map(cb => cb.value).join(', '),
+                whyJoin: document.getElementById('mWhyJoin').value
+            };
+
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> <span>Submitting...</span>`;
+            submitBtn.disabled = true;
+
+            try {
+                const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbxNKEqhdDrRqTE0rjpdgsH8THqHvwjzBEQGBcmQMnV1LiZIqac_MIBE7Vpob9kKrcw/exec';
+                await fetch(BACKEND_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                document.getElementById('ccpacMembershipForm').style.display = 'none';
+                document.getElementById('mSuccessBox').classList.remove('hidden');
+            } catch (error) {
+                console.error('Submission error:', error);
+                alert('Something went wrong. Please try again later.');
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+
+</BaseLayout>

@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About Us - CCPAC | Chittagong College Physics & Astronomy Club" activePage="explore">
+    <!-- Main About Section -->
+    <section class="max-w-7xl mx-auto px-6 pt-20 pb-14">
+        <div class="glass-card p-8 lg:p-14 rounded-3xl border border-slate-800/80 shadow-2xl grid lg:grid-cols-12 gap-12 items-center relative overflow-hidden">
+            <div class="absolute -right-20 -top-20 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <!-- Left Side: Featured Image Slider -->
+            <div class="lg:col-span-6 flex justify-center items-center w-full">
+                <div class="relative w-fit max-w-full rounded-2xl overflow-hidden shadow-2xl bg-slate-950 border border-cyan-500/30 group">
+                    <div class="relative max-h-[520px] flex items-center justify-center">
+                        <img src="https://raw.githubusercontent.com/ccpactechnical-cloud/ccpac-official/main/w1.jpeg" alt="Who We Are Slide 1" class="who-slide block w-auto max-w-full h-auto max-h-[520px] object-cover rounded-2xl transition-opacity duration-700 opacity-100 crisp-img">
+                        <img src="https://raw.githubusercontent.com/ccpactechnical-cloud/ccpac-official/main/w2.jpeg" alt="Who We Are Slide 2" class="who-slide absolute inset-0 w-full h-full object-cover rounded-2xl transition-opacity duration-700 opacity-0 crisp-img">
+                    </div>
+                    <!-- Navigation Controls -->
+                    <button onclick="prevWhoSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-950/80 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 w-9 h-9 rounded-full flex items-center justify-center transition shadow-lg border border-slate-700 z-10 backdrop-blur-md cursor-pointer">
+                        <i class="fa-solid fa-chevron-left text-sm"></i>
+                    </button>
+                    <button onclick="nextWhoSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-950/80 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 w-9 h-9 rounded-full flex items-center justify-center transition shadow-lg border border-slate-700 z-10 backdrop-blur-md cursor-pointer">
+                        <i class="fa-solid fa-chevron-right text-sm"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Side: Content -->
+            <div class="lg:col-span-6 space-y-6">
+                <div class="space-y-2">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold uppercase tracking-widest">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>Welcome to CCPAC</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 glow-text">
+                        Who We Are?
+                    </h1>
+                </div>
+                
+                <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed text-left">
+                    <p>
+                        Rooted in a timeless curiosity to understand nature and the cosmos, the <strong class="text-cyan-300">Chittagong College Physics & Astronomy Club</strong> was established on 13 February 2025. Following its inception, the club formally commenced its administrative journey on November 22, 2025, marked by the establishment of the Executive Committee 2025–26 as its inaugural leadership body. CCPAC aspires to cultivate a vibrant academic community dedicated to physics and astronomy, fostering scientific literacy and inquiry through the exploration of fundamental natural laws and cosmic mysteries.
+                    </p>
+                    <p>
+                        Serving as a premier platform for intellectual enrichment beyond the traditional curriculum, CCPAC organizes regular academic seminars, specialized camps, and interactive events led by distinguished alumni and senior scholars currently pursuing higher education at esteemed institutions.
+                    </p>
+                    <p>
+                        To further extend scientific dialogue and expression, CCPAC highlights its own podcast <strong class="text-cyan-300">EigenTalks</strong>, a <strong class="text-cyan-300">Weekly Physics Challenge</strong>, and an engaging <strong class="text-cyan-300">Article Writing</strong> segment, while maintaining a proud tradition of academic excellence through our comprehensive <strong class="text-cyan-300">The Achievers' Blueprint</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Official Club Stats -->
+    <section class="max-w-7xl mx-auto px-6 py-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glow-box p-6 rounded-2xl text-center">
+                <h3 class="text-3xl font-black text-cyan-400 glow-text">1 Year+</h3>
+                <p class="text-sm text-slate-300 mt-1 font-medium">Journey</p>
+            </div>
+            <div class="glow-box p-6 rounded-2xl text-center">
+                <h3 class="text-3xl font-black text-cyan-400 glow-text">20+</h3>
+                <p class="text-sm text-slate-300 mt-1 font-medium">Sessions</p>
+            </div>
+            <div class="glow-box p-6 rounded-2xl text-center">
+                <h3 class="text-3xl font-black text-cyan-400 glow-text">1k+</h3>
+                <p class="text-sm text-slate-300 mt-1 font-medium">Members & Alumni</p>
+            </div>
+            <div class="glow-box p-6 rounded-2xl text-center lg:col-span-1 sm:col-span-1">
+                <h3 class="text-3xl font-black text-cyan-400 glow-text">1</h3>
+                <p class="text-sm text-slate-300 mt-1 font-medium">Flagship Event</p>
+            </div>
+            <div class="glow-box p-6 rounded-2xl text-center lg:col-span-2 sm:col-span-2">
+                <h3 class="text-3xl font-black text-cyan-400 glow-text">10+</h3>
+                <p class="text-sm text-slate-300 mt-1 font-medium">Contests & Challenges</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: CCPAC Family & Clean Gallery -->
+    <section class="max-w-7xl mx-auto px-6 py-6 space-y-12">
+        <div class="glass-card p-8 lg:p-14 rounded-3xl border border-slate-800/80 shadow-2xl space-y-10 relative overflow-hidden">
+            <div class="absolute -left-20 -bottom-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <!-- Family Text Block -->
+            <div class="max-w-4xl mx-auto space-y-6">
+                <h2 class="text-3xl font-black text-cyan-400 tracking-tight text-center glow-text">The CCPAC Family</h2>
+                <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed text-left bg-slate-950/60 p-6 sm:p-8 rounded-2xl border border-slate-800/80 shadow-inner">
+                    <p>
+                        The Chittagong College Physics & Astronomy Club is more than an academic organization; it is a family united by a shared passion for physics and astronomy.
+                    </p>
+                    <p>
+                        This family is formed by the Executive Committee, batchmates, juniors, seniors, alumni, and instructors. Batchmates grow together through collaboration and shared learning. Juniors are nurtured with guidance, while seniors lead with responsibility and experience.
+                    </p>
+                    <p>
+                        The CCPAC family is built on mutual respect, cooperation, and a common purpose: to explore the universe and understand the laws of nature together. Here, every member has a role, and every question is welcomed.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 border-t border-slate-800">
+                <div class="bg-slate-950 p-2.5 rounded-2xl border border-slate-800 shadow-xl overflow-hidden group">
+                    <img src="https://raw.githubusercontent.com/ccpactechnical-cloud/ccpac-official/main/p1.jpeg" alt="CCPAC Family Moment 1" class="w-full h-72 sm:h-80 md:h-96 object-cover rounded-xl group-hover:scale-105 transition duration-500 crisp-img">
+                </div>
+                <div class="bg-slate-950 p-2.5 rounded-2xl border border-slate-800 shadow-xl overflow-hidden group">
+                    <img src="https://raw.githubusercontent.com/ccpactechnical-cloud/ccpac-official/main/p2.jpeg" alt="CCPAC Family Moment 2" class="w-full h-72 sm:h-80 md:h-96 object-cover rounded-xl group-hover:scale-105 transition duration-500 crisp-img">
+                </div>
+                <div class="bg-slate-950 p-2.5 rounded-2xl border border-slate-800 shadow-xl overflow-hidden group">
+                    <img src="https://raw.githubusercontent.com/ccpactechnical-cloud/ccpac-official/main/p3.jpeg" alt="CCPAC Family Moment 3" class="w-full h-72 sm:h-80 md:h-96 object-cover rounded-xl group-hover:scale-105 transition duration-500 crisp-img">
+                </div>
+                <div class="bg-slate-950 p-2.5 rounded-2xl border border-slate-800 shadow-xl overflow-hidden group">
+                    <img src="https://raw.githubusercontent.com/ccpactechnical-cloud/ccpac-official/main/p4.jpeg" alt="CCPAC Family Moment 4" class="w-full h-72 sm:h-80 md:h-96 object-cover rounded-xl group-hover:scale-105 transition duration-500 crisp-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script is:inline>
+        let currentWhoIndex = 0;
+        const whoSlides = document.getElementsByClassName("who-slide");
+
+        function showWhoSlide(index) {
+            if (!whoSlides || whoSlides.length === 0) return;
+            if (index >= whoSlides.length) currentWhoIndex = 0;
+            if (index < 0) currentWhoIndex = whoSlides.length - 1;
+
+            for (let i = 0; i < whoSlides.length; i++) {
+                whoSlides[i].style.opacity = "0";
+            }
+            whoSlides[currentWhoIndex].style.opacity = "1";
+        }
+
+        function nextWhoSlide() {
+            currentWhoIndex++;
+            showWhoSlide(currentWhoIndex);
+        }
+
+        function prevWhoSlide() {
+            currentWhoIndex--;
+            showWhoSlide(currentWhoIndex);
+        }
+
+        setInterval(() => {
+            if (whoSlides && whoSlides.length > 0) {
+                nextWhoSlide();
+            }
+        }, 4000);
+    </script>
+</BaseLayout>

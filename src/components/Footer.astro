@@ -1,0 +1,68 @@
+---
+---
+<footer id="contact" class="bg-spaceCard border-t border-slate-800/80 mt-16 pt-12 pb-10 text-slate-400">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div class="space-y-3">
+            <h4 class="text-white font-bold text-xs tracking-wider font-poppins uppercase">About</h4>
+            <ul class="space-y-2 text-xs">
+                <li><a href="/" class="hover:text-cyan-400 transition">Home</a></li>
+                <li><a href="/about" class="hover:text-cyan-400 transition">About Us</a></li>
+                <li><a href="/#membership" class="hover:text-cyan-400 transition">Membership</a></li>
+                <li><a href="/team" class="hover:text-cyan-400 transition">Executives</a></li>
+            </ul>
+        </div>
+        <div class="space-y-3">
+            <h4 class="text-white font-bold text-xs tracking-wider font-poppins uppercase">Events</h4>
+            <ul class="space-y-2 text-xs">
+                <li><a href="/events" class="hover:text-cyan-400 transition">Flagship Events</a></li>
+                <li><a href="/podcast" class="hover:text-cyan-400 transition">EigenTalks Podcast</a></li>
+                <li><a href="/#updates" class="hover:text-cyan-400 transition">Updates</a></li>
+            </ul>
+        </div>
+        <div class="space-y-3">
+            <h4 class="text-white font-bold text-xs tracking-wider font-poppins uppercase">Resources</h4>
+            <ul class="space-y-2 text-xs">
+                <li><a href="/article" class="hover:text-cyan-400 transition">Articles</a></li>
+                <li><a href="/challenge" class="hover:text-cyan-400 transition">Weekly Challenge</a></li>
+            </ul>
+        </div>
+        <div class="space-y-3">
+            <h4 class="text-white font-bold text-xs tracking-wider font-poppins uppercase">Quick Links</h4>
+            <ul class="space-y-2 text-xs">
+                <li><a href="https://www.bdpho.org/" target="_blank" class="hover:text-cyan-400 transition">BDPhO</a></li>
+                <li><a href="https://www.facebook.com/bdaa.olympiad/" target="_blank" class="hover:text-cyan-400 transition">BDOAA</a></li>
+                <li><a href="https://home.cern/" target="_blank" class="hover:text-cyan-400 transition">CERN</a></li>
+                <li><a href="https://ipho-unofficial.org/" target="_blank" class="hover:text-cyan-400 transition">IPhO</a></li>
+                <li><a href="https://ioaastrophysics.org/" target="_blank" class="hover:text-cyan-400 transition">IOAA</a></li>
+            </ul>
+        </div>
+        <div class="space-y-3 lg:col-span-1 sm:col-span-2">
+            <h4 class="text-white font-bold text-xs tracking-wider font-poppins uppercase">Contact & Subscribe</h4>
+            <p class="text-xs text-slate-400">Chittagong College, College Road, Chattogram.</p>
+            <p class="text-xs text-slate-400">Email: <a href="mailto:ccpacofficial@gmail.com" class="text-cyan-400 hover:underline">ccpacofficial@gmail.com</a></p>
+            <form id="subscribe-form" class="space-y-2 pt-1">
+                <input type="email" placeholder="Your email" required class="w-full px-3 py-1.5 bg-slate-900 border border-slate-700 rounded-lg text-xs text-slate-200 focus:outline-none focus:border-cyan-400">
+                <button type="submit" class="w-full py-1.5 bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold rounded-lg text-xs transition shadow-md">SUBSCRIBE</button>
+            </form>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-xs space-y-4 md:space-y-0">
+        <p>Copyright © 2026 by Chittagong College Physics & Astronomy Club. All rights reserved.</p>
+        <div class="flex space-x-5 text-slate-300 text-base">
+            <a href="https://www.facebook.com/ccpacofficial" target="_blank" class="hover:text-cyan-400 transition" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/ccpac.official" target="_blank" class="hover:text-cyan-400 transition" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@ccpacofficial" target="_blank" class="hover:text-cyan-400 transition" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/company/ccpacofficial" target="_blank" class="hover:text-cyan-400 transition" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const subForm = document.getElementById('subscribe-form');
+    if (subForm) {
+        subForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Subscribed successfully!');
+        });
+    }
+</script>

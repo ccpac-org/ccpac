@@ -1,0 +1,192 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Activities - CCPAC | Chittagong College Physics & Astronomy Club" activePage="explore">
+
+
+    <!-- Glowing Background Effect -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[600px] bg-cyan-500/10 blur-[200px] rounded-full pointer-events-none"></div>
+
+    <!-- Navigation Bar -->
+    
+
+    <!-- Activities Hero Section -->
+    <section class="max-w-5xl mx-auto px-6 pt-20 pb-14 text-center space-y-6">
+        <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold uppercase tracking-widest font-poppins">
+            <i class="fa-solid fa-bolt"></i>
+            <span>What We Do</span>
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 font-poppins">
+            Our Activities
+        </h1>
+        
+        <div class="glass-card p-6 sm:p-10 rounded-3xl border border-slate-800/80 shadow-2xl text-slate-300 text-sm sm:text-base leading-relaxed text-left space-y-4 font-sans">
+            <p>
+                At the Chittagong College Physics & Astronomy Club, we engage our members through a diverse range of activities designed to nurture curiosity, scientific thinking, and problem-solving skills. We organize regular academic sessions on physics and astronomy, conducted by seniors, alumni, and invited instructors, covering topics from foundational concepts to advanced research, while also providing valuable insights into higher studies and real-world applications.
+            </p>
+            <p>
+                To further strengthen analytical abilities and critical thinking, CCPAC conducts a <strong class="text-cyan-300">Weekly Physics Challenge</strong>, where members engage with carefully curated problems that encourage logical reasoning and consistent interaction with physical concepts.
+            </p>
+            <p>
+                In addition, the club actively promotes scientific communication through article writing initiatives, enabling members to articulate ideas, reflect on sessions, and present complex concepts in a clear and engaging manner.
+            </p>
+            <p>
+                Expanding beyond traditional formats, CCPAC has also introduced its own podcast, <strong class="text-cyan-300">EigenTalks</strong>, which serves as a platform for meaningful conversations, where academic insights, personal journeys, and diverse perspectives come together.
+            </p>
+            <p>
+                Through the <strong class="text-cyan-300">The Achievers' Blueprint</strong> initiative, we feature an exclusive publication and interview series highlighting the specific strategies, preparation methods, and roadmaps of our talented students and alumni who excel on national and international Olympiad stages.
+            </p>
+            <p>
+                Through this blend of academic and creative initiatives, members not only deepen their understanding of science but also develop collaboration, creativity, and a lasting passion for exploration—making CCPAC a vibrant and intellectually stimulating community.
+            </p>
+        </div>
+    </section>
+
+    <!-- Interactive Activity Cards Grid -->
+    <section class="max-w-6xl mx-auto px-6 py-10 space-y-12">
+        <div class="text-center space-y-2">
+            <h2 class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 font-poppins">
+                Explore Core Segments
+            </h2>
+            <p class="text-slate-400 text-sm font-sans">Click on any section below to explore detailed insights</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <a href="/sessions" class="glass-card p-8 rounded-3xl border border-slate-800 text-center space-y-4 glow-box flex flex-col justify-between block group">
+                <div>
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl shadow-inner group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition font-poppins">SESSIONS</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed font-sans">Regular academic lectures, guest speaker programs, and interactive physics discussions.</p>
+                </div>
+                <span class="inline-block text-cyan-400 font-semibold text-xs uppercase tracking-wider pt-2 font-poppins">Explore <i class="fa-solid fa-arrow-right ml-1"></i></span>
+            </a>
+
+            <a href="/challenge" class="glass-card p-8 rounded-3xl border border-slate-800 text-center space-y-4 glow-box flex flex-col justify-between block group">
+                <div>
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl shadow-inner group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-atom"></i>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition font-poppins">WEEKLY PHYSICS CHALLENGE</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed font-sans">Curated problem-solving challenges designed to sharpen critical and analytical thinking.</p>
+                </div>
+                <span class="inline-block text-cyan-400 font-semibold text-xs uppercase tracking-wider pt-2 font-poppins">Explore <i class="fa-solid fa-arrow-right ml-1"></i></span>
+            </a>
+
+            <a href="/article" class="glass-card p-8 rounded-3xl border border-slate-800 text-center space-y-4 glow-box flex flex-col justify-between block group">
+                <div>
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl shadow-inner group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition font-poppins">ARTICLE</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed font-sans">Scientific writing initiatives empowering members to express complex ideas clearly.</p>
+                </div>
+                <span class="inline-block text-cyan-400 font-semibold text-xs uppercase tracking-wider pt-2 font-poppins">Explore <i class="fa-solid fa-arrow-right ml-1"></i></span>
+            </a>
+
+            <a href="/podcast" class="glass-card p-8 rounded-3xl border border-slate-800 text-center space-y-4 glow-box flex flex-col justify-between block group">
+                <div>
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl shadow-inner group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-podcast"></i>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition font-poppins">PODCAST</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed font-sans">EigenTalks podcast featuring engaging discussions on science, astronomy, and journeys.</p>
+                </div>
+                <span class="inline-block text-cyan-400 font-semibold text-xs uppercase tracking-wider pt-2 font-poppins">Explore <i class="fa-solid fa-arrow-right ml-1"></i></span>
+            </a>
+
+            <a href="/achievers" class="glass-card p-8 rounded-3xl border border-slate-800 text-center space-y-4 glow-box flex flex-col justify-between block group sm:col-span-2 lg:col-span-2">
+                <div>
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl shadow-inner group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition font-poppins">THE ACHIEVERS' BLUEPRINT</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed font-sans max-w-md mx-auto">Exclusive publication and interview series featuring preparation strategies, success roadmaps, and insights of our Olympiad achievers.</p>
+                </div>
+                <span class="inline-block text-cyan-400 font-semibold text-xs uppercase tracking-wider pt-2 font-poppins">Explore <i class="fa-solid fa-arrow-right ml-1"></i></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Professional Popup Membership Registration Modal -->
+    
+    </div>
+
+    <!-- Professional Footer -->
+    
+
+    <!-- JavaScript for Membership Form -->
+    <script is:inline>
+        // Toggle Membership Form Visibility
+        function toggleMembershipForm() {
+            const formModal = document.getElementById('membership-registration');
+            const isHidden = formModal.classList.contains('hidden');
+            
+            if (isHidden) {
+                formModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                formModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Form Handler Script with Google Sheets Integration
+        document.getElementById('ccpacMembershipForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('mName').value,
+                email: document.getElementById('mEmail').value,
+                hscYear: document.getElementById('mHscYear').value,
+                section: document.getElementById('mSection').value,
+                roll: document.getElementById('mRoll').value,
+                phone: document.getElementById('mPhone').value,
+                whatsapp: document.getElementById('mWhatsapp').value,
+                skills: Array.from(document.querySelectorAll('input[name="skills"]:checked')).map(cb => cb.value).join(', '),
+                skillDetails: document.getElementById('mSkillDetails').value,
+                olympiad: document.getElementById('mOlympiad').value,
+                pastClub: document.getElementById('mPastClub').value,
+                whyJoin: document.getElementById('mWhyJoin').value
+            };
+
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> <span>Submitting...</span>`;
+            submitBtn.disabled = true;
+
+            try {
+                const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbxNKEqhdDrRqTE0rjpdgsH8THqHvwjzBEQGBcmQMnV1LiZIqac_MIBE7Vpob9kKrcw/exec';
+
+                await fetch(BACKEND_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                document.getElementById('ccpacMembershipForm').style.display = 'none';
+                document.getElementById('mSuccessBox').classList.remove('hidden');
+
+            } catch (error) {
+                console.error('Submission error:', error);
+                alert('Something went wrong. Please try again later.');
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+
+</BaseLayout>
