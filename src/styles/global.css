@@ -8,7 +8,11 @@
     image-rendering: crisp-edges;
   }
   .glass-card {
-    background: linear-gradient(135deg, rgba(11, 19, 41, 0.9) 0%, rgba(3, 7, 18, 0.95) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(11, 19, 41, 0.9) 0%,
+      rgba(3, 7, 18, 0.95) 100%
+    );
     backdrop-filter: blur(15px);
   }
   .hover-glow:hover {
@@ -22,14 +26,22 @@
     border: 1px solid rgba(6, 182, 212, 0.4);
   }
   .glow-box {
-    background: linear-gradient(135deg, rgba(11, 19, 41, 0.9) 0%, rgba(3, 7, 18, 0.95) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(11, 19, 41, 0.9) 0%,
+      rgba(3, 7, 18, 0.95) 100%
+    );
     border: 1px solid rgba(6, 182, 212, 0.3);
-    box-shadow: 0 0 25px rgba(6, 182, 212, 0.15), inset 0 0 15px rgba(6, 182, 212, 0.05);
+    box-shadow:
+      0 0 25px rgba(6, 182, 212, 0.15),
+      inset 0 0 15px rgba(6, 182, 212, 0.05);
     transition: all 0.4s ease;
   }
   .glow-box:hover {
     border-color: rgba(6, 182, 212, 0.8);
-    box-shadow: 0 0 35px rgba(6, 182, 212, 0.35), inset 0 0 20px rgba(6, 182, 212, 0.15);
+    box-shadow:
+      0 0 35px rgba(6, 182, 212, 0.35),
+      inset 0 0 20px rgba(6, 182, 212, 0.15);
     transform: translateY(-3px);
   }
   .glow-text {
