@@ -116,6 +116,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
         </div>
     </section>
+    <section class="max-w-5xl mx-auto px-6 py-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <a href="founder" class="glass-card glow-box p-6 sm:p-8 rounded-2xl transition duration-300 shadow-2xl group flex items-center justify-between relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-100 group-hover:text-cyan-400 transition">CCPAC Founders</h3>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Meet the visionary minds behind the club</p>
+                    </div>
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <a href="/team" class="glass-card glow-box p-6 sm:p-8 rounded-2xl transition duration-300 shadow-2xl group flex items-center justify-between relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-100 group-hover:text-cyan-400 transition">CCPAC Team</h3>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Explore our dynamic executive committee</p>
+                    </div>
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+    </section>
 
     <script is:inline>
         let currentWhoIndex = 0;
