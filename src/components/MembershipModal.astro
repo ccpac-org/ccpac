@@ -1,4 +1,5 @@
 ---
+const IS_REGISTRATION_CLOSED = true;
 ---
 <div id="membership-registration" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
     <div class="glass-card max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-3xl border border-slate-800 shadow-2xl p-6 md:p-8 relative space-y-6">
@@ -14,6 +15,22 @@
             </p>
         </div>
 
+        {IS_REGISTRATION_CLOSED ? (
+            <div class="text-center p-8 bg-amber-500/10 border border-amber-500/30 rounded-2xl space-y-4 relative z-10">
+                <div class="w-14 h-14 bg-amber-500 text-slate-950 rounded-full flex items-center justify-center mx-auto text-2xl font-bold shadow-lg shadow-amber-500/40">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">Registration Currently Closed</h3>
+                <p class="text-slate-300 text-sm max-w-md mx-auto">
+                    We are not accepting new general member applications at this moment. Please stay tuned for our next recruitment phase or announcements!
+                </p>
+                <div class="pt-2">
+                    <button onclick="toggleMembershipForm()" class="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl text-xs font-semibold transition border border-slate-700 cursor-pointer">
+                        Close Window
+                    </button>
+                </div>
+            </div>
+        ) : (
         <form id="ccpacMembershipForm" class="space-y-6 relative z-10">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div class="space-y-2">
@@ -115,6 +132,7 @@
                 </button>
             </div>
         </form>
+        )}
 
         <div id="mSuccessBox" class="hidden text-center p-8 bg-cyan-500/10 border border-cyan-500/30 rounded-2xl space-y-3 relative z-10">
             <div class="w-14 h-14 bg-cyan-500 text-slate-950 rounded-full flex items-center justify-center mx-auto text-2xl font-bold shadow-lg shadow-cyan-500/40">
