@@ -2,96 +2,169 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="CCPAC Semi-final Special" activePage="explore">
+<BaseLayout title="World Cup 2026 Semifinal Special - CCPAC" activePage="explore">
 
+    <!-- Glowing Background Effect -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[600px] bg-cyan-500/10 blur-[200px] rounded-full pointer-events-none"></div>
 
-<div class="poster">
-    <!-- Header (Logo: 3.jpg) -->
-    <div class="header">
-        <img class="club-logo" src="https://i.postimg.cc/V0Ytxhjx/3.jpg" alt="CCPAC Logo">
-        <div class="club-name">Chittagong College Physics & Astronomy Club</div>
-        <div class="subtitle">CCPAC Presents</div>
-        <div class="badge-container">
-            <span class="badge-text">🏆 World Cup 2026 Semi-final Special 🏆</span>
-        </div>
-    </div>
-
-    <!-- Match Title -->
-    <div class="match-title">
-        FIFA World Cup 2026 Semifinal <br>
-        <span class="match-vs">আর্জেন্টিনা বনাম ইংল্যান্ড</span>
-    </div>
-
-    <!-- Match Background -->
-    <div class="section-box">
-        <div class="section-title">⚽ ম্যাচ ব্যাকগ্রাউন্ড</div>
-        <p>
-            ২০২৬ সালের ফিফা বিশ্বকাপের দ্বিতীয় সেমিফাইনালে মুখোমুখি হয়েছে দুই চিরপ্রতিদ্বন্দ্বী আর্জেন্টিনা ও ইংল্যান্ড। ম্যাচের বয়স তখন ৮৫ মিনিট। গ্যালারিজুড়ে রুদ্ধশ্বাস উত্তেজনা, স্কোরলাইন ১-১ গোলে ড্র। ঠিক এই মুহূর্তে ইংল্যান্ডের ডি-বক্সের ঠিক বাইরে একটি ফ্রি-কিক পেল আর্জেন্টিনা। বলটি গোলপোস্ট থেকে ঠিক <strong>r = 25 m</strong> দূরে মাটিতে স্থির অবস্থায় আছে।
-        </p>
-        <p style="margin-top: 10px; color: #a5b4fc; font-weight: 600;">
-            নিচে মাঠের পরপর ঘটে যাওয়া তিনটি ঘটনার ক্রমানুসার দেওয়া হলো। ফিজিক্সের গতিবিদ্যা ও ভেক্টরের সূত্র ব্যবহার করে ঘটনাগুলোর গাণিতিক সত্যতা যাচাই করো:
-        </p>
-    </div>
-
-    <!-- Chronology / Timeline -->
-    <div class="timeline">
-        <!-- Event 1 -->
-        <div class="event-card">
-            <div class="event-title">ঘটনা ১: মেসির সেই "ম্যাজিকাল ফ্রি-কিক"</div>
-            <p>শট নেওয়ার জন্য পজিশন নিলেন লিওনেল মেসি। তিনি বলটিকে এমনভাবে কিক করলেন যেন তা প্রাসের গতিপথ (Projectile Motion) বজায় রেখে ঠিক <strong>1.5 s</strong> পর ইংল্যান্ডের গোলপোস্টে পৌঁছায়। বলটি যখন বাতাসে তার গতিপথের সর্বোচ্চ বিন্দুতে উঠেছিল, ঠিক তখন বলটির উলম্ব বেগ (v<sub>y</sub>) শূন্য হয়ে যায়।</p>
+    <!-- Main Container -->
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 space-y-8 relative z-10">
+        
+        <!-- Back Navigation -->
+        <div>
+            <a href="/challenge" class="inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition font-sans group">
+                <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+                <span>Back to Challenges</span>
+            </a>
         </div>
 
-        <!-- Event 2 -->
-        <div class="event-card">
-            <div class="event-title">ঘটনা ২: বেলিংহামের আকাশছোঁয়া ডিফেন্স লাইন</div>
-            <p>মেসির কিক করা বলটি যখন বাতাসে ভাসছে, তখন বলের গতিপথের ঠিক মাঝখানে (গোলপোস্ট থেকে <strong>12.5 m</strong> সামনে) মানবপ্রাচীরে দাঁড়িয়ে থাকা জুড বেলিংহাম বলটি ক্লিয়ার করার জন্য লাফিয়ে উঠলেন। বেলিংহামের উচ্চতা এবং লাফানোর ক্ষমতা মিলিয়ে তিনি সর্বোচ্চ <strong>2.9 m</strong> উচ্চতা পর্যন্ত বলের নাগাল পেতে পারেন।</p>
-        </div>
+        <!-- Poster Header Card -->
+        <header class="glass-card p-6 sm:p-10 rounded-3xl border border-cyan-500/30 shadow-2xl text-center space-y-6 relative overflow-hidden glow-box">
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <!-- Logo & Club Info -->
+            <div class="flex flex-col items-center justify-center space-y-3">
+                <img class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl shadow-xl object-cover crisp-img" src="/images/logo.png" alt="CCPAC Logo">
+                <h2 class="text-sm sm:text-base font-bold text-cyan-400 tracking-wider uppercase font-poppins">Chittagong College Physics & Astronomy Club</h2>
+                <span class="text-xs text-slate-400 uppercase tracking-widest font-sans font-medium">CCPAC Presents</span>
+                <div class="inline-block px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs sm:text-sm font-bold shadow-sm font-poppins">
+                    🏆 World Cup 2026 Semi-final Special 🏆
+                </div>
+            </div>
 
-        <!-- Event 3 -->
-        <div class="event-card">
-            <div class="event-title">ঘটনা ৩: রিবাউন্ড ও কেইন-আলভারেজের রুদ্ধশ্বাস দৌড়</div>
-            <p>বলটি ডিফেন্সের ওপর দিয়ে গিয়ে ইংল্যান্ডের গোলপোস্টের ক্রসবারে লেগে রিবাউন্ড হয়ে (ফিরে এসে) মাঠের ডান প্রান্তে পড়ে। সেখানে ওত পেতে থাকা আর্জেন্টিনার উইঙ্গার হুলিয়ান আলভারেজ <strong>10 ms<sup>-1</sup></strong> বেগে বলটি নিয়ে গোলপোস্টের সমান্তরালে সাইডলাইন ধরে দৌড়াতে শুরু করেন। ঠিক তখনই আলভারেজ থেকে <strong>12 m</strong> দূরে থাকা ইংল্যান্ডের অধিনায়ক হ্যারি কেইন আলভারেজের দৌড়ের দিকের সাথে <strong>120°</strong> কোণে <strong>8 ms<sup>-1</sup></strong> বেগে তাঁকে ট্যাকল করতে ছুটে আসেন।</p>
-        </div>
+            <!-- Match Title -->
+            <div class="space-y-2 pt-2 border-t border-slate-800/80">
+                <h1 class="text-2xl sm:text-4xl font-black text-white font-poppins tracking-tight">
+                    FIFA World Cup 2026 Semifinal
+                </h1>
+                <div class="text-2xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 font-poppins">
+                    আর্জেন্টিনা বনাম ইংল্যান্ড
+                </div>
+            </div>
+        </header>
+
+        <!-- Match Background Section -->
+        <section class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-xl space-y-4">
+            <div class="inline-flex items-center space-x-2 text-cyan-400 text-lg sm:text-xl font-bold font-poppins">
+                <span>⚽</span>
+                <h3>ম্যাচ ব্যাকগ্রাউন্ড</h3>
+            </div>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-sans">
+                ২০২৬ সালের ফিফা বিশ্বকাপের দ্বিতীয় সেমিফাইনালে মুখোমুখি হয়েছে দুই চিরপ্রতিদ্বন্দ্বী আর্জেন্টিনা ও ইংল্যান্ড। ম্যাচের বয়স তখন ৮৫ মিনিট। গ্যালারিজুড়ে রুদ্ধশ্বাস উত্তেজনা, স্কোরলাইন ১-১ গোলে ড্র। ঠিক এই মুহূর্তে ইংল্যান্ডের ডি-বক্সের ঠিক বাইরে একটি ফ্রি-কিক পেল আর্জেন্টিনা। বলটি গোলপোস্ট থেকে ঠিক <strong class="text-cyan-300">r = 25 m</strong> দূরে মাটিতে স্থির অবস্থায় আছে।
+            </p>
+            <p class="text-cyan-300/90 text-sm font-medium leading-relaxed font-sans pt-1">
+                নিচে মাঠের পরপর ঘটে যাওয়া তিনটি ঘটনার ক্রমানুসার দেওয়া হলো। ফিজিক্সের গতিবিদ্যা ও ভেক্টরের সূত্র ব্যবহার করে ঘটনাগুলোর গাণিতিক সত্যতা যাচাই করো:
+            </p>
+        </section>
+
+        <!-- Timeline of Events -->
+        <section class="space-y-4">
+            <h3 class="text-xl font-bold text-white font-poppins flex items-center space-x-2">
+                <i class="fa-solid fa-timeline text-cyan-400 text-base"></i>
+                <span>ঘটনাপ্রবাহ (Events Timeline)</span>
+            </h3>
+
+            <div class="grid grid-cols-1 gap-4 sm:gap-6">
+                <!-- Event 1 -->
+                <div class="glass-card p-6 sm:p-7 rounded-2xl border border-slate-800/80 hover:border-cyan-500/40 transition duration-300 space-y-2">
+                    <div class="flex items-center space-x-3">
+                        <span class="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold font-poppins uppercase">
+                            ঘটনা ১
+                        </span>
+                        <h4 class="text-base sm:text-lg font-bold text-white font-poppins">মেসির সেই "ম্যাজিকাল ফ্রি-কিক"</h4>
+                    </div>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-sans pt-1">
+                        শট নেওয়ার জন্য পজিশন নিলেন লিওনেল মেসি। তিনি বলটিকে এমনভাবে কিক করলেন যেন তা প্রাসের গতিপথ (Projectile Motion) বজায় রেখে ঠিক <strong class="text-cyan-300">1.5 s</strong> পর ইংল্যান্ডের গোলপোস্টে পৌঁছায়। বলটি যখন বাতাসে তার গতিপথের সর্বোচ্চ বিন্দুতে উঠেছিল, ঠিক তখন বলটির উলম্ব বেগ (v<sub>y</sub>) শূন্য হয়ে যায়।
+                    </p>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="glass-card p-6 sm:p-7 rounded-2xl border border-slate-800/80 hover:border-cyan-500/40 transition duration-300 space-y-2">
+                    <div class="flex items-center space-x-3">
+                        <span class="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold font-poppins uppercase">
+                            ঘটনা ২
+                        </span>
+                        <h4 class="text-base sm:text-lg font-bold text-white font-poppins">বেলিংহামের আকাশছোঁয়া ডিফেন্স লাইন</h4>
+                    </div>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-sans pt-1">
+                        মেসির কিক করা বলটি যখন বাতাসে ভাসছে, তখন বলের গতিপথের ঠিক মাঝখানে (গোলপোস্ট থেকে <strong class="text-cyan-300">12.5 m</strong> সামনে) মানবপ্রাচীরে দাঁড়িয়ে থাকা জুড বেলিংহাম বলটি ক্লিয়ার করার জন্য লাফিয়ে উঠলেন। বেলিংহামের উচ্চতা এবং লাফানোর ক্ষমতা মিলিয়ে তিনি সর্বোচ্চ <strong class="text-cyan-300">2.9 m</strong> উচ্চতা পর্যন্ত বলের নাগাল পেতে পারেন।
+                    </p>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="glass-card p-6 sm:p-7 rounded-2xl border border-slate-800/80 hover:border-cyan-500/40 transition duration-300 space-y-2">
+                    <div class="flex items-center space-x-3">
+                        <span class="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold font-poppins uppercase">
+                            ঘটনা ৩
+                        </span>
+                        <h4 class="text-base sm:text-lg font-bold text-white font-poppins">রিবাউন্ড ও কেইন-আলভারেজের রুদ্ধশ্বাস দৌড়</h4>
+                    </div>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-sans pt-1">
+                        বলটি ডিফেন্সের ওপর দিয়ে গিয়ে ইংল্যান্ডের গোলপোস্টের ক্রসবারে লেগে রিবাউন্ড হয়ে (ফিরে এসে) মাঠের ডান প্রান্তে পড়ে। সেখানে ওত পেতে থাকা আর্জেন্টিনার উইঙ্গার হুলিয়ান আলভারেজ <strong class="text-cyan-300">10 ms<sup>-1</sup></strong> বেগে বলটি নিয়ে গোলপোস্টের সমান্তরালে সাইডলাইন ধরে দৌড়াতে শুরু করেন। ঠিক তখনই আলভারেজ থেকে <strong class="text-cyan-300">12 m</strong> দূরে থাকা ইংল্যান্ডের অধিনায়ক হ্যারি কেইন আলভারেজের দৌড়ের দিকের সাথে <strong class="text-cyan-300">120°</strong> কোণে <strong class="text-cyan-300">8 ms<sup>-1</sup></strong> বেগে তাঁকে ট্যাকল করতে ছুটে আসেন।
+                    </p>
+                </div>
+            </div>
+
+            <p class="text-center text-xs sm:text-sm text-cyan-300/80 font-mono pt-2">
+                *(ধরে নাও, অভিকর্ষজ ত্বরণ <strong class="text-cyan-300">g = 10 ms<sup>-2</sup></strong> এবং বাতাসের বাধা উপেক্ষণীয়)*
+            </p>
+        </section>
+
+        <!-- Match Action Images -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="glass-card p-3 rounded-2xl border border-slate-800/80 overflow-hidden shadow-lg group">
+                <img class="w-full h-64 sm:h-72 object-cover rounded-xl group-hover:scale-105 transition duration-500 crisp-img" src="https://i.postimg.cc/sGVWkLpm/1.jpg" alt="Match Action 1">
+            </div>
+            <div class="glass-card p-3 rounded-2xl border border-slate-800/80 overflow-hidden shadow-lg group">
+                <img class="w-full h-64 sm:h-72 object-cover rounded-xl group-hover:scale-105 transition duration-500 crisp-img" src="https://i.postimg.cc/7JxzFRgd/2.jpg" alt="Match Action 2">
+            </div>
+        </section>
+
+        <!-- Questions / Challenges Section -->
+        <section class="glass-card p-6 sm:p-10 rounded-3xl border border-cyan-500/30 shadow-2xl space-y-6">
+            <div class="flex items-center space-x-3 pb-2 border-b border-slate-800">
+                <span class="text-2xl text-cyan-400">❓</span>
+                <h3 class="text-2xl font-black text-white font-poppins">চ্যালেঞ্জসমূহ</h3>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Q1 -->
+                <div class="bg-slate-950/60 p-5 sm:p-6 rounded-2xl border border-slate-800 space-y-2">
+                    <div class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold font-poppins">
+                        প্রশ্ন (ক)
+                    </div>
+                    <p class="text-slate-200 text-sm sm:text-base leading-relaxed font-sans">
+                        মেসি যখন বলটিতে কিক করেছিলেন, তখন বলটির আদি বেগ (v<sub>0</sub>) কত ছিল এবং অনুভূমিকের সাথে কত কোণে (&theta;<sub>0</sub>) কিক করতে হয়েছিল?
+                    </p>
+                </div>
+
+                <!-- Q2 -->
+                <div class="bg-slate-950/60 p-5 sm:p-6 rounded-2xl border border-slate-800 space-y-2">
+                    <div class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold font-poppins">
+                        প্রশ্ন (খ)
+                    </div>
+                    <p class="text-slate-200 text-sm sm:text-base leading-relaxed font-sans">
+                        ফিজিক্সের হিসেব অনুযায়ী, বলটি যখন বেলিংহামের মাথার ওপর দিয়ে যাচ্ছিল (ঠিক মাঝপথে), তখন কি বেলিংহামের লাফিয়ে উঠে বলটি ডিফ্লেক্ট বা ব্লক করার কোনো সুযোগ ছিল? গাণিতিকভাবে বিশ্লেষণ করো।
+                    </p>
+                </div>
+
+                <!-- Q3 -->
+                <div class="bg-slate-950/60 p-5 sm:p-6 rounded-2xl border border-slate-800 space-y-2">
+                    <div class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold font-poppins">
+                        প্রশ্ন (গ)
+                    </div>
+                    <p class="text-slate-200 text-sm sm:text-base leading-relaxed font-sans">
+                        কেইনের সাপেক্ষে আলভারেজের আপেক্ষিক বেগের মান ও দিক কত হবে? কেইন যদি আলভারেজকে ট্যাকল করতে চান, তবে কেইন আলভারেজের সর্বোচ্চ কতটা কাছাকাছি পৌঁছাতে পারবেন (অর্থাৎ তাদের মধ্যকার সর্বনিম্ন দূরত্ব কত হবে)?
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Tag -->
+        <footer class="text-center py-4 text-xs font-semibold text-slate-500 font-poppins tracking-wider">
+            &copy; CHITTAGONG COLLEGE PHYSICS & ASTRONOMY CLUB
+        </footer>
+
     </div>
-
-    <p style="text-align: center; font-size: 0.9rem; color: #a5b4fc; margin-bottom: 25px;">
-        *(ধরে নাও, অভিকর্ষজ ত্বরণ <strong>g = 10 ms<sup>-2</sup></strong> এবং বাতাসের বাধা উপেক্ষণীয়)*
-    </p>
-
-    <!-- Match Action Images (1.jpg and 2.jpg) -->
-    <div class="image-gallery">
-        <img class="gallery-img" src="https://i.postimg.cc/sGVWkLpm/1.jpg" alt="Match Action 1">
-        <img class="gallery-img" src="https://i.postimg.cc/7JxzFRgd/2.jpg" alt="Match Action 2">
-    </div>
-
-    <!-- Questions Section -->
-    <div class="section-box" style="background: rgba(0, 242, 254, 0.01); border-color: rgba(0, 242, 254, 0.15);">
-        <div class="section-title">❓ চ্যালেঞ্জসমূহ</div>
-
-        <!-- Q1 -->
-        <div class="question-card">
-            <div class="question-tag">প্রশ্ন (ক)</div>
-            <p>মেসি যখন বলটিতে কিক করেছিলেন, তখন বলটির আদি বেগ (v<sub>0</sub>) কত ছিল এবং অনুভূমিকের সাথে কত কোণে (&theta;<sub>0</sub>) কিক করতে হয়েছিল?</p>
-        </div>
-
-        <!-- Q2 -->
-        <div class="question-card">
-            <div class="question-tag">প্রশ্ন (খ)</div>
-            <p>ফিজিক্সের হিসেব অনুযায়ী, বলটি যখন বেলিংহামের মাথার ওপর দিয়ে যাচ্ছিল (ঠিক মাঝপথে), তখন কি বেলিংহামের লাফিয়ে উঠে বলটি ডিফ্লেক্ট বা ব্লক করার কোনো সুযোগ ছিল? গাণিতিকভাবে বিশ্লেষণ করো।</p>
-        </div>
-
-        <!-- Q3 -->
-        <div class="question-card">
-            <div class="question-tag">প্রশ্ন (গ)</div>
-            <p>কেইনের সাপেক্ষে আলভারেজের আপেক্ষিক বেগের মান ও দিক কত হবে? কেইন যদি আলভারেজকে ট্যাকল করতে চান, তবে কেইন আলভারেজের সর্বোচ্চ কতটা কাছাকাছি পৌঁছাতে পারবেন (অর্থাৎ তাদের মধ্যকার সর্বনিম্ন দূরত্ব কত হবে)?</p>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer-tag">
-        © CHITTAGONG COLLEGE PHYSICS & ASTRONOMY CLUB
-    </div>
-</div>
-
 
 </BaseLayout>

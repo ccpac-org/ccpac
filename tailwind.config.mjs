@@ -10,8 +10,9 @@ export default {
         neonBlue: "#3b82f6",
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
-        poppins: ["Poppins", "sans-serif"],
+        sans: ["Inter", "Hind Siliguri", "sans-serif"],
+        poppins: ["Poppins", "Hind Siliguri", "sans-serif"],
+        bengali: ["Hind Siliguri", "sans-serif"],
       },
     },
   },
