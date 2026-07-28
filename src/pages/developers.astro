@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { developersData } from '../data/developers';
+---
+
+<BaseLayout title="Developers - CCPAC | Chittagong College Physics & Astronomy Club" activePage="explore">
+    <!-- Glowing Background Effect -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[600px] bg-cyan-500/10 blur-[200px] rounded-full pointer-events-none"></div>
+
+    <!-- Hero Section -->
+    <section class="max-w-5xl mx-auto px-6 pt-20 pb-12 text-center space-y-6">
+        <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold uppercase tracking-widest font-poppins">
+            <i class="fa-solid fa-code text-cyan-400"></i>
+            <span>BEHIND THE CODE</span>
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 font-poppins">
+            Website Developers
+        </h1>
+        <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-sans">
+            Meet the minds and creators responsible for building, designing, and maintaining the official digital platform of Chittagong College Physics & Astronomy Club.
+        </p>
+    </section>
+
+    <!-- Developers Grid -->
+    <section class="max-w-6xl mx-auto px-6 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {developersData.map((dev) => (
+                <div class="glass-card p-8 rounded-3xl border border-slate-800/90 shadow-2xl space-y-6 hover:border-cyan-500/40 transition duration-300 relative overflow-hidden flex flex-col justify-between group">
+                    <div class="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition"></div>
+                    
+                    <div class="space-y-6">
+                        <!-- Top Header: Avatar & Info -->
+                        <div class="flex items-start space-x-4">
+                            <div class="relative">
+                                <img 
+                                    src={dev.avatar} 
+                                    alt={dev.name} 
+                                    class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover border-2 border-cyan-400/80 shadow-lg shadow-cyan-500/20 crisp-img bg-slate-950" 
+                                />
+                                {dev.featured && (
+                                    <span class="absolute -bottom-2 -right-1 bg-cyan-500 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-md shadow-md uppercase tracking-wider font-poppins">
+                                        Lead
+                                    </span>
+                                )}
+                            </div>
+                            <div class="space-y-1 flex-1">
+                                <span class="text-cyan-400 text-xs font-semibold tracking-wider uppercase font-poppins block">
+                                    {dev.batch}
+                                </span>
+                                <h2 class="text-2xl font-bold text-white font-poppins group-hover:text-cyan-300 transition">
+                                    {dev.name}
+                                </h2>
+                                <p class="text-slate-400 text-xs font-medium">
+                                    {dev.role}
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Bio -->
+                        <p class="text-slate-300 text-sm leading-relaxed font-sans border-t border-slate-800/80 pt-4">
+                            {dev.bio}
+                        </p>
+
+                        <!-- Contributions List -->
+                        <div class="space-y-2">
+                            <h3 class="text-xs font-extrabold text-cyan-300 uppercase tracking-widest font-poppins flex items-center gap-2">
+                                <i class="fa-solid fa-list-check text-cyan-400"></i>
+                                Key Contributions
+                            </h3>
+                            <ul class="space-y-1.5 text-xs text-slate-300">
+                                {dev.contributions.map((item) => (
+                                    <li class="flex items-start space-x-2">
+                                        <i class="fa-solid fa-circle-check text-cyan-400 text-[10px] mt-1 shrink-0"></i>
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <!-- Tech Stack Badges -->
+                        <div class="space-y-2 pt-2">
+                            <h3 class="text-xs font-extrabold text-slate-400 uppercase tracking-widest font-poppins">
+                                Technologies Used
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                {dev.techStack.map((tech) => (
+                                    <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-cyan-500/20 text-cyan-300 text-xs font-medium font-poppins shadow-sm">
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links Footer -->
+                    <div class="pt-6 border-t border-slate-800/80 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 font-medium">Connect with developer</span>
+                        <div class="flex space-x-3 text-slate-300">
+                            {dev.socials.map((social) => (
+                                <a 
+                                    href={social.url} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-700/80 hover:border-cyan-400 hover:text-cyan-400 flex items-center justify-center text-xs transition shadow-md"
+                                    title={social.platform}
+                                >
+                                    <i class={social.icon}></i>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Architecture & Built With Section -->
+    <section class="max-w-5xl mx-auto px-6 py-12">
+        <div class="glass-card p-8 sm:p-12 rounded-3xl border border-slate-800/80 shadow-2xl space-y-8 text-center">
+            <div class="space-y-2">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest font-poppins">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>Tech Architecture</span>
+                </div>
+                <h2 class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 font-poppins">
+                    Built for Speed & Reliability
+                </h2>
+                <p class="text-slate-300 text-xs sm:text-sm max-w-xl mx-auto">
+                    The CCPAC website is engineered with modern web technologies prioritizing blazing fast static generation, fluid animations, and crisp mobile responsiveness.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+                <div class="glow-box p-4 rounded-2xl border border-slate-800 space-y-2">
+                    <i class="fa-solid fa-rocket text-cyan-400 text-2xl"></i>
+                    <h3 class="text-sm font-bold text-white font-poppins">Astro</h3>
+                    <p class="text-[11px] text-slate-400">Zero JS static site generator</p>
+                </div>
+                <div class="glow-box p-4 rounded-2xl border border-slate-800 space-y-2">
+                    <i class="fa-solid fa-palette text-cyan-400 text-2xl"></i>
+                    <h3 class="text-sm font-bold text-white font-poppins">Tailwind CSS</h3>
+                    <p class="text-[11px] text-slate-400">Utility-first styling system</p>
+                </div>
+                <div class="glow-box p-4 rounded-2xl border border-slate-800 space-y-2">
+                    <i class="fa-solid fa-shield-halved text-cyan-400 text-2xl"></i>
+                    <h3 class="text-sm font-bold text-white font-poppins">TypeScript</h3>
+                    <p class="text-[11px] text-slate-400">Type-safe data structures</p>
+                </div>
+                <div class="glow-box p-4 rounded-2xl border border-slate-800 space-y-2">
+                    <i class="fa-solid fa-bolt text-cyan-400 text-2xl"></i>
+                    <h3 class="text-sm font-bold text-white font-poppins">Bun</h3>
+                    <p class="text-[11px] text-slate-400">Fast runtime & bundler</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</BaseLayout>
