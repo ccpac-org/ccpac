@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Physics Challenges & Contests - CCPAC | Chittagong College Physics & Astronomy Club" activePage="explore">
@@ -13,7 +13,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <!-- Back to Activities -->
     <div class="max-w-6xl mx-auto px-6 pt-8">
-        <a href="/act" class="inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition font-sans">
+        <a href="/activities" class="inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition font-sans">
             <i class="fa-solid fa-arrow-left"></i>
             <span>Back to Activities</span>
         </a>
@@ -28,15 +28,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 uppercase font-poppins">
             Physics Challenges & Contests
         </h1>
-        
-        <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-800/80 shadow-2xl text-slate-300 text-sm sm:text-base leading-relaxed text-left space-y-4 font-sans">
-            <p>
-                Explore our comprehensive collection of physics contests, special match-day brain-teasers, and weekly problem-solving challenge archives designed to sharpen analytical reasoning and critical thinking.
-            </p>
-        </div>
+        <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto font-sans leading-relaxed">
+            Sharpen your problem-solving skills with CCPAC’s Weekly Physics Challenges and special sports-physics contest series.
+        </p>
     </section>
 
-    <!-- SPECIAL WORLD CUP & MAJOR CONTESTS SECTION -->
+    <!-- SPECIAL CONTESTS SECTION (FIFA WORLD CUP 2026 SPECIALS) -->
     <section class="max-w-6xl mx-auto px-6 py-4 space-y-12">
         <div class="text-center space-y-2">
             <span class="px-4 py-1.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-bold uppercase tracking-widest font-poppins">
@@ -63,7 +60,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     </p>
                 </div>
                 <div>
-                    <a href="/final" class="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-red-500 to-amber-600 hover:from-red-400 hover:to-amber-500 text-slate-950 font-bold px-5 py-3 rounded-xl text-sm transition shadow-lg shadow-red-500/25 w-full cursor-pointer font-poppins">
+                    <a href="/activities/challenges/final" class="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-red-500 to-amber-600 hover:from-red-400 hover:to-amber-500 text-slate-950 font-bold px-5 py-3 rounded-xl text-sm transition shadow-lg shadow-red-500/25 w-full cursor-pointer font-poppins">
                         <span>View Grand Final Inside</span>
                         <i class="fa-solid fa-arrow-right text-xs"></i>
                     </a>
@@ -83,7 +80,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     </p>
                 </div>
                 <div>
-                    <a href="/semi" class="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold px-5 py-3 rounded-xl text-sm transition shadow-lg shadow-cyan-500/25 w-full cursor-pointer font-poppins">
+                    <a href="/activities/challenges/semi" class="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold px-5 py-3 rounded-xl text-sm transition shadow-lg shadow-cyan-500/25 w-full cursor-pointer font-poppins">
                         <span>View Semifinal Inside</span>
                         <i class="fa-solid fa-arrow-right text-xs"></i>
                     </a>

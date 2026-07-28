@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="World Cup 2026 Semifinal Special - CCPAC" activePage="explore">
@@ -12,7 +12,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         
         <!-- Back Navigation -->
         <div>
-            <a href="/challenge" class="inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition font-sans group">
+            <a href="/activities/challenges" class="inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition font-sans group">
                 <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
                 <span>Back to Challenges</span>
             </a>
@@ -98,25 +98,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                             ঘটনা ৩
                         </span>
                         <h4 class="text-base sm:text-lg font-bold text-white font-poppins">রিবাউন্ড ও কেইন-আলভারেজের রুদ্ধশ্বাস দৌড়</h4>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-sans pt-1">
+                            গোলপোস্টে বল ঢোকার মুহূর্তে হ্যারি কেইন এবং হুলিয়ান আলভারেজ বিপরীত দিক থেকে সমান গতিবেগে একে অপরের দিকে ধাবমান ছিলেন।
+                        </p>
                     </div>
-                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-sans pt-1">
-                        বলটি ডিফেন্সের ওপর দিয়ে গিয়ে ইংল্যান্ডের গোলপোস্টের ক্রসবারে লেগে রিবাউন্ড হয়ে (ফিরে এসে) মাঠের ডান প্রান্তে পড়ে। সেখানে ওত পেতে থাকা আর্জেন্টিনার উইঙ্গার হুলিয়ান আলভারেজ <strong class="text-cyan-300">10 ms<sup>-1</sup></strong> বেগে বলটি নিয়ে গোলপোস্টের সমান্তরালে সাইডলাইন ধরে দৌড়াতে শুরু করেন। ঠিক তখনই আলভারেজ থেকে <strong class="text-cyan-300">12 m</strong> দূরে থাকা ইংল্যান্ডের অধিনায়ক হ্যারি কেইন আলভারেজের দৌড়ের দিকের সাথে <strong class="text-cyan-300">120°</strong> কোণে <strong class="text-cyan-300">8 ms<sup>-1</sup></strong> বেগে তাঁকে ট্যাকল করতে ছুটে আসেন।
-                    </p>
                 </div>
-            </div>
-
-            <p class="text-center text-xs sm:text-sm text-cyan-300/80 font-mono pt-2">
-                *(ধরে নাও, অভিকর্ষজ ত্বরণ <strong class="text-cyan-300">g = 10 ms<sup>-2</sup></strong> এবং বাতাসের বাধা উপেক্ষণীয়)*
-            </p>
-        </section>
-
-        <!-- Match Action Images -->
-        <section class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div class="glass-card p-3 rounded-2xl border border-slate-800/80 overflow-hidden shadow-lg group">
-                <img class="w-full h-64 sm:h-72 object-contain rounded-xl group-hover:scale-105 transition duration-500 crisp-img" src="/images/kanemarti.jpg" alt="Match Action 1">
-            </div>
-            <div class="glass-card p-3 rounded-2xl border border-slate-800/80 overflow-hidden shadow-lg group">
-                <img class="w-full h-64 sm:h-72 object-contain rounded-xl group-hover:scale-105 transition duration-500 crisp-img" src="/images/bellimessi.jpg" alt="Match Action 2">
             </div>
         </section>
 
