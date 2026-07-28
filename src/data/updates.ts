@@ -23,15 +23,15 @@ export const updatesData: Record<string, UpdateItem> = {
       "Tokens of Honour Conferred upon Honorable Principal, Vice Principal, and Moderator",
     date: "Date: 29-03-2026",
     images: ["/images/h1.jpeg", "/images/h2.jpeg", "/images/h3.jpeg"],
-    content: `Today, on behalf of the Executive Panel 2025–26 of Chattogram College Physics & Astronomy Club (CCPAC), tokens of honour were conferred upon Principal Prof. Mohammad Mozahidul Islam Chowdhury, Vice Principal Md. Shawkat Iqbal Faruqueee, and Moderator Md. Zahirul Islam in sincere recognition of their unwavering support.`,
+    content: `Today, on behalf of the Executive Panel 2025–26 of Chattogram College Physics & Astronomy Club (CCPAC), tokens of honour were conferred upon Principal Prof. Mohammad Mozahidul Islam Chowdhury, Vice Principal Md. Shawkat Iqbal Faruquee, and Moderator Md. Zahirul Islam in sincere recognition of their unwavering support.`,
   },
   "3": {
     id: "3",
     tag: "College Administration",
     title:
-      "Congratulating Md. Shawkat Iqbal Faruqueee on his appointment as Vice Principal",
+      "Congratulating Md. Shawkat Iqbal Faruquee on his appointment as Vice Principal",
     date: "Date: 11-01-2026",
     images: ["/images/vp.jpeg"],
-    content: `Today, Chittagong College Physics & Astronomy Club warmly congratulated Md. Shawkat Iqbal Faruqueee on his appointment as the new Vice Principal of Chittagong College.`,
+    content: `Today, Chittagong College Physics & Astronomy Club warmly congratulated Md. Shawkat Iqbal Faruquee on his appointment as the new Vice Principal of Chittagong College.`,
   },
 };
