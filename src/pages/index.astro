@@ -6,32 +6,73 @@ import { updatesData } from '../data/updates';
 
 <BaseLayout title="CCPAC | Chittagong College Physics & Astronomy Club" activePage="home">
     <!-- Hero Section -->
-    <section id="home" class="max-w-6xl mx-auto px-6 pt-12 pb-16 text-center space-y-8">
-        <div class="flex justify-center">
-            <div class="relative group">
-                <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 animate-pulse"></div>
-                <img src="/images/logo.png" alt="CCPAC Club Logo" class="relative w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border-4 border-slate-900 shadow-2xl crisp-img">
+    <section id="home" class="max-w-6xl mx-auto px-6 pt-12 pb-16 text-center space-y-8 relative">
+        <!-- Cosmic Location Badge -->
+        <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-300 text-[11px] font-bold tracking-widest uppercase shadow-lg shadow-cyan-950/40 font-mono backdrop-blur-md">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+            <i class="fa-solid fa-compass text-cyan-400"></i>
+            <span>CHITTAGONG COLLEGE • 22.3567° N, 91.8368° E • EST. 2025</span>
+        </div>
+
+        <!-- Central Orbiting Emblem -->
+        <div class="flex justify-center relative py-4">
+            <div class="relative flex items-center justify-center">
+                <!-- Outer Orbit Ring 1 -->
+                <div class="absolute w-56 h-56 sm:w-64 sm:h-64 rounded-full border border-dashed border-cyan-500/30 animate-spin-slow pointer-events-none">
+                    <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-cyan-400 rounded-full shadow-lg shadow-cyan-400/80"></div>
+                </div>
+                <!-- Outer Orbit Ring 2 -->
+                <div class="absolute w-64 h-64 sm:w-72 sm:h-72 rounded-full border border-dotted border-purple-500/25 animate-spin-reverse-slow pointer-events-none">
+                    <div class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-indigo-400 rounded-full shadow-lg shadow-indigo-400/80"></div>
+                </div>
+
+                <!-- Logo Container -->
+                <div class="relative group cursor-pointer">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 rounded-full blur-md opacity-80 group-hover:opacity-100 transition duration-1000 animate-pulse"></div>
+                    <img src="/images/logo.png" alt="CCPAC Club Logo" class="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full object-cover border-4 border-slate-950 shadow-2xl crisp-img">
+                </div>
             </div>
         </div>
         
-        <div class="space-y-3 max-w-4xl mx-auto">
-            <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight font-poppins">
-                Chittagong College <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400">PHYSICS & ASTRONOMY CLUB</span>
+        <div class="space-y-4 max-w-4xl mx-auto">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight font-poppins leading-tight">
+                Chittagong College <br class="hidden sm:inline" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-300 glow-text">
+                    PHYSICS & ASTRONOMY CLUB
+                </span>
             </h1>
             <p class="text-cyan-300 italic text-sm md:text-base font-medium tracking-wide font-poppins">
                 "Promoting scientific literacy from subatomic scales to galactic horizons"
             </p>
+
+            <!-- Fundamental Physics & Astronomy Constants Ticker -->
+            <div class="flex flex-wrap justify-center gap-2 pt-2 text-[11px] font-mono">
+                <span class="px-3 py-1 rounded-lg bg-slate-900/80 border border-cyan-500/20 text-cyan-300 flex items-center gap-1.5">
+                    <i class="fa-solid fa-atom text-cyan-400 text-[10px]"></i> iℏ(∂Ψ/∂t) = ĤΨ
+                </span>
+                <span class="px-3 py-1 rounded-lg bg-slate-900/80 border border-indigo-500/20 text-indigo-300 flex items-center gap-1.5">
+                    <i class="fa-solid fa-bolt text-indigo-400 text-[10px]"></i> E = mc²
+                </span>
+                <span class="px-3 py-1 rounded-lg bg-slate-900/80 border border-purple-500/20 text-purple-300 flex items-center gap-1.5">
+                    <i class="fa-solid fa-ring text-purple-400 text-[10px]"></i> G_μν + Λg_μν = 8πT_μν
+                </span>
+                <span class="px-3 py-1 rounded-lg bg-slate-900/80 border border-blue-500/20 text-blue-300 flex items-center gap-1.5">
+                    <i class="fa-solid fa-gauge-high text-blue-400 text-[10px]"></i> c = 2.998 × 10⁸ m/s
+                </span>
+            </div>
         </div>
 
-        <div class="glass-card max-w-5xl mx-auto p-6 md:p-8 rounded-3xl border border-slate-800 shadow-xl space-y-4 text-left md:text-center">
-            <p class="text-slate-300 text-sm md:text-base leading-relaxed font-sans">
+        <div class="glass-card max-w-5xl mx-auto p-6 md:p-10 rounded-3xl border border-cyan-500/20 shadow-2xl space-y-4 text-left md:text-center relative overflow-hidden group hover:border-cyan-500/40 transition-all">
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none"></div>
+            <p class="text-slate-200 text-sm md:text-base leading-relaxed font-sans relative z-10">
                 Chittagong College Physics & Astronomy Club is a student-driven community where curiosity meets the cosmos. We strive to make sense of the universe in unconventional ways. Our mission is to shift your perspective from mere sensory impressions to a deeper understanding of reality. Welcome, seekers of knowledge, to a realm shaped by questions, driven by discovery, and illuminated by science.
             </p>
-            <p class="text-slate-400 text-xs md:text-sm leading-relaxed font-sans">
+            <p class="text-slate-400 text-xs md:text-sm leading-relaxed font-sans relative z-10">
                 At CCPAC, we explore the fundamental laws of nature and the vast mysteries that lie beyond our skies. From the tiniest particles to the grandest galaxies, we learn to question, observe, and understand together. CCPAC is a home for minds that refuse to stop wondering, for eyes that look at the universe and ask how and why, and for hearts that seek meaning through science.
             </p>
-            <p class="text-cyan-300 font-semibold text-xs md:text-sm pt-2">
-                You are no longer just an observer of nature; you are now part of its exploration. Step into this journey of inquiry, and let the universe reveal its stories to you.
+            <p class="text-cyan-300 font-bold text-xs md:text-sm pt-2 relative z-10 tracking-wide flex items-center justify-center gap-2">
+                <i class="fa-solid fa-meteor text-cyan-400"></i>
+                <span>You are no longer just an observer of nature; you are now part of its exploration.</span>
             </p>
         </div>
     </section>
@@ -39,42 +80,50 @@ import { updatesData } from '../data/updates';
     <!-- EXPLORE SECTION -->
     <section id="explore-section" class="max-w-7xl mx-auto px-6 py-12 scroll-mt-20">
         <div class="text-center mb-10 space-y-2">
-            <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-widest">Navigation Hub</span>
-            <h2 class="text-2xl md:text-3xl font-extrabold font-poppins text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Explore CCPAC</h2>
-            <p class="text-slate-400 text-xs md:text-sm">Quick shortcuts to our core segments</p>
+            <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-widest font-mono">
+                <i class="fa-solid fa-compass mr-1"></i> Navigation Hub
+            </span>
+            <h2 class="text-2xl md:text-3xl font-extrabold font-poppins text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-300">
+                Explore CCPAC
+            </h2>
+            <p class="text-slate-400 text-xs md:text-sm font-sans">Quick shortcuts to our core segments & research wings</p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            <a href="/about" class="glass-card p-6 rounded-2xl border border-slate-800 hover-glow space-y-3 group block text-center">
-                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl mx-auto group-hover:scale-110 transition">
-                    <i class="fa-solid fa-circle-info"></i>
+            <a href="/about" class="glass-card p-6 rounded-2xl border border-cyan-500/20 hover-glow space-y-3 group block text-center relative overflow-hidden">
+                <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl mx-auto group-hover:scale-110 group-hover:rotate-6 transition duration-300 shadow-inner">
+                    <i class="fa-solid fa-compass-drafting"></i>
                 </div>
-                <h3 class="text-lg font-bold font-poppins text-white">About Us</h3>
-                <p class="text-slate-400 text-xs leading-relaxed">Vision, mission, and the passionate minds leading CCPAC forward.</p>
+                <h3 class="text-lg font-bold font-poppins text-white group-hover:text-cyan-300 transition">About Us</h3>
+                <p class="text-slate-400 text-xs leading-relaxed font-sans">Vision, mission, and the passionate minds leading CCPAC forward.</p>
+                <div class="text-[10px] text-cyan-400/80 font-mono pt-1">01 // DISCOVER</div>
             </a>
 
-            <a href="/activities" class="glass-card p-6 rounded-2xl border border-slate-800 hover-glow space-y-3 group block text-center">
-                <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-xl mx-auto group-hover:scale-110 transition">
-                    <i class="fa-solid fa-diagram-project"></i>
+            <a href="/activities" class="glass-card p-6 rounded-2xl border border-cyan-500/20 hover-glow space-y-3 group block text-center relative overflow-hidden">
+                <div class="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-2xl mx-auto group-hover:scale-110 group-hover:rotate-6 transition duration-300 shadow-inner">
+                    <i class="fa-solid fa-atom"></i>
                 </div>
-                <h3 class="text-lg font-bold font-poppins text-white">Activities</h3>
-                <p class="text-slate-400 text-xs leading-relaxed">Study circles, workshops, problem-solving classes, and projects.</p>
+                <h3 class="text-lg font-bold font-poppins text-white group-hover:text-blue-300 transition">Activities</h3>
+                <p class="text-slate-400 text-xs leading-relaxed font-sans">Study circles, workshops, problem-solving classes, and projects.</p>
+                <div class="text-[10px] text-blue-400/80 font-mono pt-1">02 // RESEARCH</div>
             </a>
 
-            <a href="/events" class="glass-card p-6 rounded-2xl border border-slate-800 hover-glow space-y-3 group block text-center">
-                <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-xl mx-auto group-hover:scale-110 transition">
-                    <i class="fa-solid fa-calendar-days"></i>
+            <a href="/events" class="glass-card p-6 rounded-2xl border border-cyan-500/20 hover-glow space-y-3 group block text-center relative overflow-hidden">
+                <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-2xl mx-auto group-hover:scale-110 group-hover:rotate-6 transition duration-300 shadow-inner">
+                    <i class="fa-solid fa-satellite-dish"></i>
                 </div>
-                <h3 class="text-lg font-bold font-poppins text-white">Events</h3>
-                <p class="text-slate-400 text-xs leading-relaxed">Flagship Physics Camps, stargazing nights, and Olympiad training.</p>
+                <h3 class="text-lg font-bold font-poppins text-white group-hover:text-indigo-300 transition">Events</h3>
+                <p class="text-slate-400 text-xs leading-relaxed font-sans">Flagship Physics Camps, stargazing nights, and Olympiad training.</p>
+                <div class="text-[10px] text-indigo-400/80 font-mono pt-1">03 // OBSERVATORY</div>
             </a>
 
-            <a href="/contact" class="glass-card p-6 rounded-2xl border border-slate-800 hover-glow space-y-3 group block text-center">
-                <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400 text-xl mx-auto group-hover:scale-110 transition">
-                    <i class="fa-solid fa-headset"></i>
+            <a href="/contact" class="glass-card p-6 rounded-2xl border border-cyan-500/20 hover-glow space-y-3 group block text-center relative overflow-hidden">
+                <div class="w-14 h-14 rounded-2xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400 text-2xl mx-auto group-hover:scale-110 group-hover:rotate-6 transition duration-300 shadow-inner">
+                    <i class="fa-solid fa-satellite"></i>
                 </div>
-                <h3 class="text-lg font-bold font-poppins text-white">Contact Us</h3>
-                <p class="text-slate-400 text-xs leading-relaxed">Get in touch through official channels and social media platforms.</p>
+                <h3 class="text-lg font-bold font-poppins text-white group-hover:text-teal-300 transition">Contact Us</h3>
+                <p class="text-slate-400 text-xs leading-relaxed font-sans">Get in touch through official channels and social media platforms.</p>
+                <div class="text-[10px] text-teal-400/80 font-mono pt-1">04 // COMMUNICATIONS</div>
             </a>
         </div>
     </section>
@@ -170,9 +219,13 @@ import { updatesData } from '../data/updates';
             </div>
 
             <div class="text-center pt-2">
-                <button onclick="toggleMembershipForm()" class="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg shadow-cyan-500/25 cursor-pointer">
-                    <span>Fill Up Registration Form</span>
-                    <i class="fa-solid fa-arrow-right" id="apply-btn-icon"></i>
+                <button onclick="toggleMembershipForm()" class="relative group inline-flex items-center justify-center p-[1px] rounded-xl overflow-hidden font-semibold text-sm transition-all duration-300 cursor-pointer shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/40">
+                    <span class="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 group-hover:opacity-100 opacity-80 transition duration-300"></span>
+                    <span class="relative px-8 py-3.5 bg-slate-950 rounded-[11px] text-cyan-300 group-hover:text-white group-hover:bg-slate-950/30 transition-all duration-300 flex items-center gap-2.5 font-bold">
+                        <i class="fa-solid fa-user-astronaut text-cyan-400 group-hover:rotate-12 transition duration-300"></i>
+                        <span>Fill Up Registration Form</span>
+                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition duration-300" id="apply-btn-icon"></i>
+                    </span>
                 </button>
             </div>
         </div>

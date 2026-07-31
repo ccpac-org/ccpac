@@ -1,0 +1,216 @@
+---
+---
+<canvas id="cosmic-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-75"></canvas>
+
+<script is:inline>
+  (function() {
+    const canvas = document.getElementById('cosmic-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      initElements();
+    });
+
+    // Star Class
+    class Star {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.radius = Math.random() * 1.6 + 0.3;
+        this.alpha = Math.random();
+        this.alphaChange = (Math.random() * 0.015 + 0.005) * (Math.random() > 0.5 ? 1 : -1);
+        // Colors: Cyan, Ice Blue, Gold, Purple, Diamond White
+        const colors = [
+          'rgba(6, 182, 212, ',
+          'rgba(96, 165, 250, ',
+          'rgba(245, 158, 11, ',
+          'rgba(168, 85, 247, ',
+          'rgba(255, 255, 255, '
+        ];
+        this.colorBase = colors[Math.floor(Math.random() * colors.length)];
+      }
+      update() {
+        this.alpha += this.alphaChange;
+        if (this.alpha <= 0.1 || this.alpha >= 0.95) {
+          this.alphaChange = -this.alphaChange;
+        }
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.colorBase + this.alpha + ')';
+        ctx.fill();
+      }
+    }
+
+    // Floating Physics & Astrological Symbol Class
+    class FloatingSymbol {
+      constructor() {
+        this.symbols = ['ℏ', 'c', 'E=mc²', 'λ', 'ψ', 'Δx', 'ν', '∞', '⊙', '♄', '♃', '☼', '☽', 'Ω', 'α', 'β', 'γ', '∫', '∂'];
+        this.reset();
+      }
+      reset() {
+        this.symbol = this.symbols[Math.floor(Math.random() * this.symbols.length)];
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.floor(Math.random() * 10) + 11; // 11px to 21px
+        this.vy = -(Math.random() * 0.25 + 0.1);
+        this.vx = (Math.random() - 0.5) * 0.15;
+        this.alpha = Math.random() * 0.3 + 0.15;
+        this.alphaChange = (Math.random() * 0.003 + 0.001) * (Math.random() > 0.5 ? 1 : -1);
+      }
+      update() {
+        this.y += this.vy;
+        this.x += this.vx;
+        this.alpha += this.alphaChange;
+        if (this.alpha <= 0.05 || this.alpha >= 0.45) {
+          this.alphaChange = -this.alphaChange;
+        }
+        if (this.y < -30 || this.x < -30 || this.x > width + 30) {
+          this.reset();
+          this.y = height + 20;
+        }
+      }
+      draw() {
+        ctx.font = `${this.size}px 'Inter', sans-serif`;
+        ctx.fillStyle = `rgba(6, 182, 212, ${this.alpha})`;
+        ctx.fillText(this.symbol, this.x, this.y);
+      }
+    }
+
+    // Shooting Star Class
+    class ShootingStar {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * width * 1.2 - width * 0.1;
+        this.y = Math.random() * height * 0.4;
+        this.length = Math.random() * 80 + 40;
+        this.speed = Math.random() * 6 + 4;
+        this.angle = Math.PI / 4; // 45 degrees
+        this.alpha = 1;
+        this.active = false;
+        this.timer = Math.floor(Math.random() * 300) + 100;
+      }
+      update() {
+        if (!this.active) {
+          this.timer--;
+          if (this.timer <= 0) {
+            this.active = true;
+          }
+          return;
+        }
+        this.x += Math.cos(this.angle) * this.speed;
+        this.y += Math.sin(this.angle) * this.speed;
+        this.alpha -= 0.015;
+        if (this.alpha <= 0 || this.x > width || this.y > height) {
+          this.reset();
+        }
+      }
+      draw() {
+        if (!this.active) return;
+        const endX = this.x - Math.cos(this.angle) * this.length;
+        const endY = this.y - Math.sin(this.angle) * this.length;
+
+        const grad = ctx.createLinearGradient(this.x, this.y, endX, endY);
+        grad.addColorStop(0, `rgba(255, 255, 255, ${this.alpha})`);
+        grad.addColorStop(0.3, `rgba(6, 182, 212, ${this.alpha * 0.8})`);
+        grad.addColorStop(1, 'rgba(6, 182, 212, 0)');
+
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(endX, endY);
+        ctx.stroke();
+      }
+    }
+
+    let stars = [];
+    let symbols = [];
+    let shootingStars = [];
+
+    function initElements() {
+      const starCount = Math.floor((width * height) / 9000); // Responsive density
+      stars = [];
+      for (let i = 0; i < Math.min(starCount, 160); i++) {
+        stars.push(new Star());
+      }
+
+      symbols = [];
+      for (let i = 0; i < 22; i++) {
+        symbols.push(new FloatingSymbol());
+      }
+
+      shootingStars = [];
+      for (let i = 0; i < 2; i++) {
+        shootingStars.push(new ShootingStar());
+      }
+    }
+
+    initElements();
+
+    // Draw Constellation Lines between nearby stars
+    function drawConstellations() {
+      const maxDistance = 90;
+      for (let i = 0; i < stars.length; i++) {
+        for (let j = i + 1; j < stars.length; j++) {
+          const dx = stars[i].x - stars[j].x;
+          const dy = stars[i].y - stars[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < maxDistance) {
+            const alpha = (1 - dist / maxDistance) * 0.12 * Math.min(stars[i].alpha, stars[j].alpha);
+            ctx.beginPath();
+            ctx.moveTo(stars[i].x, stars[i].y);
+            ctx.lineTo(stars[j].x, stars[j].y);
+            ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    // Main Render Loop
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Render Constellations
+      drawConstellations();
+
+      // Render Stars
+      stars.forEach(s => {
+        s.update();
+        s.draw();
+      });
+
+      // Render Symbols
+      symbols.forEach(sym => {
+        sym.update();
+        sym.draw();
+      });
+
+      // Render Shooting Stars
+      shootingStars.forEach(ss => {
+        ss.update();
+        ss.draw();
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  })();
+</script>
