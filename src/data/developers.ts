@@ -19,7 +19,7 @@ export interface Developer {
 export const developersData: Developer[] = [
   {
     id: "1",
-    name: "Sajjad Hossain Sakib",
+    name: "Sajjad Hosen Sakib",
     role: "Frontend & Content Engineer",
     avatar: "/images/shs.jpeg",
     batch: "HSC 2024-25",

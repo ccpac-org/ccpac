@@ -23,7 +23,7 @@ export const updatesData: Record<string, UpdateItem> = {
       "Tokens of Honour Conferred upon Honorable Principal, Vice Principal, and Moderator",
     date: "Date: 29-03-2026",
     images: ["/images/h1.jpeg", "/images/h2.jpeg", "/images/h3.jpeg"],
-    content: `Today, on behalf of the Executive Panel 2025–26 of Chattogram College Physics & Astronomy Club (CCPAC), tokens of honour were conferred upon Principal Prof. Mohammad Mozahidul Islam Chowdhury, Vice Principal Md. Shawkat Iqbal Faruquee, and Moderator Md. Zahirul Islam in sincere recognition of their unwavering support.`,
+    content: `Today, on behalf of the Executive Panel 2025–26 of Chittagong College Physics & Astronomy Club (CCPAC), tokens of honour were conferred upon Principal Prof. Mohammad Mozahidul Islam Chowdhury, Vice Principal Md. Shawkat Iqbal Faruquee, and Moderator Md. Zahirul Islam in sincere recognition of their unwavering support.`,
   },
   "3": {
     id: "3",
