@@ -7,9 +7,10 @@ export interface SocialLink {
 export interface Developer {
   id: string;
   name: string;
-  role: string;
+  session: string;
   avatar: string;
-  batch: string;
+  roll: string;
+  rank: string;
   techStack: string[];
   contributions: string[];
   // socials: SocialLink[];
@@ -20,9 +21,10 @@ export const developersData: Developer[] = [
   {
     id: "1",
     name: "Sajjad Hosen Sakib",
-    role: "Frontend & Content Engineer",
+    session: "2024-2025",
     avatar: "/images/shs.jpeg",
-    batch: "HSC 2024-25",
+    roll: "1202425010149",
+    rank: "Ex-President, CCPAC (2025-2026)",
     techStack: ["HTML5", "CSS3", "JavaScript"],
     contributions: [
       "Architected the original CCPAC web platform",
@@ -46,9 +48,10 @@ export const developersData: Developer[] = [
   {
     id: "2",
     name: "Farhan Ahmad",
-    role: "Lead Full-Stack & UI/UX Architect",
     avatar: "/images/f.jpeg",
-    batch: "HSC 2025-26",
+    session: "2025-2026",
+    roll: "1202526010031",
+    rank: "Executive Member, CCPAC(2025-2026)",
     techStack: ["Astro", "Tailwind CSS", "TypeScript", "JavaScript", "Node.js"],
     contributions: [
       "Rebuilt the frontend architecture with a maintainable, scalable codebase",
