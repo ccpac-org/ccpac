@@ -15,7 +15,9 @@ const { article } = Astro.props;
 <BaseLayout title={`${article.title} - CCPAC Articles`} activePage="explore">
 
     <!-- Glowing Background Effect -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[600px] bg-cyan-500/10 blur-[200px] rounded-full pointer-events-none"></div>
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[600px] bg-cyan-500/10 blur-[200px] rounded-full"></div>
+    </div>
 
     <!-- Back to Articles -->
     <div class="max-w-4xl mx-auto px-6 pt-8">

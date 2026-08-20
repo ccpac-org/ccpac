@@ -5,14 +5,16 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 <BaseLayout title="World Cup 2026 Semifinal Special - CCPAC" activePage="explore">
 
     <!-- Glowing Background Effect -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[600px] bg-cyan-500/10 blur-[200px] rounded-full pointer-events-none"></div>
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[600px] bg-cyan-500/10 blur-[200px] rounded-full"></div>
+    </div>
 
     <!-- Main Container -->
     <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 space-y-8 relative z-10">
         
         <!-- Back Navigation -->
         <div>
-            <a href="/challenge" class="inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition font-sans group">
+            <a href="/challenges" class="inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition font-sans group">
                 <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
                 <span>Back to Challenges</span>
             </a>
