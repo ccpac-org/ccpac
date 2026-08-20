@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { articlesData, type Author } from '../../../data/articles';
+
+export function getStaticPaths() {
+  return articlesData.map((article) => ({
+    params: { id: article.id },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+---
+
+<BaseLayout title={`${article.title} - CCPAC Articles`} activePage="explore">
+
+    <!-- Glowing Background Effect -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[600px] bg-cyan-500/10 blur-[200px] rounded-full pointer-events-none"></div>
+
+    <!-- Back to Articles -->
+    <div class="max-w-4xl mx-auto px-6 pt-8">
+        <a href="/activities/articles" class="inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition font-sans">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Back to Scientific Articles</span>
+        </a>
+    </div>
+
+    <!-- Main Article Section -->
+    <section class="max-w-4xl mx-auto px-6 pt-8 pb-16 space-y-8">
+        
+        <!-- Header / Meta Info -->
+        <div class="space-y-4">
+            <span class={`px-3 py-1 rounded-full text-xs font-bold uppercase font-poppins inline-block ${article.category === 'Special Feature' ? 'bg-cyan-500/20 border border-cyan-500/40 text-cyan-300' : 'bg-slate-900 border border-slate-700 text-cyan-400'}`}>
+                {article.category === 'Special Feature' && <i class="fa-solid fa-star mr-1"></i>}
+                {article.category}
+            </span>
+
+            <h1 class="text-2xl sm:text-4xl font-black text-white font-poppins leading-snug">
+                {article.title}
+            </h1>
+
+            {article.authors && article.authors.length > 0 && (
+                <div class="flex flex-wrap items-center gap-2 text-sm text-cyan-400 font-semibold">
+                    <span>{article.authors.length > 1 ? 'Authors: ' : 'Author: '}</span>
+                    {article.authors.map((author:Author, index:number) => (
+                        <span class="text-slate-200">
+                            {author.name}
+                            {author.roll && <span class="text-slate-400 font-normal"> (Roll: {author.roll})</span>}
+                            {index < article.authors.length - 1 ? ', ' : ''}
+                        </span>
+                    ))}
+                </div>
+            )}
+        </div>
+
+        <!-- Image Slider / Gallery -->
+        {article.images && article.images.length > 0 && (
+            <div class="glass-card p-3 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden glow-box">
+                {article.images.length === 1 ? (
+                    <div class="relative rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 flex items-center justify-center">
+                        <img src={article.images[0]} alt={article.title} class="max-w-full max-h-[500px] w-auto h-auto object-contain crisp-img" />
+                    </div>
+                ) : (
+                    <div class="slider-container relative w-full overflow-hidden rounded-2xl bg-slate-950 border border-slate-800">
+                        <div class="slider-track flex transition-transform duration-500 ease-in-out">
+                            {article.images.map((imgUrl:string, idx:number) => (
+                                <div class="slide min-w-full flex items-center justify-center bg-black">
+                                    <img src={imgUrl} alt={`${article.title} - Image ${idx + 1}`} class="max-w-full max-h-[600px] w-auto h-auto object-contain crisp-img" />
+                                </div>
+                            ))}
+                        </div>
+                        <button onclick="moveSlide(this, -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black text-white px-3 py-2 rounded-lg z-10 cursor-pointer">&#10094;</button>
+                        <button onclick="moveSlide(this, 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black text-white px-3 py-2 rounded-lg z-10 cursor-pointer">&#10095;</button>
+                    </div>
+                )}
+            </div>
+        )}
+
+        <!-- Article Content -->
+        <div class="glass-card p-6 sm:p-10 rounded-3xl border border-slate-800 shadow-2xl space-y-6">
+            <div class="text-slate-300 text-sm sm:text-base space-y-4 font-sans leading-relaxed">
+                {article.content.map((paragraph:string) => (
+                    <p>{paragraph}</p>
+                ))}
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Slider script -->
+    <script is:inline>
+        function moveSlide(button, direction) {
+            const container = button.closest('.slider-container');
+            const track = container.querySelector('.slider-track');
+            const slides = track.children;
+            
+            let index = parseInt(track.dataset.currentIndex || '0');
+            index = (index + direction + slides.length) % slides.length;
+            track.dataset.currentIndex = index;
+            
+            track.style.transform = `translateX(-${index * 100}%)`;
+        }
+    </script>
+
+</BaseLayout>

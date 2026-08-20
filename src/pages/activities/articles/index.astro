@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { articlesData } from '../../../data/articles';
+---
+
+<BaseLayout title="Scientific Articles - CCPAC | Chittagong College Physics & Astronomy Club" activePage="explore">
+
+    <!-- Glowing Background Effect -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[600px] bg-cyan-500/10 blur-[200px] rounded-full pointer-events-none"></div>
+
+    <!-- Back to Activities -->
+    <div class="max-w-6xl mx-auto px-6 pt-8">
+        <a href="/activities" class="inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Back to Activities</span>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="max-w-5xl mx-auto px-6 pt-8 pb-8 text-center space-y-4">
+        <h1 class="text-2xl sm:text-4xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 uppercase font-poppins">
+            SCIENTIFIC ARTICLES
+        </h1>
+        <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto font-sans leading-relaxed">
+            CCPAC promotes scientific communication through article writing, giving members the opportunity to express ideas, summarize insights from sessions, and explain complex physics or astronomy concepts.
+        </p>
+    </section>
+
+    <!-- Articles Grid Section -->
+    <section class="max-w-7xl mx-auto px-6 py-4 space-y-12 pb-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {articlesData.map((article) => (
+                <div class={`glass-card rounded-3xl border ${article.category === 'Special Feature' ? 'border-cyan-500/40' : 'border-slate-800'} shadow-2xl overflow-hidden glow-box flex flex-col justify-between`}>
+                    <div>
+                        <div class="h-48 overflow-hidden bg-slate-950 border-b border-slate-800 relative group">
+                            <img src={article.images[0]} alt={article.title} class="w-full h-full object-cover group-hover:scale-105 transition duration-500 crisp-img" />
+                            <span class={`absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider font-poppins ${article.category === 'Special Feature' ? 'bg-cyan-500/20 border border-cyan-500/40 text-cyan-300' : 'bg-slate-900/80 backdrop-blur-md border border-slate-700 text-cyan-400'}`}>
+                                {article.category === 'Special Feature' && <i class="fa-solid fa-star mr-1"></i>}
+                                {article.category}
+                            </span>
+                        </div>
+                        <div class="p-6 space-y-3 text-xs text-slate-300">
+                            <h3 class="text-base font-bold text-white leading-snug font-poppins line-clamp-2">{article.title}</h3>
+                            {article.authors.length > 0 && (
+                                <p class="text-xs">
+                                    <strong class="text-cyan-400">{article.authors.length > 1 ? 'Authors: ' : 'Author: '}</strong>
+                                    {article.authors.map((author, index) => (
+                                        <span>
+                                            {author.name}{author.roll && <span class="text-slate-400"> (Roll: {author.roll})</span>}{index < article.authors.length - 1 ? ', ' : ''}
+                                        </span>
+                                    ))}
+                                </p>
+                            )}
+                            <p class="text-slate-400 leading-relaxed line-clamp-3 font-sans pt-1">
+                                {article.excerpt}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <a href={`/activities/articles/${article.id}`} class="inline-flex items-center space-x-2 bg-slate-900 hover:bg-cyan-500 hover:text-slate-950 text-slate-200 border border-slate-700 hover:border-cyan-400 font-bold px-4 py-2.5 rounded-xl text-xs transition duration-300 w-full justify-center">
+                            <span>Read Article</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+</BaseLayout>
