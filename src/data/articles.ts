@@ -17,6 +17,43 @@ export interface Article {
 
 export const articlesData: Article[] = [
   {
+    id: "009",
+    title: "Hawking Radiation",
+    category: "Astronomy",
+    authors: [{ name: "Tasnim Jahan", roll: "" }],
+    excerpt: "ব্ল্যাকহোল কি অমর? হকিং রেডিয়েশন এবং মহাজাগতিক দানবের মৃত্যু",
+    content: [
+      "একসময় ভাবা হতো ব্ল্যাকহোল অমর কিন্তু মহাবিশ্বের নিয়ম খুব অদ্ভুত—এখানে যার জন্ম আছে, তার মৃত্যুও আছে! ১৯৭৪ সালে স্টিফেন হকিং কোয়ান্টাম পদার্থবিজ্ঞানের সাহায্যে পুরো ধারণাটাই বদলে দিলেন। তিনি দেখালেন শূন্যস্থানও আসলে শূন্য নয়, আর ইভেন্ট হরাইজনের প্রান্তে ঘটা ঘটনার ফলে ব্ল্যাকহোলও ধীরে ধীরে সংকুচিত হতে থাকে। সংকুচিত হতে হতে একসময় এ ব্ল্যাকহোলও মহাবিশ্বের চির অন্ধকারে হারিয়ে যায়। প্রশ্ন হচ্ছে, কীভাবে কোটি কোটি বছর পর এক মহাজাগতিক বিস্ফোরণে বিলীন হয়ে যায় ব্ল্যাকহোল?",
+    ],
+    images: ["/images/hawkingradiation.jpeg"],
+    pdf: "https://drive.google.com/file/d/16wh7MimQ0gQRbaspsn4IySM1GZXFwz_5/view?usp=drive_link",
+  },
+  {
+    id: "008",
+    title: "জোড়া তারা ব্যবস্থার বলবিদ্যা (Mechanics of the Binary Star System)",
+    category: "Astronomy",
+    authors: [{ name: "Nirnoy Nil Paul", roll: "1202526010042" }],
+    excerpt:
+      "বলবিদ্যার নীতিসমূহের মধ্য দিয়ে অনন্ত মহাবিশ্বের একাকী নক্ষত্র যুগলের মধ্যকার মিলবন্ধনের রহস্য উন্মোচন",
+    content: [
+      "চট্টগ্রাম কলেজ ফিজিক্স আ্যন্ড অ্যাস্ট্রোনমি  ক্লাব এর নতুন  প্রবন্ধ “জোড়া তারা ব্যবস্থার বলবিদ্যা (Mechanics of the Binary Star System)”-এ আমরা উন্মোচন করেছি যুগল নক্ষত্র ব্যবস্থার এক বিস্ময়কর যাত্রা, এর সৃষ্টি ও কক্ষীয় গতি থেকে শুরু করে কেপলারের সূত্র, কক্ষীয় শক্তি, রোশ সীমা, ভর স্থানান্তর এবং মহাকর্ষীয় তরঙ্গ পর্যন্ত। দুটি নক্ষত্রের এই মহাকর্ষীয় বন্ধন কীভাবে তাদের জীবন, শক্তি ও চূড়ান্ত পরিণতিকে নিয়ন্ত্রণ করে জানতে পড়ুন পুরো প্রবন্ধটি",
+    ],
+    images: [
+      "/images/nnp-sm0.jpeg",
+      "/images/nnp-sm1.jpeg",
+      "/images/nnp-sm2.jpeg",
+      "/images/nnp-sm3.jpeg",
+      "/images/nnp-sm4.jpeg",
+      "/images/nnp-sm5.jpeg",
+      "/images/nnp-sm6.jpeg",
+      "/images/nnp-sm7.jpeg",
+      "/images/nnp-sm8.jpeg",
+      "/images/nnp-sm9.jpeg",
+      "/images/nnp-sm10.jpeg",
+    ],
+    pdf: "https://drive.google.com/file/d/18cN_wdAKHRe7zjEGM6qUlJtcTkqgc8Fg/view?usp=drive_link",
+  },
+  {
     id: "006",
     title:
       "Aiming for the Next Star: The Chandrasekhar Limit of Footballing Heritage",
@@ -58,6 +95,7 @@ export const articlesData: Article[] = [
       "/images/fr3.jpeg",
       "/images/fr4.jpeg",
     ],
+    pdf: "https://drive.google.com/file/d/1kzsuoBuxWGfp_IoXG5W_yh37wHrsnlJD/view?usp=drive_link",
   },
   {
     id: "004",
@@ -84,8 +122,8 @@ export const articlesData: Article[] = [
       "/images/st4.jpeg",
       "/images/st5.jpeg",
       "/images/st6.jpeg",
-  
     ],
+    pdf: "https://drive.google.com/file/d/1Pys4dpC1f_dpsGwqi0gJ6ZfX_vitJYza/view?usp=drive_link",
   },
   {
     id: "003",
@@ -99,6 +137,7 @@ export const articlesData: Article[] = [
       "This article dives into mathematical paradoxes, limits, geometric constructions, and the philosophical beauty of numbers that captivate mathematicians worldwide.",
     ],
     images: ["/images/pi1.jpeg", "/images/pi2.jpeg"],
+    pdf: "https://drive.google.com/file/d/1HjVE_XrFkjU0jj1ZW8EVwp92cr0d9lGo/view?usp=drive_link",
   },
   {
     id: "002",
@@ -112,24 +151,7 @@ export const articlesData: Article[] = [
       "Discover how angle of attack, velocity, and surface tension dictate whether a stone sinks instantly or bounces across the liquid interface multiple times.",
     ],
     images: ["/images/r1.jpeg", "/images/r2.jpeg", "/images/r3.jpeg"],
-  },
-  {
-    id: "001",
-    title: "Particle Dynamics in Stratified Planetary Atmospheres",
-    category: "Atmospheric Dynamics",
-    authors: [{ name: "Sajjad Hosen Sakib", roll: "1202425010149" }],
-    excerpt:
-      "An advanced study combining analytical modeling, numerical simulations, and survey-based educational insights.",
-    content: [
-      "Planetary atmospheres exhibit complex density and temperature stratification that significantly influence suspended aerosol and particle behavior. This advanced research combines analytical modeling and numerical simulations.",
-      "The article explores how gravity waves, atmospheric viscosity, and terminal settling velocities interact to govern pollutant and dust dispersion in planetary layers.",
-    ],
-    images: [
-      "/images/sh1.jpeg",
-      "/images/sh2.jpeg",
-      "/images/sh3.jpeg",
-      "/images/sh4.jpeg",
-    ],
+    pdf: "https://drive.google.com/file/d/1YOq72P6oaVeoT88pYRyL32l4g2o568X0/view?usp=drive_link",
   },
 ];
 

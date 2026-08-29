@@ -1,0 +1,30 @@
+---
+interface Props {
+  pdfUrl: string;
+  title?: string;
+  className?: string;
+}
+
+const {
+  pdfUrl,
+  title = "Article Document Viewer",
+  className = "w-full h-[600px] sm:h-[800px] rounded-2xl border border-slate-800 bg-slate-950",
+} = Astro.props;
+
+// Convert Google Drive view/share link to preview format if necessary
+const embedUrl = pdfUrl.includes("drive.google.com")
+  ? pdfUrl.replace(/\/view(\?.*)?$/, "/preview")
+  : pdfUrl;
+---
+
+<div class="glass-card p-3 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden glow-box">
+  <div class="relative w-full overflow-hidden rounded-2xl bg-slate-950">
+    <iframe
+      src={embedUrl}
+      title={title}
+      class={className}
+      allow="autoplay"
+      loading="lazy"
+    ></iframe>
+  </div>
+</div>

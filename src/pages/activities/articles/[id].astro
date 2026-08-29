@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GoogleDrivePdfViewer from '../../../components/GoogleDrivePdfViewer.astro';
 import { articlesData, type Author } from '../../../data/articles';
 
 export function getStaticPaths() {
@@ -55,27 +56,31 @@ const { article } = Astro.props;
             )}
         </div>
 
-        <!-- Image Slider / Gallery -->
-        {article.images && article.images.length > 0 && (
-            <div class="glass-card p-3 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden glow-box">
-                {article.images.length === 1 ? (
-                    <div class="relative rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 flex items-center justify-center">
-                        <img src={article.images[0]} alt={article.title} class="max-w-full max-h-[500px] w-auto h-auto object-contain crisp-img" />
-                    </div>
-                ) : (
-                    <div class="slider-container relative w-full overflow-hidden rounded-2xl bg-slate-950 border border-slate-800">
-                        <div class="slider-track flex transition-transform duration-500 ease-in-out">
-                            {article.images.map((imgUrl:string, idx:number) => (
-                                <div class="slide min-w-full flex items-center justify-center bg-black">
-                                    <img src={imgUrl} alt={`${article.title} - Image ${idx + 1}`} class="max-w-full max-h-[600px] w-auto h-auto object-contain crisp-img" />
-                                </div>
-                            ))}
+        <!-- PDF Viewer (if available) or Image Slider / Gallery Fallback -->
+        {article.pdf ? (
+            <GoogleDrivePdfViewer pdfUrl={article.pdf} title={article.title} />
+        ) : (
+            article.images && article.images.length > 0 && (
+                <div class="glass-card p-3 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden glow-box">
+                    {article.images.length === 1 ? (
+                        <div class="relative rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 flex items-center justify-center">
+                            <img src={article.images[0]} alt={article.title} class="max-w-full max-h-[500px] w-auto h-auto object-contain crisp-img" />
                         </div>
-                        <button onclick="moveSlide(this, -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black text-white px-3 py-2 rounded-lg z-10 cursor-pointer">&#10094;</button>
-                        <button onclick="moveSlide(this, 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black text-white px-3 py-2 rounded-lg z-10 cursor-pointer">&#10095;</button>
-                    </div>
-                )}
-            </div>
+                    ) : (
+                        <div class="slider-container relative w-full overflow-hidden rounded-2xl bg-slate-950 border border-slate-800">
+                            <div class="slider-track flex transition-transform duration-500 ease-in-out">
+                                {article.images.map((imgUrl:string, idx:number) => (
+                                    <div class="slide min-w-full flex items-center justify-center bg-black">
+                                        <img src={imgUrl} alt={`${article.title} - Image ${idx + 1}`} class="max-w-full max-h-[600px] w-auto h-auto object-contain crisp-img" />
+                                    </div>
+                                ))}
+                            </div>
+                            <button onclick="moveSlide(this, -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black text-white px-3 py-2 rounded-lg z-10 cursor-pointer">&#10094;</button>
+                            <button onclick="moveSlide(this, 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black text-white px-3 py-2 rounded-lg z-10 cursor-pointer">&#10095;</button>
+                        </div>
+                    )}
+                </div>
+            )
         )}
 
         <!-- Article Content -->
