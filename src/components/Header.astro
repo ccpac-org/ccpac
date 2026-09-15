@@ -8,10 +8,10 @@ const currentPath = Astro.url.pathname;
 
 const navItems = [
   { name: 'Home', href: '/' },
-  { name: 'Explore', href: '/#explore-section' },
-  { name: 'Updates', href: '/#updates' },
+  { name: 'About Us', href: '/about' },
+  { name: 'Activities', href: '/activities' },
+  { name: 'Events', href: '/events' },
   { name: 'Membership', href: '/#membership' },
-  { name: 'Message Desk', href: '/#messages' },
   { name: 'Contact', href: '/#contact' },
 ];
 ---
@@ -39,7 +39,12 @@ const navItems = [
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex space-x-6 text-xs sm:text-sm font-semibold tracking-wide text-slate-300">
             {navItems.map((item) => {
-              const isActive = activePage === item.name.toLowerCase() || (item.name === 'Home' && activePage === 'home');
+            //   const isActive = activePage === item.name.toLowerCase() || (item.name === 'Home' && activePage === 'home');
+            const isActive = item.href === '/'
+            ? currentPath === '/'
+            : item.href.startsWith('/#')
+                ? false
+                : currentPath.startsWith(item.href);
               return (
                 <a 
                   href={item.href} 
