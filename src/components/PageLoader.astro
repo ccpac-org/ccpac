@@ -31,6 +31,92 @@
   </div>
 </div>
 
+
+
+<script is:inline>
+  // Runs immediately, blocks rendering right here — prevents any flash
+  (function() {
+    var loader = document.getElementById('page-loader');
+    if (!loader) return;
+    if (sessionStorage.getItem('ccpac-loaded')) {
+      loader.style.display = 'none'; // instantly gone, no animation, no flash
+    }
+  })();
+</script>
+
+<script is:inline>
+  (function() {
+    const loader = document.getElementById('page-loader');
+    const progressBar = document.getElementById('loader-progress');
+    const statusText = document.getElementById('loader-status');
+
+    if (!loader || !progressBar) return;
+
+    // If we already hid it above, don't run the animation at all
+    if (sessionStorage.getItem('ccpac-loaded')) return;
+
+    const phrases = [
+      "CALIBRATING TELESCOPE ARRAYS...",
+      "MAPPING STELLAR CONSTELLATIONS...",
+      "COMPUTING QUANTUM WAVE EQUATIONS...",
+      "INITIALIZING COSMIC CANVAS..."
+    ];
+
+    let progress = 10;
+    progressBar.style.width = progress + '%';
+
+    let phraseIdx = 0;
+    const interval = setInterval(() => {
+      progress += Math.floor(Math.random() * 25) + 15;
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(interval);
+        if (statusText) statusText.textContent = "LAUNCH SEQUENCE READY";
+        setTimeout(() => {
+          loader.style.opacity = '0';
+          loader.style.pointerEvents = 'none';
+          setTimeout(() => {
+            loader.remove();
+            sessionStorage.setItem('ccpac-loaded', '1'); // mark as seen
+          }, 700);
+        }, 350);
+      }
+      progressBar.style.width = progress + '%';
+      if (phraseIdx < phrases.length && progress > (phraseIdx + 1) * 22) {
+        phraseIdx++;
+        if (statusText && phrases[phraseIdx]) {
+          statusText.textContent = phrases[phraseIdx];
+        }
+      }
+    }, 120);
+
+    window.addEventListener('load', () => {
+      progress = 100;
+      progressBar.style.width = '100%';
+      if (statusText) statusText.textContent = "WELCOME TO CCPAC";
+      setTimeout(() => {
+        loader.style.opacity = '0';
+        loader.style.pointerEvents = 'none';
+        setTimeout(() => {
+          loader.remove();
+          sessionStorage.setItem('ccpac-loaded', '1');
+        }, 700);
+      }, 200);
+    });
+  })();
+</script>
+
+<!-- <script is:inline>
+  // Runs immediately, before paint — hides loader instantly if not on the homepage
+  (function() {
+    var loader = document.getElementById('page-loader');
+    if (!loader) return;
+    if (window.location.pathname !== '/') {
+      loader.style.display = 'none';
+    }
+  })();
+</script>
+
 <script is:inline>
   (function() {
     const loader = document.getElementById('page-loader');
@@ -87,4 +173,4 @@
       }, 200);
     });
   })();
-</script>
+</script> -->
