@@ -3,7 +3,6 @@ interface Props {
   activePage?: string;
 }
 
-const { activePage = 'home' } = Astro.props;
 const currentPath = Astro.url.pathname;
 
 const navItems = [

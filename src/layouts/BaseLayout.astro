@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import MembershipModal from '../components/MembershipModal.astro';
 import CosmicCanvas from '../components/CosmicCanvas.astro';
+import PageLoader from '../components/PageLoader.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -35,6 +36,9 @@ const {
 </head>
 <body class="bg-spaceDark text-slate-100 font-sans selection:bg-cyan-500 selection:text-slate-950 overflow-x-hidden min-h-screen flex flex-col justify-between bg-space-grid relative">
 
+    <!-- Aesthetic Custom Page Loader -->
+    <PageLoader />
+
     <!-- Interactive Canvas & Cosmic Starfield -->
     <CosmicCanvas />
 
@@ -59,8 +63,8 @@ const {
             const navbar = document.getElementById('main-navbar');
             if (!navbar) return;
             
-            // Check if any modal div (e.g. fixed inset-0 z-50 modals without 'hidden') is currently visible
-            const allModals = document.querySelectorAll('div.fixed.inset-0');
+            // Check if any modal div (e.g. modal fixed inset-0 z-50 modals without 'hidden') is currently visible
+            const allModals = document.querySelectorAll('.modal.fixed.inset-0');
             let anyModalOpen = false;
             allModals.forEach(modal => {
                 if (!modal.classList.contains('hidden')) {
