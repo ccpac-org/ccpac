@@ -1,6 +1,7 @@
 ---
 const IS_REGISTRATION_CLOSED = true;
 const ENABLE_TESTER_BYPASS = true;
+const TESTER_BYPASS_CODE = "serendipity";
 ---
 <div id="membership-registration" class="modal fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4">
     <div class="glass-card max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-3xl border border-slate-800 shadow-2xl p-6 md:p-8 relative space-y-6">
@@ -16,8 +17,8 @@ const ENABLE_TESTER_BYPASS = true;
             </p> -->
         </div>
 
-        {IS_REGISTRATION_CLOSED ? (
-            <div class="text-center p-8 bg-amber-500/10 border border-amber-500/30 rounded-2xl space-y-4 relative z-10">
+        {IS_REGISTRATION_CLOSED && (
+            <div id="mClosedNotice" class="text-center p-8 bg-amber-500/10 border border-amber-500/30 rounded-2xl space-y-4 relative z-10">
                 <div class="w-14 h-14 bg-amber-500 text-slate-950 rounded-full flex items-center justify-center mx-auto text-2xl font-bold shadow-lg shadow-amber-500/40">
                     <i class="fa-solid fa-lock"></i>
                 </div>
@@ -25,14 +26,28 @@ const ENABLE_TESTER_BYPASS = true;
                 <p class="text-slate-300 text-sm max-w-md mx-auto">
                     We are not accepting new general member applications at this moment. Please stay tuned for our next recruitment phase or announcements!
                 </p>
+                {ENABLE_TESTER_BYPASS && (
+                    <div class="pt-2 max-w-xs mx-auto space-y-1">
+                        <input 
+                            type="password" 
+                            id="mTesterCodeInput" 
+                            data-secret-code={TESTER_BYPASS_CODE}
+                            placeholder="Secret tester code..." 
+                            class="w-full px-3 py-2 bg-slate-900/90 border border-slate-700/80 rounded-xl text-slate-100 placeholder-slate-500 text-xs text-center focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition"
+                            autocomplete="off"
+                        />
+                    </div>
+                )}
                 <div class="pt-2">
                     <button onclick="toggleMembershipForm()" class="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl text-xs font-semibold transition border border-slate-700 cursor-pointer">
                         Close Window
                     </button>
                 </div>
             </div>
-        ) : (
-        <form id="ccpacMembershipForm" class="space-y-6 relative z-10" novalidate>
+        )}
+
+        {(!IS_REGISTRATION_CLOSED || ENABLE_TESTER_BYPASS) && (
+        <form id="ccpacMembershipForm" class={`space-y-6 relative z-10 ${IS_REGISTRATION_CLOSED ? 'hidden' : ''}`} novalidate>
             <!-- Honeypot field for anti-bot protection -->
             <div class="hidden" aria-hidden="true">
                 <input type="text" id="mWebsite" name="website" tabindex="-1" autocomplete="off" />
@@ -330,6 +345,23 @@ const ENABLE_TESTER_BYPASS = true;
         const skillsChevron = document.getElementById('skillsChevron');
         const skillsLabel = document.getElementById('skillsDropdownLabel');
         const clearAllBtn = document.getElementById('clearAllSkillsBtn');
+
+        // Tester secret code bypass handler
+        const testerInput = document.getElementById('mTesterCodeInput') as HTMLInputElement | null;
+        if (testerInput) {
+            const expectedCode = testerInput.dataset.secretCode || '#sym:IS_REGISTRATION_CLOSED';
+            testerInput.addEventListener('input', () => {
+                if (testerInput.value.trim() === expectedCode) {
+                    const closedNotice = document.getElementById('mClosedNotice');
+                    if (closedNotice) {
+                        closedNotice.classList.add('hidden');
+                    }
+                    if (membershipForm) {
+                        membershipForm.classList.remove('hidden');
+                    }
+                }
+            });
+        }
 
         if (!membershipForm) return;
 
