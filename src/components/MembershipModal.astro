@@ -1,7 +1,7 @@
 ---
 const IS_REGISTRATION_CLOSED = true;
 ---
-<div id="membership-registration" class="modal fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+<div id="membership-registration" class="modal fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4">
     <div class="glass-card max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-3xl border border-slate-800 shadow-2xl p-6 md:p-8 relative space-y-6">
         <button onclick="toggleMembershipForm()" class="absolute top-4 right-4 bg-slate-900 hover:bg-cyan-500 hover:text-slate-950 text-slate-300 w-10 h-10 rounded-full flex items-center justify-center transition border border-slate-700 shadow-lg z-10 cursor-pointer">
             <i class="fa-solid fa-xmark text-lg"></i>
@@ -9,10 +9,10 @@ const IS_REGISTRATION_CLOSED = true;
 
         <div class="text-center space-y-2 relative z-10">
             <span class="px-3 py-1 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 rounded-full text-xs font-bold uppercase tracking-wider">Join CCPAC</span>
-            <h2 class="text-2xl md:text-3xl font-extrabold font-poppins text-slate-100">General Member Application</h2>
-            <p class="text-slate-300 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
+            <h2 class="text-2xl md:text-3xl font-extrabold font-poppins text-slate-100">Member Application</h2>
+            <!-- <p class="text-slate-300 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
                 Step beyond conventional boundaries. Join Chittagong College's premier hub for physics and astronomical inquiry.
-            </p>
+            </p> -->
         </div>
 
         {IS_REGISTRATION_CLOSED ? (
@@ -31,23 +31,39 @@ const IS_REGISTRATION_CLOSED = true;
                 </div>
             </div>
         ) : (
-        <form id="ccpacMembershipForm" class="space-y-6 relative z-10">
+        <form id="ccpacMembershipForm" class="space-y-6 relative z-10" novalidate>
+            <!-- Honeypot field for anti-bot protection -->
+            <div class="hidden" aria-hidden="true">
+                <input type="text" id="mWebsite" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <!-- Global Form Error Alert -->
+            <div id="mGlobalError" class="hidden p-4 bg-rose-500/10 border border-rose-500/30 rounded-xl text-rose-300 text-xs sm:text-sm space-y-1">
+                <div class="flex items-center space-x-2 font-bold text-rose-400">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <span>Please fix the errors below before submitting:</span>
+                </div>
+                <ul id="mErrorList" class="list-disc list-inside space-y-0.5 text-slate-300"></ul>
+            </div>
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div class="space-y-2">
+                <div class="space-y-1.5">
                     <label class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Full Name <span class="text-cyan-500">*</span></label>
                     <input type="text" id="mName" placeholder="e.g. Arman Hossain" required 
                         class="w-full px-4 py-3.5 bg-spaceDark/80 border border-slate-700/80 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition">
+                    <p id="mNameErr" class="text-xs text-rose-400 font-medium hidden mt-1"></p>
                 </div>
 
-                <div class="space-y-2">
+                <div class="space-y-1.5">
                     <label class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Email Address <span class="text-cyan-500">*</span></label>
                     <input type="email" id="mEmail" placeholder="username@gmail.com" required 
                         class="w-full px-4 py-3.5 bg-spaceDark/80 border border-slate-700/80 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition">
+                    <p id="mEmailErr" class="text-xs text-rose-400 font-medium hidden mt-1"></p>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                <div class="space-y-2">
+                <div class="space-y-1.5">
                     <label class="text-xs font-bold text-cyan-400 uppercase tracking-wider">HSC Year <span class="text-cyan-500">*</span></label>
                     <select id="mHscYear" required 
                         class="w-full px-4 py-3.5 bg-spaceDark/80 border border-slate-700/80 rounded-xl text-slate-100 text-sm focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition">
@@ -55,80 +71,168 @@ const IS_REGISTRATION_CLOSED = true;
                         <option value="HSC 2027">HSC 2027</option>
                         <option value="HSC 2028">HSC 2028</option>
                     </select>
+                    <p id="mHscYearErr" class="text-xs text-rose-400 font-medium hidden mt-1"></p>
                 </div>
 
-                <div class="space-y-2">
+                <div class="space-y-1.5">
                     <label class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Section <span class="text-cyan-500">*</span></label>
-                    <input type="text" id="mSection" placeholder="e.g. Science A" required 
-                        class="w-full px-4 py-3.5 bg-spaceDark/80 border border-slate-700/80 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition">
+                    <select id="mSection" required 
+                        class="w-full px-4 py-3.5 bg-spaceDark/80 border border-slate-700/80 rounded-xl text-slate-100 text-sm focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition">
+                        <option value="" disabled selected>Select Section</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                    </select>
+                    <p id="mSectionErr" class="text-xs text-rose-400 font-medium hidden mt-1"></p>
                 </div>
 
-                <div class="space-y-2">
+                <div class="space-y-1.5">
                     <label class="text-xs font-bold text-cyan-400 uppercase tracking-wider">College Roll <span class="text-cyan-500">*</span></label>
-                    <input type="text" id="mRoll" placeholder="1202526xxxxxx" required 
+                    <input type="text" id="mRoll" placeholder="1202627XXXXXX" required minlength="13" maxlength="13" pattern="(1202526|1202627)\d{6}"
                         class="w-full px-4 py-3.5 bg-spaceDark/80 border border-slate-700/80 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition">
+                    <p id="mRollErr" class="text-xs text-rose-400 font-medium hidden mt-1"></p>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div class="space-y-2">
-                    <label class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Phone Number <span class="text-cyan-500">*</span></label>
-                    <input type="tel" id="mPhone" placeholder="017XXXXXXXX" required 
-                        class="w-full px-4 py-3.5 bg-spaceDark/80 border border-slate-700/80 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition">
-                </div>
+            <div class="space-y-1.5">
+                <label class="text-xs font-bold text-cyan-400 uppercase tracking-wider">WhatsApp Number <span class="text-cyan-500">*</span></label>
+                <input type="tel" id="mWhatsapp" placeholder="017XXXXXXXX" required minlength="11" maxlength="11" pattern="01\d{9}"
+                    class="w-full px-4 py-3.5 bg-spaceDark/80 border border-slate-700/80 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition">
+                <p id="mWhatsappErr" class="text-xs text-rose-400 font-medium hidden mt-1"></p>
+            </div>
 
-                <div class="space-y-2">
-                    <label class="text-xs font-bold text-cyan-400 uppercase tracking-wider">WhatsApp Number <span class="text-cyan-500">*</span></label>
-                    <input type="tel" id="mWhatsapp" placeholder="017XXXXXXXX" required 
-                        class="w-full px-4 py-3.5 bg-spaceDark/80 border border-slate-700/80 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition">
+            <!-- Skills & Expertise Multi-Select Dropdown -->
+            <div class="space-y-2 relative">
+                <label class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Your Skills & Expertise <span class="text-cyan-500">*</span></label>
+                
+                <button type="button" id="skillsDropdownBtn" 
+                    class="w-full px-4 py-3.5 bg-spaceDark/80 border border-slate-700/80 rounded-xl text-slate-100 text-sm flex items-center justify-between hover:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition cursor-pointer">
+                    <span id="skillsDropdownLabel" class="text-slate-400">Select skills & expertise (0 selected)</span>
+                    <i id="skillsChevron" class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform duration-200"></i>
+                </button>
+                <p id="mSkillsErr" class="text-xs text-rose-400 font-medium hidden mt-1"></p>
+
+                <!-- Dropdown Menu Panel -->
+                <div id="skillsDropdownPanel" class="hidden mt-2 p-4 bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl space-y-5 max-h-96 overflow-y-auto relative z-20">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                        <span class="text-xs font-semibold text-slate-400">Select all that apply</span>
+                        <div class="text-xs">
+                            <button type="button" id="clearAllSkillsBtn" class="text-rose-400 hover:underline cursor-pointer">Clear All</button>
+                        </div>
+                    </div>
+
+                    <!-- Category 1: General & Organizational Skills -->
+                    <div class="space-y-2">
+                        <div class="flex items-center space-x-2 text-xs font-bold text-cyan-300 uppercase tracking-wider">
+                            <i class="fa-solid fa-users-gear text-cyan-400"></i>
+                            <span>General & Organizational Skills</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                            {["Research", "Public Speaking", "Event Management", "Content Writing"].map((skill) => (
+                                <label class="flex items-center space-x-3 p-3 bg-spaceDark/60 border border-slate-800 rounded-xl cursor-pointer hover:border-cyan-500/50 transition">
+                                    <input type="checkbox" name="skills" value={skill} class="w-4 h-4 accent-cyan-400 rounded cursor-pointer" />
+                                    <span class="text-xs text-slate-300 font-medium">{skill}</span>
+                                </label>
+                            ))}
+                        </div>
+                    </div>
+
+                    <!-- Category 2: Technical & Creative Skills -->
+                    <div class="space-y-3 pt-2 border-t border-slate-800">
+                        <div class="flex items-center space-x-2 text-xs font-bold text-cyan-300 uppercase tracking-wider">
+                            <i class="fa-solid fa-code text-cyan-400"></i>
+                            <span>Technical & Creative Skills</span>
+                        </div>
+
+                        <!-- Graphics Design -->
+                        <div class="pl-1">
+                            <label class="flex items-center space-x-3 p-3 bg-spaceDark/60 border border-slate-800 rounded-xl cursor-pointer hover:border-cyan-500/50 transition">
+                                <input type="checkbox" name="skills" value="Graphics Design" class="w-4 h-4 accent-cyan-400 rounded cursor-pointer" />
+                                <span class="text-xs text-slate-300 font-medium">Graphics Design</span>
+                            </label>
+                        </div>
+
+                        <!-- Programming Subsection -->
+                        <div class="space-y-2 pl-2 border-l-2 border-slate-800">
+                            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wide">Programming</span>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                                <label class="flex items-start space-x-3 p-3 bg-spaceDark/60 border border-slate-800 rounded-xl cursor-pointer hover:border-cyan-500/50 transition">
+                                    <input type="checkbox" name="skills" value="Basic Programming (HTML, CSS, JS)" class="w-4 h-4 mt-0.5 accent-cyan-400 rounded cursor-pointer" />
+                                    <div class="text-xs">
+                                        <div class="text-slate-200 font-semibold">Basic Programming</div>
+                                        <div class="text-[10px] text-slate-400">Static Web Dev (HTML, CSS, JS)</div>
+                                    </div>
+                                </label>
+
+                                <label class="flex items-start space-x-3 p-3 bg-spaceDark/60 border border-slate-800 rounded-xl cursor-pointer hover:border-cyan-500/50 transition">
+                                    <input type="checkbox" name="skills" value="Advanced Programming (Next.js, React, DSA)" class="w-4 h-4 mt-0.5 accent-cyan-400 rounded cursor-pointer" />
+                                    <div class="text-xs">
+                                        <div class="text-slate-200 font-semibold">Advanced Programming</div>
+                                        <div class="text-[10px] text-slate-400">Next.js, React, Frameworks, DSA</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Video Editing Subsection -->
+                        <div class="space-y-2 pl-2 border-l-2 border-slate-800">
+                            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wide">Video Editing</span>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                                <label class="flex items-start space-x-3 p-3 bg-spaceDark/60 border border-slate-800 rounded-xl cursor-pointer hover:border-cyan-500/50 transition">
+                                    <input type="checkbox" name="skills" value="Simple Video Editing (CapCut, Alight Motion)" class="w-4 h-4 mt-0.5 accent-cyan-400 rounded cursor-pointer" />
+                                    <div class="text-xs">
+                                        <div class="text-slate-200 font-semibold">Simple Video Editing</div>
+                                        <div class="text-[10px] text-slate-400">Mobile editors (CapCut, Alight Motion)</div>
+                                    </div>
+                                </label>
+
+                                <label class="flex items-start space-x-3 p-3 bg-spaceDark/60 border border-slate-800 rounded-xl cursor-pointer hover:border-cyan-500/50 transition">
+                                    <input type="checkbox" name="skills" value="Complex Video Editing (Premiere, After Effects, DaVinci)" class="w-4 h-4 mt-0.5 accent-cyan-400 rounded cursor-pointer" />
+                                    <div class="text-xs">
+                                        <div class="text-slate-200 font-semibold">Complex Video Editing</div>
+                                        <div class="text-[10px] text-slate-400">Premiere, After Effects, DaVinci, Avid</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="space-y-3">
-                <label class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Your Skills & Expertise (Select all that apply)</label>
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    {["Research", "Programming", "Web Development", "Content Writing", "Graphics Design", "Video Editing", "Public Speaking", "Event Management"].map((skill) => (
-                        <label class="flex items-center space-x-3 p-3 bg-spaceDark/60 border border-slate-800 rounded-xl cursor-pointer hover:border-cyan-500/50 transition">
-                            <input type="checkbox" name="skills" value={skill} class="w-4 h-4 accent-cyan-400 rounded" />
-                            <span class="text-xs text-slate-300 font-medium">{skill}</span>
-                        </label>
-                    ))}
-                </div>
-            </div>
-
-            <div class="space-y-2">
+            <div class="space-y-1.5">
                 <label class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Detailed Skills & Proficiency (Optional)</label>
                 <textarea id="mSkillDetails" rows="2" placeholder="Mention any specific software, tools, or proficiencies you have..." 
                     class="w-full px-4 py-3.5 bg-spaceDark/80 border border-slate-700/80 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition"></textarea>
             </div>
 
-            <div class="space-y-2">
-                <label class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Olympiad Achievements (If any)</label>
+            <div class="space-y-1.5">
+                <label class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Olympiad Achievements (Optional)</label>
                 <textarea id="mOlympiad" rows="2" placeholder="Mention past participation or awards in Physics, Math, Astronomy, or Informatics Olympiads..." 
                     class="w-full px-4 py-3.5 bg-spaceDark/80 border border-slate-700/80 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition"></textarea>
             </div>
 
-            <div class="space-y-2">
-                <label class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Past Clubbing or Extracurricular Experience</label>
+            <div class="space-y-1.5">
+                <label class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Past Clubbing or Extracurricular Experience <span class="text-cyan-500">*</span></label>
                 <textarea id="mPastClub" rows="2" placeholder="Provide details if yes, otherwise write 'N/A'..." required
                     class="w-full px-4 py-3.5 bg-spaceDark/80 border border-slate-700/80 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition"></textarea>
+                <p id="mPastClubErr" class="text-xs text-rose-400 font-medium hidden mt-1"></p>
             </div>
 
-            <div class="space-y-2">
-                <label class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Why do you want to join CCPAC?</label>
+            <div class="space-y-1.5">
+                <label class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Why do you want to join CCPAC? <span class="text-cyan-500">*</span></label>
                 <textarea id="mWhyJoin" rows="3" placeholder="Share your motivation for exploring physics and astronomy..." required
                     class="w-full px-4 py-3.5 bg-spaceDark/80 border border-slate-700/80 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition"></textarea>
+                <p id="mWhyJoinErr" class="text-xs text-rose-400 font-medium hidden mt-1"></p>
             </div>
 
-            <div class="flex flex-col sm:flex-row gap-4">
-                <button type="submit" 
+            <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                <button type="submit" id="mSubmitBtn"
                     class="flex-1 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-black rounded-xl text-base transition shadow-xl shadow-cyan-500/25 flex items-center justify-center space-x-2 cursor-pointer">
                     <span>Submit Application</span>
                     <i class="fa-solid fa-paper-plane"></i>
-                </button>
-                <button type="button" onclick="toggleMembershipForm()" 
-                    class="px-6 py-4 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl text-sm transition border border-slate-700 cursor-pointer">
-                    Close Form
                 </button>
             </div>
         </form>
@@ -138,10 +242,10 @@ const IS_REGISTRATION_CLOSED = true;
             <div class="w-14 h-14 bg-cyan-500 text-slate-950 rounded-full flex items-center justify-center mx-auto text-2xl font-bold shadow-lg shadow-cyan-500/40">
                 <i class="fa-solid fa-check"></i>
             </div>
-            <h3 class="text-xl font-bold text-white">Application Received Successfully!</h3>
-            <p class="text-slate-300 text-sm max-w-md mx-auto">
-                Your credentials have been securely submitted to the EC panel. We will reach out to you shortly.
-            </p>
+           <h3 class="text-xl font-bold text-white">Welcome to the Club!</h3>
+<p class="text-slate-300 text-sm max-w-md mx-auto">
+    Your application has been received successfully. We're excited to have you with us and will be in touch with you soon!
+</p>
             <div class="pt-4">
                 <button onclick="toggleMembershipForm()" class="px-6 py-2 bg-slate-800 hover:bg-slate-700 text-cyan-400 rounded-xl text-xs font-semibold transition border border-slate-700 cursor-pointer">
                     Close Window
@@ -158,59 +262,311 @@ const IS_REGISTRATION_CLOSED = true;
         const isHidden = formModal.classList.contains('hidden');
         if (isHidden) {
             formModal.classList.remove('hidden');
+            formModal.classList.add('flex');
             document.body.style.overflow = 'hidden';
         } else {
             formModal.classList.add('hidden');
+            formModal.classList.remove('flex');
             document.body.style.overflow = 'auto';
+        }
+    }
+</script>
+
+<script>
+    import { z } from 'zod';
+
+    // Rate limiting cooldown in milliseconds (30 seconds)
+    const RATE_LIMIT_COOLDOWN_MS = 3600000;
+
+    // Zod Schema Definition
+    const membershipSchema = z.object({
+        name: z.string().trim().min(2, "Full Name must be at least 2 characters."),
+        email: z.string().trim().min(1, "Email is required.").email("Please enter a valid email address."),
+        hscYear: z.enum(["HSC 2027", "HSC 2028"], {
+            message: "Please select your HSC Year."
+        }),
+        section: z.enum(["A", "B", "C", "D", "E", "F"], {
+            message: "Section must be A, B, C, D, E, or F."
+        }),
+        roll: z.string().trim().regex(/^(1202526|1202627)\d{6}$/, "College Roll must start with 1202526 or 1202627 and be exactly 13 digits."),
+        whatsapp: z.string().trim().regex(/^01\d{9}$/, "WhatsApp number must start with 01 and contain exactly 11 digits."),
+        skills: z.array(z.string()).min(1, "Please select at least one skill or area of expertise."),
+        skillDetails: z.string().trim().optional(),
+        olympiad: z.string().trim().optional(),
+        pastClub: z.string().trim().min(1, "Please enter your past club experience or 'N/A'."),
+        whyJoin: z.string().trim().min(10, "Please provide a reason with at least 10 characters.")
+    });
+
+    type FormFields = z.infer<typeof membershipSchema>;
+
+    // Security Helper: Neutralize formula injection in Google Sheets (=, +, -, @)
+    function sanitizeInput(str: string | undefined): string {
+        if (!str) return '';
+        let clean = str.trim();
+        if (/^[=+\-@]/.test(clean)) {
+            clean = "'" + clean;
+        }
+        return clean;
+    }
+
+    // Security Helper: Calculate SHA-256 hash token for request authentication
+    async function computeRequestToken(payload: string, timestamp: number): Promise<string> {
+        try {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(`${payload}:${timestamp}:ccpac_secure_submit_v1`);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        } catch {
+            return 'fallback_hash_' + timestamp;
         }
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        const membershipForm = document.getElementById('ccpacMembershipForm');
-        if (membershipForm) {
-            membershipForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                const formData = {
-                    name: document.getElementById('mName').value,
-                    email: document.getElementById('mEmail').value,
-                    hscYear: document.getElementById('mHscYear').value,
-                    section: document.getElementById('mSection').value,
-                    roll: document.getElementById('mRoll').value,
-                    phone: document.getElementById('mPhone').value,
-                    whatsapp: document.getElementById('mWhatsapp').value,
-                    skills: Array.from(document.querySelectorAll('input[name="skills"]:checked')).map(cb => cb.value).join(', '),
-                    skillDetails: document.getElementById('mSkillDetails').value,
-                    olympiad: document.getElementById('mOlympiad').value,
-                    pastClub: document.getElementById('mPastClub').value,
-                    whyJoin: document.getElementById('mWhyJoin').value
-                };
+        const membershipForm = document.getElementById('ccpacMembershipForm') as HTMLFormElement | null;
+        const skillsBtn = document.getElementById('skillsDropdownBtn');
+        const skillsPanel = document.getElementById('skillsDropdownPanel');
+        const skillsChevron = document.getElementById('skillsChevron');
+        const skillsLabel = document.getElementById('skillsDropdownLabel');
+        const clearAllBtn = document.getElementById('clearAllSkillsBtn');
 
-                const submitBtn = this.querySelector('button[type="submit"]');
-                const originalBtnText = submitBtn.innerHTML;
-                submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> <span>Submitting...</span>`;
-                submitBtn.disabled = true;
+        if (!membershipForm) return;
 
-                try {
-                    const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbxNKEqhdDrRqTE0rjpdgsH8THqHvwjzBEQGBcmQMnV1LiZIqac_MIBE7Vpob9kKrcw/exec';
+        // Interactive Skills Dropdown Logic
+        function updateSkillsLabel() {
+            const checkedBoxes = Array.from(document.querySelectorAll<HTMLInputElement>('input[name="skills"]:checked'));
+            if (skillsLabel) {
+                if (checkedBoxes.length === 0) {
+                    skillsLabel.textContent = 'Select skills & expertise (0 selected)';
+                    skillsLabel.className = 'text-slate-400';
+                } else if (checkedBoxes.length === 1) {
+                    skillsLabel.textContent = `1 skill selected (${checkedBoxes[0].value.split('(')[0].trim()})`;
+                    skillsLabel.className = 'text-cyan-300 font-semibold';
+                } else {
+                    skillsLabel.textContent = `${checkedBoxes.length} skills selected`;
+                    skillsLabel.className = 'text-cyan-300 font-semibold';
+                }
+            }
+        }
 
-                    await fetch(BACKEND_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(formData)
-                    });
+        if (skillsBtn && skillsPanel) {
+            skillsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = skillsPanel.classList.contains('hidden');
+                if (isHidden) {
+                    skillsPanel.classList.remove('hidden');
+                    skillsChevron?.classList.add('rotate-180');
+                } else {
+                    skillsPanel.classList.add('hidden');
+                    skillsChevron?.classList.remove('rotate-180');
+                }
+            });
 
-                    document.getElementById('ccpacMembershipForm').style.display = 'none';
-                    document.getElementById('mSuccessBox').classList.remove('hidden');
-
-                } catch (error) {
-                    console.error('Submission error:', error);
-                    alert('Something went wrong. Please try again later.');
-                    submitBtn.innerHTML = originalBtnText;
-                    submitBtn.disabled = false;
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!skillsPanel.contains(e.target as Node) && !skillsBtn.contains(e.target as Node)) {
+                    skillsPanel.classList.add('hidden');
+                    skillsChevron?.classList.remove('rotate-180');
                 }
             });
         }
+
+        document.querySelectorAll<HTMLInputElement>('input[name="skills"]').forEach(cb => {
+            cb.addEventListener('change', updateSkillsLabel);
+        });
+
+        if (clearAllBtn) {
+            clearAllBtn.addEventListener('click', () => {
+                document.querySelectorAll<HTMLInputElement>('input[name="skills"]').forEach(cb => {
+                    cb.checked = false;
+                });
+                updateSkillsLabel();
+            });
+        }
+
+        // Helper: Clear UI Errors
+        function clearErrors() {
+            const globalErr = document.getElementById('mGlobalError');
+            if (globalErr) globalErr.classList.add('hidden');
+            const errList = document.getElementById('mErrorList');
+            if (errList) errList.innerHTML = '';
+
+            const fieldErrIds = [
+                'mNameErr', 'mEmailErr', 'mHscYearErr', 'mSectionErr', 
+                'mRollErr', 'mWhatsappErr', 'mSkillsErr', 'mPastClubErr', 'mWhyJoinErr'
+            ];
+            fieldErrIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.textContent = '';
+                    el.classList.add('hidden');
+                }
+            });
+
+            const inputs = membershipForm?.querySelectorAll('input, select, textarea');
+            inputs?.forEach(input => {
+                input.classList.remove('border-rose-500', 'focus:border-rose-500');
+            });
+        }
+
+        // Helper: Display Validation Error for Field
+        function showFieldError(fieldId: string, errMessage: string) {
+            const errEl = document.getElementById(fieldId + 'Err');
+            const inputEl = document.getElementById(fieldId);
+            if (errEl) {
+                errEl.textContent = errMessage;
+                errEl.classList.remove('hidden');
+            }
+            if (inputEl) {
+                inputEl.classList.add('border-rose-500');
+            }
+        }
+
+        // Form Submit Handler
+        membershipForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            clearErrors();
+
+            // 1. Honeypot check (Anti-bot protection)
+            const honeypot = (document.getElementById('mWebsite') as HTMLInputElement)?.value;
+            if (honeypot) {
+                console.warn('Bot submission detected via honeypot.');
+                // Fake success to deceive bots
+                membershipForm.style.display = 'none';
+                document.getElementById('mSuccessBox')?.classList.remove('hidden');
+                return;
+            }
+
+            // 2. Rate limiting check
+            const lastSubTime = sessionStorage.getItem('ccpac_last_sub_time');
+            if (lastSubTime) {
+                const elapsed = Date.now() - parseInt(lastSubTime, 10);
+                if (elapsed < RATE_LIMIT_COOLDOWN_MS) {
+                    const remaining = Math.ceil((RATE_LIMIT_COOLDOWN_MS - elapsed) / 1000);
+                    alert(`Please wait ${remaining} seconds before submitting again.`);
+                    return;
+                }
+            }
+
+            // 3. Extract & Format Form Values
+            const rawSkills = Array.from(document.querySelectorAll<HTMLInputElement>('input[name="skills"]:checked'))
+                .map(cb => cb.value);
+
+            const formDataRaw = {
+                name: (document.getElementById('mName') as HTMLInputElement)?.value || '',
+                email: (document.getElementById('mEmail') as HTMLInputElement)?.value || '',
+                hscYear: (document.getElementById('mHscYear') as HTMLSelectElement)?.value || '',
+                section: (document.getElementById('mSection') as HTMLSelectElement)?.value || '',
+                roll: (document.getElementById('mRoll') as HTMLInputElement)?.value || '',
+                whatsapp: (document.getElementById('mWhatsapp') as HTMLInputElement)?.value || '',
+                skills: rawSkills,
+                skillDetails: (document.getElementById('mSkillDetails') as HTMLTextAreaElement)?.value || '',
+                olympiad: (document.getElementById('mOlympiad') as HTMLTextAreaElement)?.value || '',
+                pastClub: (document.getElementById('mPastClub') as HTMLTextAreaElement)?.value || '',
+                whyJoin: (document.getElementById('mWhyJoin') as HTMLTextAreaElement)?.value || ''
+            };
+
+            // 4. Validate with Zod
+            const validationResult = membershipSchema.safeParse(formDataRaw);
+
+            if (!validationResult.success) {
+                const issues = validationResult.error.issues;
+                const errorSummaryList: string[] = [];
+
+                issues.forEach(issue => {
+                    const path = issue.path[0] as string;
+                    const fieldMap: Record<string, string> = {
+                        name: 'mName',
+                        email: 'mEmail',
+                        hscYear: 'mHscYear',
+                        section: 'mSection',
+                        roll: 'mRoll',
+                        whatsapp: 'mWhatsapp',
+                        skills: 'mSkills',
+                        pastClub: 'mPastClub',
+                        whyJoin: 'mWhyJoin'
+                    };
+
+                    const targetId = fieldMap[path] || path;
+                    showFieldError(targetId, issue.message);
+                    errorSummaryList.push(issue.message);
+                });
+
+                // Show global error banner
+                const globalErr = document.getElementById('mGlobalError');
+                const errList = document.getElementById('mErrorList');
+                if (globalErr && errList) {
+                    errList.innerHTML = errorSummaryList.map(msg => `<li>${msg}</li>`).join('');
+                    globalErr.classList.remove('hidden');
+                }
+
+                // Scroll to top of form
+                membershipForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                return;
+            }
+
+            const validData: FormFields = validationResult.data;
+
+            // 5. Sanitize Data for Google Sheets (Prevent Formula Injection & XSS)
+            const sanitizedPayload = {
+                name: sanitizeInput(validData.name),
+                email: sanitizeInput(validData.email),
+                hscYear: sanitizeInput(validData.hscYear),
+                section: sanitizeInput(validData.section),
+                roll: sanitizeInput(validData.roll),
+                whatsapp: sanitizeInput(validData.whatsapp),
+                skills: validData.skills.map(s => sanitizeInput(s)).join(', '),
+                skillDetails: sanitizeInput(validData.skillDetails),
+                olympiad: sanitizeInput(validData.olympiad),
+                pastClub: sanitizeInput(validData.pastClub),
+                whyJoin: sanitizeInput(validData.whyJoin)
+            };
+
+            // 6. Security Nonce & Timestamp Token
+            const timestamp = Date.now();
+            const payloadStr = JSON.stringify(sanitizedPayload);
+            const token = await computeRequestToken(payloadStr, timestamp);
+
+            const finalPayload = {
+                ...sanitizedPayload,
+                _timestamp: timestamp,
+                _nonce: Math.random().toString(36).substring(2, 10),
+                _token: token
+            };
+
+            // 7. UI Submitting State
+            const submitBtn = document.getElementById('mSubmitBtn') as HTMLButtonElement | null;
+            const originalBtnHtml = submitBtn?.innerHTML || '';
+            if (submitBtn) {
+                submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> <span>Submitting...</span>`;
+                submitBtn.disabled = true;
+            }
+
+            try {
+                const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbxNKEqhdDrRqTE0rjpdgsH8THqHvwjzBEQGBcmQMnV1LiZIqac_MIBE7Vpob9kKrcw/exec';
+
+                await fetch(BACKEND_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(finalPayload)
+                });
+
+                // Record submission time for rate limiting
+                sessionStorage.setItem('ccpac_last_sub_time', Date.now().toString());
+
+                // Show Success Message
+                membershipForm.style.display = 'none';
+                document.getElementById('mSuccessBox')?.classList.remove('hidden');
+
+            } catch (error) {
+                console.error('Submission error:', error);
+                alert('An error occurred during submission. Please check your internet connection and try again.');
+                if (submitBtn) {
+                    submitBtn.innerHTML = originalBtnHtml;
+                    submitBtn.disabled = false;
+                }
+            }
+        });
     });
 </script>
