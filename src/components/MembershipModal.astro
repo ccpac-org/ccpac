@@ -163,12 +163,26 @@ const TESTER_BYPASS_CODE = "serendipity";
                             <span>Technical & Creative Skills</span>
                         </div>
 
-                        <!-- Graphics Design -->
-                        <div class="pl-1">
-                            <label class="flex items-center space-x-3 p-3 bg-spaceDark/60 border border-slate-800 rounded-xl cursor-pointer hover:border-cyan-500/50 transition">
-                                <input type="checkbox" name="skills" value="Graphics Design" class="w-4 h-4 accent-cyan-400 rounded cursor-pointer" />
-                                <span class="text-xs text-slate-300 font-medium">Graphics Design</span>
-                            </label>
+                        <!-- Graphics Design Subsection -->
+                        <div class="space-y-2 pl-2 border-l-2 border-slate-800">
+                            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wide">Graphics Design</span>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                                <label class="flex items-start space-x-3 p-3 bg-spaceDark/60 border border-slate-800 rounded-xl cursor-pointer hover:border-cyan-500/50 transition">
+                                    <input type="checkbox" name="skills" value="Basic Graphics Design (Canva, Figma)" class="w-4 h-4 mt-0.5 accent-cyan-400 rounded cursor-pointer" />
+                                    <div class="text-xs">
+                                        <div class="text-slate-200 font-semibold">Basic Graphics Design</div>
+                                        <div class="text-[10px] text-slate-400">Canva, Figma, etc.</div>
+                                    </div>
+                                </label>
+
+                                <label class="flex items-start space-x-3 p-3 bg-spaceDark/60 border border-slate-800 rounded-xl cursor-pointer hover:border-cyan-500/50 transition">
+                                    <input type="checkbox" name="skills" value="Advanced Graphics Design (Photoshop, Illustrator)" class="w-4 h-4 mt-0.5 accent-cyan-400 rounded cursor-pointer" />
+                                    <div class="text-xs">
+                                        <div class="text-slate-200 font-semibold">Advanced Graphics Design</div>
+                                        <div class="text-[10px] text-slate-400">Photoshop, Illustrator, etc.</div>
+                                    </div>
+                                </label>
+                            </div>
                         </div>
 
                         <!-- Programming Subsection -->
@@ -338,6 +352,23 @@ const TESTER_BYPASS_CODE = "serendipity";
         }
     }
 
+    // Helper: Fetch client public IP address with timeout & fallback
+    async function getUserIp(): Promise<string> {
+        try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 2500);
+            const res = await fetch('https://api.ipify.org?format=json', { signal: controller.signal });
+            clearTimeout(timeoutId);
+            if (res.ok) {
+                const data = await res.json();
+                return data.ip || 'Unknown';
+            }
+        } catch {
+            // Silently fallback if fetch fails, times out, or is blocked by client adblockers
+        }
+        return 'Unknown';
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         const membershipForm = document.getElementById('ccpacMembershipForm') as HTMLFormElement | null;
         const skillsBtn = document.getElementById('skillsDropdownBtn');
@@ -349,7 +380,7 @@ const TESTER_BYPASS_CODE = "serendipity";
         // Tester secret code bypass handler
         const testerInput = document.getElementById('mTesterCodeInput') as HTMLInputElement | null;
         if (testerInput) {
-            const expectedCode = testerInput.dataset.secretCode || '#sym:IS_REGISTRATION_CLOSED';
+            const expectedCode = testerInput.dataset.secretCode;
             testerInput.addEventListener('input', () => {
                 if (testerInput.value.trim() === expectedCode) {
                     const closedNotice = document.getElementById('mClosedNotice');
@@ -555,13 +586,15 @@ const TESTER_BYPASS_CODE = "serendipity";
                 whyJoin: sanitizeInput(validData.whyJoin)
             };
 
-            // 6. Security Nonce & Timestamp Token
+            // 6. Security Nonce, User IP & Timestamp Token
             const timestamp = Date.now();
+            const userIp = sanitizeInput(await getUserIp());
             const payloadStr = JSON.stringify(sanitizedPayload);
             const token = await computeRequestToken(payloadStr, timestamp);
 
             const finalPayload = {
                 ...sanitizedPayload,
+                ipAddress: userIp,
                 _timestamp: timestamp,
                 _nonce: Math.random().toString(36).substring(2, 10),
                 _token: token
