@@ -31,6 +31,32 @@ import { articlesData } from '../../../data/articles';
     <!-- Articles Grid Section -->
     <section class="max-w-7xl mx-auto px-6 py-4 space-y-12 pb-16">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Submit Article Card -->
+            <div onclick="openSubmitArticleModal()" class="glass-card rounded-3xl border border-cyan-500/40 hover:border-cyan-400 shadow-2xl overflow-hidden glow-box flex flex-col justify-between group cursor-pointer transition-all duration-300 hover:scale-[1.02]">
+                <div class="p-8 space-y-6 flex flex-col items-center text-center my-auto">
+                    <div class="w-20 h-20 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-3xl group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-slate-950 transition duration-300 shadow-lg shadow-cyan-500/10">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="px-3 py-1 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 rounded-full text-[10px] font-bold uppercase tracking-wider font-poppins">
+                            Call for Submissions
+                        </span>
+                        <h3 class="text-xl font-black text-white font-poppins pt-1 group-hover:text-cyan-300 transition">
+                            Submit Your Own Article
+                        </h3>
+                        <p class="text-slate-300 text-xs leading-relaxed font-sans max-w-xs mx-auto">
+                            Got an interesting theory, summary, or astronomical observation? Share your research and writing with CCPAC members.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button type="button" class="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-slate-950 font-bold px-4 py-3 rounded-xl text-xs transition duration-300 w-full justify-center shadow-lg shadow-cyan-500/20">
+                        <span>Submit Article</span>
+                        <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                    </button>
+                </div>
+            </div>
+
             {articlesData.map((article) => (
                 <div class={`glass-card rounded-3xl border ${article.category === 'Special Feature' ? 'border-cyan-500/40' : 'border-slate-800'} shadow-2xl overflow-hidden glow-box flex flex-col justify-between`}>
                     <div>
@@ -68,5 +94,78 @@ import { articlesData } from '../../../data/articles';
             ))}
         </div>
     </section>
+
+    <!-- Submit Article Google Form Modal -->
+    <div id="submit-article-modal" class="modal fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="glass-card max-w-4xl w-full h-[90vh] rounded-3xl border border-slate-800 shadow-2xl p-4 md:p-6 relative flex flex-col space-y-4">
+            <!-- Close Button -->
+            <button onclick="closeSubmitArticleModal()" class="absolute top-4 right-4 bg-slate-900 hover:bg-cyan-500 hover:text-slate-950 text-slate-300 w-10 h-10 rounded-full flex items-center justify-center transition border border-slate-700 shadow-lg z-10 cursor-pointer">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Modal Header -->
+            <div class="text-left pr-12 space-y-1">
+                <span class="px-3 py-1 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 rounded-full text-xs font-bold uppercase tracking-wider font-poppins">
+                    CCPAC Article Submission
+                </span>
+                <h2 class="text-xl md:text-2xl font-extrabold font-poppins text-slate-100">Submit Your Article</h2>
+            </div>
+
+            <!-- Embedded Google Form Container -->
+            <div class="w-full flex-1 rounded-2xl overflow-hidden border border-slate-800 bg-white relative">
+                <!-- Loading Spinner / Placeholder -->
+                <div id="form-loader" class="absolute inset-0 bg-slate-950 flex flex-col items-center justify-center space-y-3 z-10 transition-opacity duration-300">
+                    <i class="fa-solid fa-circle-notch fa-spin text-cyan-400 text-3xl"></i>
+                    <p class="text-xs text-slate-400 font-poppins">Loading Article Submission Form...</p>
+                </div>
+
+                <iframe 
+                    id="submit-article-iframe"
+                    data-src="https://docs.google.com/forms/d/e/1FAIpQLSdYDetayP5rLj4orevV0wyN4YQKTiw5OIGZ8ybm26bwXHXWlQ/viewform?embedded=true" 
+                    class="w-full h-full border-0" 
+                    title="Article Submission Form"
+                    onload="document.getElementById('form-loader')?.classList.add('hidden')">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <script is:inline>
+        let isFormLoaded = false;
+
+        function openSubmitArticleModal() {
+            const modal = document.getElementById('submit-article-modal');
+            const iframe = document.getElementById('submit-article-iframe');
+
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+
+            // Lazy-load iframe source on first modal open
+            if (iframe && !isFormLoaded) {
+                const src = iframe.getAttribute('data-src');
+                if (src) {
+                    iframe.src = src;
+                    isFormLoaded = true;
+                }
+            }
+        }
+
+        function closeSubmitArticleModal() {
+            const modal = document.getElementById('submit-article-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        // Close on backdrop click
+        document.getElementById('submit-article-modal')?.addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeSubmitArticleModal();
+            }
+        });
+    </script>
 
 </BaseLayout>
