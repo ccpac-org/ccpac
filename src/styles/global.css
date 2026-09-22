@@ -67,8 +67,8 @@ body::-webkit-scrollbar {
   }
   .glow-text {
     text-shadow:
-      0 0 15px rgba(6, 182, 212, 0.6),
-      0 0 30px rgba(59, 130, 246, 0.4);
+      0 0 10px rgba(6, 182, 212, 0.4),
+      0 0 20px rgba(59, 130, 246, 0.25);
   }
   .glow-text-purple {
     text-shadow:

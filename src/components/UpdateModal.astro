@@ -1,6 +1,9 @@
 ---
+import { updatesData } from '../data/updates';
+
+const serializedUpdates = JSON.stringify(updatesData);
 ---
-<div id="update-modal" class="modal fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+<div id="update-modal" data-updates={serializedUpdates} class="modal fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
     <div class="glass-card max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-3xl border border-slate-800 shadow-2xl p-6 md:p-8 relative space-y-6">
         <button onclick="closeUpdateModal()" class="absolute top-4 right-4 bg-slate-900 hover:bg-cyan-500 hover:text-slate-950 text-slate-300 w-10 h-10 rounded-full flex items-center justify-center transition border border-slate-700 shadow-lg z-10 cursor-pointer">
             <i class="fa-solid fa-xmark text-lg"></i>
@@ -30,34 +33,8 @@
 </div>
 
 <script is:inline>
-    const updatesData = {
-        "1": {
-            tag: "International Achievement",
-            title: "Our Raihan shines bright with the Silver Medal at the 67th IMO!",
-            date: "Date: 20-07-2026",
-            images: ["/images/silver.jpeg"],
-            content: `The Chittagong College Physics and Astronomy Club (CCPAC) is filled with immense pride and joy to share that, at the 67th International Mathematical Olympiad (IMO) 2026 held in China, Chittagong College student Md. Raihan Siddiquee has clinched a Silver Medal, scoring 23 out of 42. After earning an Honorable Mention at the 66th IMO in Sunshine Coast, Australia, last year, he has reached new heights of success.`
-        },
-        "2": {
-            tag: "Appreciation & Recognition",
-            title: "Tokens of Honour Conferred upon Honorable Principal, Vice Principal, and Moderator",
-            date: "Date: 29-03-2026",
-            images: [
-                "/images/h1.jpeg",
-                "/images/h2.jpeg",
-                "/images/h3.jpeg"
-            ],
-            content: `Today, on behalf of the Executive Panel 2025–26 of Chattogram College Physics & Astronomy Club (CCPAC), tokens of honour were conferred upon Principal Prof. Mohammad Mozahidul Islam Chowdhury, Vice Principal Md. Shawkat Iqbal Faruquee, and Moderator Md. Zahirul Islam in sincere recognition of their unwavering support.`
-        },
-        "3": {
-            tag: "College Administration",
-            title: "Congratulating Md. Shawkat Iqbal Faruquee on his appointment as Vice Principal",
-            date: "Date: 11-01-2026",
-            images: ["/images/vp.jpeg"],
-            content: `Today, Chittagong College Physics & Astronomy Club warmly congratulated Md. Shawkat Iqbal Faruquee on his appointment as the new Vice Principal of Chittagong College.`
-        }
-    };
-
+    const modalElement = document.getElementById('update-modal');
+    const updatesData = JSON.parse(modalElement.dataset.updates);
     let activeUpdateId = "1";
     let currentImgIdx = 0;
 
@@ -66,7 +43,7 @@
         currentImgIdx = 0;
         const item = updatesData[id];
         if (!item) return;
-        
+
         document.getElementById('modal-tag').innerText = item.tag;
         document.getElementById('modal-title').innerText = item.title;
         document.getElementById('modal-date').innerHTML = `<i class="fa-regular fa-calendar-days mr-1 text-cyan-400"></i> ${item.date}`;
@@ -74,12 +51,12 @@
         document.getElementById('modal-total-idx').innerText = item.images.length;
 
         updateModalImage();
-        document.getElementById('update-modal').classList.remove('hidden');
+        modalElement.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
     }
 
     function closeUpdateModal() {
-        document.getElementById('update-modal').classList.add('hidden');
+        modalElement.classList.add('hidden');
         document.body.style.overflow = 'auto';
     }
 
@@ -100,5 +77,4 @@
         currentImgIdx = (currentImgIdx - 1 + item.images.length) % item.images.length;
         updateModalImage();
     }
-</script>
 </script>
