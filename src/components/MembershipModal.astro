@@ -1,7 +1,9 @@
 ---
-const IS_REGISTRATION_CLOSED = true;
+const IS_REGISTRATION_CLOSED = false;
 const ENABLE_TESTER_BYPASS = true;
 const TESTER_BYPASS_CODE = "supernova";
+const BKASH_NUMBER = "+8801781310831";
+const MEMBERSHIP_FEE = 100;
 ---
 <div id="membership-registration" class="modal fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4">
     <div class="glass-card max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-3xl border border-slate-800 shadow-2xl p-6 md:p-8 relative space-y-6">
@@ -11,14 +13,34 @@ const TESTER_BYPASS_CODE = "supernova";
 
         <div class="text-center space-y-2 relative z-10">
             <span class="px-3 py-1 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 rounded-full text-xs font-bold uppercase tracking-wider">Join CCPAC</span>
-            <h2 class="text-2xl md:text-3xl font-extrabold font-poppins text-slate-100">Member Application</h2>
+            <h2 class="text-2xl md:text-3xl font-extrabold font-poppins text-slate-100">Membership Application</h2>
             <!-- <p class="text-slate-300 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
                 Step beyond conventional boundaries. Join Chittagong College's premier hub for physics and astronomical inquiry.
             </p> -->
         </div>
 
+        <div id="membership-payment-step" class="text-center p-6 md:p-8 bg-cyan-500/10 border border-cyan-500/30 rounded-2xl space-y-5 relative z-10">
+            <div class="w-14 h-14 bg-cyan-500 text-slate-950 rounded-full flex items-center justify-center mx-auto text-2xl font-bold shadow-lg shadow-cyan-500/40">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Complete the Membership Payment</h3>
+            <div class="text-slate-300 text-sm max-w-lg mx-auto space-y-2 leading-relaxed">
+                <div class="mx-auto w-fit rounded-2xl border-2 border-amber-400/70 bg-amber-400/15 px-8 py-4 shadow-lg shadow-amber-500/20">
+                    <span class="block text-[11px] font-bold uppercase tracking-[0.2em] text-amber-300">Amount to Pay</span>
+                    <strong class="block text-4xl font-black tracking-tight text-amber-200">৳{MEMBERSHIP_FEE}</strong>
+                </div>
+                <p>Send your membership fee to the following bKash number using <strong class="text-white">Send Money</strong> and be sure to <strong class="text-white">Add Your Name as a Reference</strong>:</p>
+                <p class="text-2xl font-black tracking-wider text-cyan-300">{BKASH_NUMBER}</p>
+                <p>After completing the payment, <strong class="text-white">keep the bKash Transaction ID ready</strong>. You will need it in the application form.</p>
+            </div>
+            <button type="button" id="continueToMembershipForm" onclick="continueMembershipApplication()" class="w-full max-w-sm mx-auto py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-black rounded-xl text-sm transition shadow-xl shadow-cyan-500/25 flex items-center justify-center gap-2 cursor-pointer">
+                Continue to Application
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+
         {IS_REGISTRATION_CLOSED && (
-            <div id="mClosedNotice" class="text-center p-8 bg-amber-500/10 border border-amber-500/30 rounded-2xl space-y-4 relative z-10">
+            <div id="mClosedNotice" class="hidden text-center p-8 bg-amber-500/10 border border-amber-500/30 rounded-2xl space-y-4 relative z-10">
                 <div class="w-14 h-14 bg-amber-500 text-slate-950 rounded-full flex items-center justify-center mx-auto text-2xl font-bold shadow-lg shadow-amber-500/40">
                     <i class="fa-solid fa-lock"></i>
                 </div>
@@ -47,7 +69,7 @@ const TESTER_BYPASS_CODE = "supernova";
         )}
 
         {(!IS_REGISTRATION_CLOSED || ENABLE_TESTER_BYPASS) && (
-        <form id="ccpacMembershipForm" class={`space-y-6 relative z-10 ${IS_REGISTRATION_CLOSED ? 'hidden' : ''}`} novalidate>
+        <form id="ccpacMembershipForm" class="hidden space-y-6 relative z-10" novalidate>
             <!-- Honeypot field for anti-bot protection -->
             <div class="hidden" aria-hidden="true">
                 <input type="text" id="mWebsite" name="website" tabindex="-1" autocomplete="off" />
@@ -119,6 +141,14 @@ const TESTER_BYPASS_CODE = "supernova";
                 <input type="tel" id="mWhatsapp" placeholder="017XXXXXXXX" required minlength="11" maxlength="11" pattern="01\d{9}"
                     class="w-full px-4 py-3.5 bg-spaceDark/80 border border-slate-700/80 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition">
                 <p id="mWhatsappErr" class="text-xs text-rose-400 font-medium hidden mt-1"></p>
+            </div>
+
+            <div class="space-y-1.5">
+                <label class="text-xs font-bold text-cyan-400 uppercase tracking-wider">bKash Transaction ID <span class="text-cyan-500">*</span></label>
+                <input type="text" id="mTransactionId" placeholder="e.g. 8N7A6B5C4D" required minlength="8" maxlength="20" pattern="[A-Za-z0-9]{8,20}" autocomplete="off" spellcheck="false" inputmode="text" oninput="this.value = this.value.replace(/[^A-Za-z0-9]/g, '')"
+                    class="w-full px-4 py-3.5 bg-spaceDark/80 border border-slate-700/80 rounded-xl text-slate-100 placeholder-slate-500 text-sm uppercase focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition">
+                <p class="text-[11px] text-slate-400">Enter the Transaction ID shown in your bKash payment confirmation.</p>
+                <p id="mTransactionIdErr" class="text-xs text-rose-400 font-medium hidden mt-1"></p>
             </div>
 
             <!-- Skills & Expertise Multi-Select Dropdown -->
@@ -213,17 +243,17 @@ const TESTER_BYPASS_CODE = "supernova";
                             <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wide">Video Editing</span>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                                 <label class="flex items-start space-x-3 p-3 bg-spaceDark/60 border border-slate-800 rounded-xl cursor-pointer hover:border-cyan-500/50 transition">
-                                    <input type="checkbox" name="skills" value="Simple Video Editing (CapCut, Alight Motion)" class="w-4 h-4 mt-0.5 accent-cyan-400 rounded cursor-pointer" />
+                                    <input type="checkbox" name="skills" value="Basic Video Editing (CapCut, Alight Motion)" class="w-4 h-4 mt-0.5 accent-cyan-400 rounded cursor-pointer" />
                                     <div class="text-xs">
-                                        <div class="text-slate-200 font-semibold">Simple Video Editing</div>
+                                        <div class="text-slate-200 font-semibold">Basic Video Editing</div>
                                         <div class="text-[10px] text-slate-400">Mobile editors (CapCut, Alight Motion)</div>
                                     </div>
                                 </label>
 
                                 <label class="flex items-start space-x-3 p-3 bg-spaceDark/60 border border-slate-800 rounded-xl cursor-pointer hover:border-cyan-500/50 transition">
-                                    <input type="checkbox" name="skills" value="Complex Video Editing (Premiere, After Effects, DaVinci)" class="w-4 h-4 mt-0.5 accent-cyan-400 rounded cursor-pointer" />
+                                    <input type="checkbox" name="skills" value="Advanced Video Editing (Premiere, After Effects, DaVinci)" class="w-4 h-4 mt-0.5 accent-cyan-400 rounded cursor-pointer" />
                                     <div class="text-xs">
-                                        <div class="text-slate-200 font-semibold">Complex Video Editing</div>
+                                        <div class="text-slate-200 font-semibold">Advanced Video Editing</div>
                                         <div class="text-[10px] text-slate-400">Premiere, After Effects, DaVinci, Avid</div>
                                     </div>
                                 </label>
@@ -287,6 +317,14 @@ const TESTER_BYPASS_CODE = "supernova";
 </div>
 
 <script is:inline>
+    function continueMembershipApplication() {
+        const paymentStep = document.getElementById('membership-payment-step');
+        const membershipForm = document.getElementById('ccpacMembershipForm');
+        if (!paymentStep || !membershipForm) return;
+        paymentStep.classList.add('hidden');
+        membershipForm.classList.remove('hidden');
+    }
+
     function toggleMembershipForm() {
         const formModal = document.getElementById('membership-registration');
         if (!formModal) return;
@@ -301,6 +339,16 @@ const TESTER_BYPASS_CODE = "supernova";
             document.body.style.overflow = 'auto';
         }
     }
+
+    function openMembershipFormFromUrl() {
+        const shouldOpen = new URLSearchParams(window.location.search).get('form') === 'true';
+        const formModal = document.getElementById('membership-registration');
+        if (shouldOpen && formModal?.classList.contains('hidden')) {
+            toggleMembershipForm();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', openMembershipFormFromUrl);
 </script>
 
 <script>
@@ -321,6 +369,7 @@ const TESTER_BYPASS_CODE = "supernova";
         }),
         roll: z.string().trim().regex(/^(1202526|1202627)\d{6}$/, "College Roll must start with 1202526 or 1202627 and be exactly 13 digits."),
         whatsapp: z.string().trim().regex(/^01\d{9}$/, "WhatsApp number must start with 01 and contain exactly 11 digits."),
+        transactionId: z.string().regex(/^[A-Za-z0-9]{8,20}$/, "Transaction ID must be one word containing 8-20 letters or numbers."),
         skills: z.array(z.string()).min(1, "Please select at least one skill or area of expertise."),
         skillDetails: z.string().trim().optional(),
         olympiad: z.string().trim().optional(),
@@ -459,6 +508,7 @@ const TESTER_BYPASS_CODE = "supernova";
             const fieldErrIds = [
                 'mNameErr', 'mEmailErr', 'mHscYearErr', 'mSectionErr', 
                 'mRollErr', 'mWhatsappErr', 'mSkillsErr', 'mPastClubErr', 'mWhyJoinErr'
+                , 'mTransactionIdErr'
             ];
             fieldErrIds.forEach(id => {
                 const el = document.getElementById(id);
@@ -524,6 +574,7 @@ const TESTER_BYPASS_CODE = "supernova";
                 section: (document.getElementById('mSection') as HTMLSelectElement)?.value || '',
                 roll: (document.getElementById('mRoll') as HTMLInputElement)?.value || '',
                 whatsapp: (document.getElementById('mWhatsapp') as HTMLInputElement)?.value || '',
+                transactionId: (document.getElementById('mTransactionId') as HTMLInputElement)?.value || '',
                 skills: rawSkills,
                 skillDetails: (document.getElementById('mSkillDetails') as HTMLTextAreaElement)?.value || '',
                 olympiad: (document.getElementById('mOlympiad') as HTMLTextAreaElement)?.value || '',
@@ -547,6 +598,7 @@ const TESTER_BYPASS_CODE = "supernova";
                         section: 'mSection',
                         roll: 'mRoll',
                         whatsapp: 'mWhatsapp',
+                        transactionId: 'mTransactionId',
                         skills: 'mSkills',
                         pastClub: 'mPastClub',
                         whyJoin: 'mWhyJoin'
@@ -580,6 +632,7 @@ const TESTER_BYPASS_CODE = "supernova";
                 section: sanitizeInput(validData.section),
                 roll: sanitizeInput(validData.roll),
                 whatsapp: sanitizeInput(validData.whatsapp),
+                transactionId: sanitizeInput(validData.transactionId),
                 skills: validData.skills.map(s => sanitizeInput(s)).join(', '),
                 skillDetails: sanitizeInput(validData.skillDetails),
                 olympiad: sanitizeInput(validData.olympiad),
