@@ -356,7 +356,7 @@ const MEMBERSHIP_FEE = 100;
             message: "Please select your HSC Year."
         }),
         section: z.enum(["A", "B", "C", "D", "E", "F", "G"], {
-            message: "Section must be A, B, C, D, E, F or g."
+            message: "Section must be A, B, C, D, E, F or G."
         }),
         roll: z.string().trim().regex(/^(1202526|1202627)\d{6}$/, "College Roll must start with 1202526 or 1202627 and be exactly 13 digits."),
         whatsapp: z.string().trim().regex(/^01\d{9}$/, "WhatsApp number must start with 01 and contain exactly 11 digits."),
