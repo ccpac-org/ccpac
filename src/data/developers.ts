@@ -24,7 +24,7 @@ export const developersData: Developer[] = [
     session: "2024-2025",
     avatar: "/images/shs.jpeg",
     roll: "1202425010149",
-    rank: "Ex-President, CCPAC (2025-2026)",
+    rank: "Former President, CCPAC (2025-26)",
     techStack: ["HTML5", "CSS3", "JavaScript"],
     contributions: [
       "Architected the original CCPAC web platform",
@@ -51,7 +51,7 @@ export const developersData: Developer[] = [
     avatar: "/images/f.jpeg",
     session: "2025-2026",
     roll: "1202526010031",
-    rank: "Executive Member, CCPAC(2025-2026)",
+    rank: "Secretary of IT, CCPAC(2026-27)",
     techStack: ["Astro", "Tailwind CSS", "TypeScript", "JavaScript", "Node.js"],
     contributions: [
       "Rebuilt the frontend architecture with a maintainable, scalable codebase",
