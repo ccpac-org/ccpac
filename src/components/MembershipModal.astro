@@ -373,46 +373,6 @@ const MEMBERSHIP_FEE = 100;
 
     type FormFields = z.infer<typeof membershipSchema>;
 
-    // Security Helper: Neutralize formula injection in Google Sheets (=, +, -, @)
-    function sanitizeInput(str: string | undefined): string {
-        if (!str) return '';
-        let clean = str.trim();
-        if (/^[=+\-@]/.test(clean)) {
-            clean = "'" + clean;
-        }
-        return clean;
-    }
-
-    // Security Helper: Calculate SHA-256 hash token for request authentication
-    async function computeRequestToken(payload: string, timestamp: number): Promise<string> {
-        try {
-            const encoder = new TextEncoder();
-            const data = encoder.encode(`${payload}:${timestamp}:ccpac_secure_submit_v1`);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-        } catch {
-            return 'fallback_hash_' + timestamp;
-        }
-    }
-
-    // Helper: Fetch client public IP address with timeout & fallback
-    async function getUserIp(): Promise<string> {
-        try {
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 2500);
-            const res = await fetch('https://api.ipify.org?format=json', { signal: controller.signal });
-            clearTimeout(timeoutId);
-            if (res.ok) {
-                const data = await res.json();
-                return data.ip || 'Unknown';
-            }
-        } catch {
-            // Silently fallback if fetch fails, times out, or is blocked by client adblockers
-        }
-        return 'Unknown';
-    }
-
     document.addEventListener('DOMContentLoaded', () => {
         const membershipForm = document.getElementById('ccpacMembershipForm') as HTMLFormElement | null;
         const transactionForm = document.getElementById('transactionForm') as HTMLFormElement | null;
@@ -613,37 +573,7 @@ const MEMBERSHIP_FEE = 100;
 
             const validData: FormFields = validationResult.data;
 
-            // 4. Sanitize Data for Google Sheets (Prevent Formula Injection & XSS)
-            const sanitizedPayload = {
-                applicationId: crypto.randomUUID(),
-                name: sanitizeInput(validData.name),
-                email: sanitizeInput(validData.email),
-                hscYear: sanitizeInput(validData.hscYear),
-                section: sanitizeInput(validData.section),
-                roll: sanitizeInput(validData.roll),
-                whatsapp: sanitizeInput(validData.whatsapp),
-                skills: validData.skills.map(s => sanitizeInput(s)).join(', '),
-                skillDetails: sanitizeInput(validData.skillDetails),
-                olympiad: sanitizeInput(validData.olympiad),
-                pastClub: sanitizeInput(validData.pastClub),
-                whyJoin: sanitizeInput(validData.whyJoin)
-            };
-
-            // 5. Security Nonce, User IP & Timestamp Token
-            const timestamp = Date.now();
-            const userIp = sanitizeInput(await getUserIp());
-            const payloadStr = JSON.stringify(sanitizedPayload);
-            const token = await computeRequestToken(payloadStr, timestamp);
-
-            const finalPayload = {
-                ...sanitizedPayload,
-                ipAddress: userIp,
-                _timestamp: timestamp,
-                _nonce: Math.random().toString(36).substring(2, 10),
-                _token: token
-            };
-
-            // 6. UI Submitting State
+            // 4. UI Submitting State
             const submitBtn = document.getElementById('mSubmitBtn') as HTMLButtonElement | null;
             const originalBtnHtml = submitBtn?.innerHTML || '';
             if (submitBtn) {
@@ -652,17 +582,18 @@ const MEMBERSHIP_FEE = 100;
             }
 
             try {
-                const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbxNKEqhdDrRqTE0rjpdgsH8THqHvwjzBEQGBcmQMnV1LiZIqac_MIBE7Vpob9kKrcw/exec';
-
-                await fetch(BACKEND_URL, {
+                const response = await fetch('/api/membership', {
                     method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                    body: JSON.stringify(finalPayload)
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(validData)
                 });
+                const result: { ok?: boolean; error?: string; applicationId?: string } = await response.json();
+                if (!response.ok || !result.ok || !result.applicationId) {
+                    throw new Error(result.error || 'Unable to submit your application.');
+                }
 
                 sessionStorage.setItem('ccpac_last_sub_time', Date.now().toString());
-                sessionStorage.setItem('ccpac_application_id', sanitizedPayload.applicationId);
+                sessionStorage.setItem('ccpac_application_id', result.applicationId);
                 membershipForm.classList.add('hidden');
                 document.getElementById('membership-payment-step')?.classList.remove('hidden');
 
@@ -710,18 +641,19 @@ const MEMBERSHIP_FEE = 100;
             }
 
             try {
-                const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbxNKEqhdDrRqTE0rjpdgsH8THqHvwjzBEQGBcmQMnV1LiZIqac_MIBE7Vpob9kKrcw/exec';
-                await fetch(BACKEND_URL, {
+                const response = await fetch('/api/membership', {
                     method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         action: 'updateTransactionId',
                         applicationId,
-                        transactionId: sanitizeInput(transactionId),
-                        _timestamp: Date.now()
+                        transactionId
                     })
                 });
+                const result: { ok?: boolean; error?: string } = await response.json();
+                if (!response.ok || !result.ok) {
+                    throw new Error(result.error || 'Unable to save your Transaction ID.');
+                }
 
                 sessionStorage.removeItem('ccpac_application_id');
                 document.getElementById('membership-payment-step')?.classList.add('hidden');

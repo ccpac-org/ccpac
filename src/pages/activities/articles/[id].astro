@@ -3,6 +3,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import GoogleDrivePdfViewer from '../../../components/GoogleDrivePdfViewer.astro';
 import { articlesData, type Author } from '../../../data/articles';
 
+export const prerender = true;
+
 export function getStaticPaths() {
   return articlesData.map((article) => ({
     params: { id: article.id },

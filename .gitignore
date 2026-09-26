@@ -2,6 +2,9 @@ node_modules/
 .astro/
 dist/
 .DS_Store
+.env
+.env.*
+!.env.example
 
 .vercel
 google-apps-script/membership-submit.gs
