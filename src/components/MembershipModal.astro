@@ -376,6 +376,7 @@ const MEMBERSHIP_FEE = 100;
     document.addEventListener('DOMContentLoaded', () => {
         const membershipForm = document.getElementById('ccpacMembershipForm') as HTMLFormElement | null;
         const transactionForm = document.getElementById('transactionForm') as HTMLFormElement | null;
+        const paymentStep = document.getElementById('membership-payment-step');
         const skillsBtn = document.getElementById('skillsDropdownBtn');
         const skillsPanel = document.getElementById('skillsDropdownPanel');
         const skillsChevron = document.getElementById('skillsChevron');
@@ -400,6 +401,19 @@ const MEMBERSHIP_FEE = 100;
         }
 
         if (!membershipForm || !transactionForm) return;
+
+        function showPaymentStep() {
+            membershipForm.classList.add('hidden');
+            paymentStep?.classList.remove('hidden');
+        }
+
+        const pendingApplicationId = localStorage.getItem('ccpac_application_id')
+            || sessionStorage.getItem('ccpac_application_id');
+        if (pendingApplicationId) {
+            localStorage.setItem('ccpac_application_id', pendingApplicationId);
+            sessionStorage.removeItem('ccpac_application_id');
+            showPaymentStep();
+        }
 
         // Interactive Skills Dropdown Logic
         function updateSkillsLabel() {
@@ -593,9 +607,8 @@ const MEMBERSHIP_FEE = 100;
                 }
 
                 sessionStorage.setItem('ccpac_last_sub_time', Date.now().toString());
-                sessionStorage.setItem('ccpac_application_id', result.applicationId);
-                membershipForm.classList.add('hidden');
-                document.getElementById('membership-payment-step')?.classList.remove('hidden');
+                localStorage.setItem('ccpac_application_id', result.applicationId);
+                showPaymentStep();
 
             } catch (error) {
                 console.error('Submission error:', error);
@@ -612,7 +625,7 @@ const MEMBERSHIP_FEE = 100;
             const transactionInput = document.getElementById('mTransactionId') as HTMLInputElement | null;
             const transactionError = document.getElementById('mTransactionIdErr');
             const transactionId = (transactionInput?.value || '').toUpperCase();
-            const applicationId = sessionStorage.getItem('ccpac_application_id');
+            const applicationId = localStorage.getItem('ccpac_application_id');
 
             transactionError?.classList.add('hidden');
             transactionInput?.classList.remove('border-rose-500');
@@ -655,7 +668,7 @@ const MEMBERSHIP_FEE = 100;
                     throw new Error(result.error || 'Unable to save your Transaction ID.');
                 }
 
-                sessionStorage.removeItem('ccpac_application_id');
+                localStorage.removeItem('ccpac_application_id');
                 document.getElementById('membership-payment-step')?.classList.add('hidden');
                 transactionForm.classList.add('hidden');
                 document.getElementById('mSuccessBox')?.classList.remove('hidden');
