@@ -99,7 +99,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       return forwardToGoogleScript({
         action: transaction.action,
         applicationId: transaction.applicationId,
-        transactionId: sanitizeInput(transaction.transactionId),
+        transactionId: sanitizeInput(transaction.transactionId).toUpperCase(),
         _timestamp: Date.now(),
       });
     }
