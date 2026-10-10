@@ -8,3 +8,4 @@ dist/
 
 .vercel
 google-apps-script/membership-submit.gs
+google-apps-script/offline-membership-import.gs
