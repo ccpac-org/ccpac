@@ -1,4 +1,3 @@
----
 import BaseLayout from '../layouts/BaseLayout.astro';
 import UpdateModal from '../components/UpdateModal.astro';
 import { updatesData } from '../data/updates';
@@ -6,77 +5,28 @@ import { updatesData } from '../data/updates';
 
 <BaseLayout title="CCPAC | Chittagong College Physics & Astronomy Club" activePage="home">
     <!-- Hero Section -->
-    <section id="home" class="max-w-6xl mx-auto px-6 pt-12 pb-16 text-center space-y-8 relative">
-        <!-- Cosmic Location Badge -->
-        <!-- <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span> -->
-        <!-- <span>CHITTAGONG COLLEGE • 22.3567° N, 91.8368° E • EST. 2025</span> -->
-        <!-- <div class="mb-5 inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-300 text-[11px] font-bold tracking-widest uppercase shadow-lg shadow-cyan-950/40 font-mono backdrop-blur-md">
-            <i class="fa-solid fa-building-columns text-cyan-400"></i>
-            <span >CHITTAGONG COLLEGE EST. 1869</span>
-        </div> -->
-
-        <!-- Central Orbiting Emblem -->
-        <div class="flex justify-center relative py-4">
+    <section id="home" class="max-w-6xl mx-auto px-6 pt-16 pb-20 text-center space-y-8 relative">
+        <!-- Logo Container -->
+        <div class="flex justify-center relative py-2">
             <div class="relative flex items-center justify-center">
-                <!-- Outer Orbit Ring 1 -->
-                <!-- <div class="absolute w-56 h-56 sm:w-64 sm:h-64 rounded-full border border-dashed border-cyan-500/30 animate-spin-slow pointer-events-none">
-                    <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-cyan-400 rounded-full shadow-lg shadow-cyan-400/80"></div>
-                </div>
-                <div class="absolute w-64 h-64 sm:w-72 sm:h-72 rounded-full border border-dotted border-purple-500/25 animate-spin-reverse-slow pointer-events-none">
-                    <div class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-indigo-400 rounded-full shadow-lg shadow-indigo-400/80"></div>
-                </div> -->
-
-                <!-- Logo Container -->
                 <div class="relative group cursor-pointer">
-                    <div class="absolute -inset-2 bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 rounded-full blur-md opacity-80 group-hover:opacity-100 transition duration-1000 animate-pulse"></div>
                     <img src="/images/logo.png" alt="CCPAC Club Logo" class="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full object-cover border-4 border-slate-950 shadow-2xl crisp-img">
                 </div>
             </div>
         </div>
         
+        <!-- Main Heading & Motto (Clean like CCPS) -->
         <div class="space-y-4 max-w-4xl mx-auto">
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight font-poppins leading-tight">
                 Chittagong College <br class="hidden sm:inline" />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-300 glow-text">
+                <span class="text-cyan-400">
                     PHYSICS & ASTRONOMY CLUB
                 </span>
             </h1>
-            <p class="text-cyan-300 italic text-sm md:text-base font-medium tracking-wide font-poppins">
+            <p class="text-slate-400 italic text-sm md:text-base font-medium tracking-wide font-poppins">
                 "Promoting scientific literacy from subatomic scales to galactic horizons"
             </p>
-
-            <!-- Fundamental Physics & Astronomy Constants Ticker
-            <div class="flex flex-wrap justify-center gap-2 pt-2 text-[11px] font-mono">
-                <span class="px-3 py-1 rounded-lg bg-slate-900/80 border border-cyan-500/20 text-cyan-300 flex items-center gap-1.5">
-                    <i class="fa-solid fa-atom text-cyan-400 text-[10px]"></i> iℏ(∂Ψ/∂t) = ĤΨ
-                </span>
-                <span class="px-3 py-1 rounded-lg bg-slate-900/80 border border-indigo-500/20 text-indigo-300 flex items-center gap-1.5">
-                    <i class="fa-solid fa-bolt text-indigo-400 text-[10px]"></i> E = mc²
-                </span>
-                <span class="px-3 py-1 rounded-lg bg-slate-900/80 border border-purple-500/20 text-purple-300 flex items-center gap-1.5">
-                    <i class="fa-solid fa-ring text-purple-400 text-[10px]"></i> G_μν + Λg_μν = 8πT_μν
-                </span>
-                <span class="px-3 py-1 rounded-lg bg-slate-900/80 border border-blue-500/20 text-blue-300 flex items-center gap-1.5">
-                    <i class="fa-solid fa-gauge-high text-blue-400 text-[10px]"></i> c = 2.998 × 10⁸ m/s
-                </span>
-            </div> -->
         </div>
-
-       <div class="glass-card max-w-5xl mx-auto p-6 md:p-10 rounded-3xl border border-cyan-500/20 shadow-2xl relative overflow-hidden group hover:border-cyan-500/40 transition-all">
-    <div class="absolute -top-10 -right-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none"></div>
-
-
-<p class="text-slate-200 text-sm md:text-base leading-relaxed font-sans relative z-10 text-center">
-    CCPAC is a student-driven community exploring the laws of nature, from the smallest particles to the largest galaxies. We turn curiosity into understanding through observation, questioning, and discovery.
-</p>
-
-<p class="text-cyan-300 font-bold text-xs md:text-sm mt-5 relative z-10 tracking-wide text-center leading-relaxed">
-    <i class="fa-solid fa-meteor text-cyan-400 mr-2 inline-block align-middle"></i><span class="align-middle">Don't just observe the universe. Explore it.</span>
-</p>
-
-
-</div>
-
     </section>
 
     <!-- EXPLORE SECTION -->
@@ -98,7 +48,6 @@ import { updatesData } from '../data/updates';
                 </div>
                 <h3 class="text-lg font-bold font-poppins text-white group-hover:text-cyan-300 transition">About Us</h3>
                 <p class="text-slate-400 text-xs leading-relaxed font-sans">Vision, mission, and the passionate minds leading CCPAC forward.</p>
-                <!-- <div class="text-[10px] text-cyan-400/80 font-mono pt-1">01 // DISCOVER</div> -->
             </a>
 
             <a href="/activities" class="glass-card p-6 rounded-2xl border border-cyan-500/20 hover-glow space-y-3 group block text-center relative overflow-hidden">
@@ -107,7 +56,6 @@ import { updatesData } from '../data/updates';
                 </div>
                 <h3 class="text-lg font-bold font-poppins text-white group-hover:text-blue-300 transition">Activities</h3>
                 <p class="text-slate-400 text-xs leading-relaxed font-sans">Study circles, workshops, problem-solving classes, and projects.</p>
-                <!-- <div class="text-[10px] text-blue-400/80 font-mono pt-1">02 // RESEARCH</div> -->
             </a>
 
             <a href="/events" class="glass-card p-6 rounded-2xl border border-cyan-500/20 hover-glow space-y-3 group block text-center relative overflow-hidden">
@@ -116,7 +64,6 @@ import { updatesData } from '../data/updates';
                 </div>
                 <h3 class="text-lg font-bold font-poppins text-white group-hover:text-indigo-300 transition">Events</h3>
                 <p class="text-slate-400 text-xs leading-relaxed font-sans">Flagship Physics Camps, stargazing nights, and Olympiad training.</p>
-                <!-- <div class="text-[10px] text-indigo-400/80 font-mono pt-1">03 // OBSERVATORY</div> -->
             </a>
 
             <a href="/contact" class="glass-card p-6 rounded-2xl border border-cyan-500/20 hover-glow space-y-3 group block text-center relative overflow-hidden">
@@ -125,7 +72,6 @@ import { updatesData } from '../data/updates';
                 </div>
                 <h3 class="text-lg font-bold font-poppins text-white group-hover:text-teal-300 transition">Contact Us</h3>
                 <p class="text-slate-400 text-xs leading-relaxed font-sans">Get in touch through official channels and social media platforms.</p>
-                <!-- <div class="text-[10px] text-teal-400/80 font-mono pt-1">04 // COMMUNICATIONS</div> -->
             </a>
         </div>
     </section>
@@ -224,14 +170,14 @@ import { updatesData } from '../data/updates';
                     </div>
                     <ul class="space-y-3 text-slate-300 text-xs md:text-sm font-sans">
                         <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i><span>Experience <strong class="text-cyan-300">telescope-assisted sky observation sessions</strong> to observe planets, constellations, and astronomical phenomena.</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i><span>Join intensive <strong class="text-cyan-300" >Olympiad Training Bootcamps</strong> with specialized problem-solving guidance for national and international competitions.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i><span>Join intensive <strong class="text-cyan-300">Olympiad Training Bootcamps</strong> with specialized problem-solving guidance for national and international competitions.</span></li>
                         <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i>Attend interactive academic sessions led by seniors and alumni</li>   
                         <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i><span>Members who maintain at least 75% attendance throughout the term will be awarded an <strong class="text-cyan-300">ECA certificate authorized by the club</strong> upon completion of the term.</span>
-</li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i><span>Improve problem-solving and critical thinking skills through the <strong class="text-cyan-300" >Weekly Physics Challenge</strong>.</span></li>
+                        </li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i><span>Improve problem-solving and critical thinking skills through the <strong class="text-cyan-300">Weekly Physics Challenge</strong>.</span></li>
                         <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i><span>Develop scientific writing and communication skills by publishing research articles.</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i><span>Engage in <strong class="text-cyan-300" >EigenTalks</strong> podcast discussions featuring researchers, intellectuals, and inspiring voices.</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i><span>Access <strong class="text-cyan-300" >The Achievers' Blueprint</strong> roadmaps, preparation strategies, and interviews from top Olympiad medalists.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i><span>Engage in <strong class="text-cyan-300">EigenTalks</strong> podcast discussions featuring researchers, intellectuals, and inspiring voices.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i><span>Access <strong class="text-cyan-300">The Achievers' Blueprint</strong> roadmaps, preparation strategies, and interviews from top Olympiad medalists.</span></li>
                         <li class="flex items-start"><i class="fa-solid fa-check text-cyan-400 mt-1 mr-2.5 shrink-0"></i><span>Connect with a collaborative community of science enthusiasts and receive guidance for higher studies.</span></li>
                     </ul>
                 </div>
